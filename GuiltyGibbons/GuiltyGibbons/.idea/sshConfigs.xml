@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project version="4">
-  <component name="SshConfigs">
-    <configs>
-      <sshConfig authType="PASSWORD" host="gr-guilty-gibbons.greenriverdev.com" id="09ea97ba-9eec-41fc-b250-5f5b2569d445" port="18765" nameFormat="DESCRIPTIVE" username="grguilty" />
-    </configs>
-  </component>
-</project>
