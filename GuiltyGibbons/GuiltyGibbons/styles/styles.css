@@ -1,0 +1,48 @@
+:root {
+    --bs-light-rgb: 122, 255, 181;
+}
+
+#disclaimer {
+    background-color: #f56c6c;
+    margin:20px;
+}
+
+body {
+    font-family: Inter;
+    background-color: #fcffff;
+}
+
+
+.bg-light {
+    background-color: #1e7e34;
+}
+
+.card-body {
+    background-color:#FFD8B2;
+}
+
+.accordion {
+    margin-top:25px;
+    margin-bottom:25px;
+}
+
+.accordion-header {
+    background-color: #f5fff7;
+}
+
+.h2 {
+    background-color: #f5fff7;
+}
+
+.accordion-button {
+    background-color: #f5fff7;
+}
+
+.accordion-body {
+    background-color: #fef7e5;
+}
+
+.accordion-button:not(.collapsed) {
+    color:black;
+    background-color: #c9fde0;
+}
