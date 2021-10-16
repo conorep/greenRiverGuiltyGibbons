@@ -1,0 +1,62 @@
+@charset "utf-8";
+/* ################################# */
+/* https://getbootstrap.com/docs/4.0/layout/grid/ */
+/*     mobile  bootstrap col-      */
+@media screen and (max-width: 575px) {
+    body {
+        /* background-color: rgb(190, 232, 233); */
+    }
+    /* hover fades show no change on tablet and mobile */
+    /* this must be exactly the same as #button_question */
+    .all-buttons:hover {
+        box-shadow: 0px 0px 12px 1px rgba(81, 102, 122, 0.5);
+        color: rgb(240, 254, 255);
+        background-color: rgb(48, 167, 212);
+    }
+}
+
+/* ################################# */
+/*     mobile  bootstrap col-sm      */
+@media screen and (min-width: 576px) and (max-width: 767px) {
+    body {
+        /* background-color: rgb(141, 204, 205); */
+    }
+    /* hover fades show no change on tablet and mobile */
+    /* this must be exactly the same as #button_question */
+    .all-buttons:hover {
+        box-shadow: 0px 0px 12px 1px rgba(81, 102, 122, 0.5);
+        color: rgb(240, 254, 255);
+        background-color: rgb(48, 167, 212);
+    }
+}
+
+/* ################################# */
+/*          tablet   col-md          */
+@media screen and (min-width: 768px) and (max-width: 991px) {
+    body {
+        /* background-color: rgb(105, 182, 184); */
+    }
+    /* hover fades show no change on tablet and mobile */
+    /* this must be exactly the same as #button_question */
+    .all-buttons:hover {
+        box-shadow: 0px 0px 12px 1px rgba(81, 102, 122, 0.5);
+        color: rgb(240, 254, 255);
+        background-color: rgb(48, 167, 212);
+    }
+}
+
+/* ################################# */
+/*    desktop  bootstrap col-lg      */
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+    body {
+        /* background-color: rgb(71, 152, 154); */
+    }
+}
+
+/* ######################################## */
+/*     large desktop    bootstrap col-xl    */
+@media screen and (min-width: 1200px) {
+    body {
+        /* background-color: rgb(45, 122, 124); */
+    }
+}
