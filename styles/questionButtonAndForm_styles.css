@@ -25,10 +25,10 @@
 /*                   buttons                   */
 
 /* reset button button, but not he div button */
-#kevin-container button {
+.disable-defalut-button-styles {
     all: unset;
 }
-button:focus {
+.disable-defalut-button-styles:focus {
     outline: none;
 }
 
@@ -124,9 +124,9 @@ button:focus {
 }
 
 /* only works in bootstrap 5 */
-/* #button-submit-container {
-  margin-bottom: 25px;
-} */
+#button-submit-container {
+  margin-bottom: 9px;
+}
 
 /* ########################## */
 /* animation for form rollout */
