@@ -14,7 +14,7 @@
 }
 
 /* ################################# */
-/* start the form here on page load */
+/* start the form here on page-load */
 #form-question {
     opacity: 0;
     transform: scaleY(0);
@@ -25,10 +25,10 @@
 /*                   buttons                   */
 
 /* reset button button, but not he div button */
-#kevin-container button {
+.disable-default-button-styles {
     all: unset;
 }
-button:focus {
+.disable-default-button-styles:focus {
     outline: none;
 }
 
@@ -124,9 +124,9 @@ button:focus {
 }
 
 /* only works in bootstrap 5 */
-/* #button-submit-container {
-  margin-bottom: 25px;
-} */
+#button-submit-container {
+  margin-bottom: 9px;
+}
 
 /* ########################## */
 /* animation for form rollout */
