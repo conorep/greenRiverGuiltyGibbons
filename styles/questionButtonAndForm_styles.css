@@ -14,7 +14,7 @@
 }
 
 /* ################################# */
-/* start the form here on page load */
+/* start the form here on page-load */
 #form-question {
     opacity: 0;
     transform: scaleY(0);
@@ -25,10 +25,10 @@
 /*                   buttons                   */
 
 /* reset button button, but not he div button */
-.disable-defalut-button-styles {
+.disable-default-button-styles {
     all: unset;
 }
-.disable-defalut-button-styles:focus {
+.disable-default-button-styles:focus {
     outline: none;
 }
 
