@@ -1,5 +1,3 @@
-/*testing github push again*/
-
 :root {
     --bs-light-rgb: 122, 255, 181;
 }
@@ -12,7 +10,8 @@
 
 body {
     font-family: Inter;
-    background-color: #fcffff;
+    /*background-color: #fcffff;*/
+    background-image: linear-gradient(180deg, rgba(255,255,255,0), white),linear-gradient(70deg, #ebfff3 50%, #fff8ea);
 }
 
 
