@@ -21,6 +21,7 @@ body {
 
 .card-body {
     background-color:#FFD8B2;
+    /*don't think this does anything, might strip*/
 }
 
 .accordion {
@@ -41,10 +42,17 @@ body {
 }
 
 .accordion-body {
-    background-color: #fef7e5;
+    background-image: linear-gradient(195deg, #fef7e5 75%, rgba(254, 247, 229,0.2));
+
 }
 
 .accordion-button:not(.collapsed) {
     color:black;
     background-color: #c9fde0;
+}
+
+footer {
+    background-image: linear-gradient(0deg, rgb(122, 255, 184) 99.5%, rgb(119, 215, 181));
+    box-shadow: 0 -.15rem .5rem rgba(0,0,0,.09);
+
 }
