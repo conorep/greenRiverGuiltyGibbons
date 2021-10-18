@@ -1,0 +1,293 @@
+<!--
+    FAQ Page
+    Author: Green River Guilty Gibbons
+    Modified by: Conor O'Brien
+    10/9/2021
+-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles/styles.css" >
+
+    <!--Bootstrap JS -->
+    <script src="js/bootstrap.js"></script>
+
+    <title>Green River Tech FAQ</title>
+
+    <!--  Favicon  -->
+    <link rel="icon" type="img/jpg" href="images/grtech.jpg" >
+    <script src="js/bootstrap.min.js"></script>
+
+</head>
+
+<body class="container-fluid" >
+
+    <!--header stuff-->
+    <header class="container box-shadows" > <!--sticky top looks cool but is pretty unrealistic for this usage-->
+
+        <nav id="top-nav" >
+            <a class="navbar-brand" href="https://www.software.greenrivertech.net/">
+                <img id="gr-tech-image" src="images/grtech.jpg" class="img-responsive" alt="green river tech logo" >
+            </a>
+        </nav>
+
+        <div id="header-content" class="jumbotron-fluid  rounded-0 ">
+            <div class="container spacing-header">
+                <h2 class="">Green River College Software Development Program</h2>
+                <hr>
+                <h3><em>Frequently Asked Questions</em></h3>
+            </div>
+            <!--add a band of color @ bottom of header of footer-->
+            <div class="container color-band">
+                <div class="row py-4 d-flex align-items-center"></div>
+            </div>
+        </div>
+
+
+
+    </header>
+
+    <!--main page content-->
+    <article class="container flex-column" >
+
+        <ul>
+            <!--disclaimer box-->
+            <li id="disclaimer" class="container bg-warning box-shadows2 li-margin">
+                <h2 class="row text-center">Disclaimer</h2>
+                <h3 id="disclaimer-text"><strong>The information provided here is not official or legally binding.
+                    This is a resource created by students, for students.</strong></h3>
+            </li>
+
+            <!--categories, questions, answers -->
+
+
+            <!--software program category-->
+            <li class=" li-margin accordion reposition " id="program-accordion">
+
+                <div class="card box-shadows2">
+                    <div class="card-header " id="heading-program">
+                        <button class="btn btn-link collapsed h2-style" type="button" data-toggle="collapse"
+                                data-target="#collapse-program" aria-expanded="false" aria-controls="collapse-program">
+                            The Software Dev Program</button>
+                    </div>
+
+                    <div id="collapse-program" class="collapse " aria-labelledby="heading-program" data-parent="#program-accordion">
+                        <div class="card-body bg-white ">
+                            <div class="container pad-q-and-a">
+
+                                <p class="question">What is it?</p>
+                                <p class="answer">- A Bachelor's-level program at Green River College encompassing 300-
+                                    and 400-level courses</p>
+                                <p class="answer">- Small class sizes and hands-on faculty.</p>
+                                <p class="answer">- A strong focus on career preparation and real-world work-cases.</p>
+                                <p class="question">What are the requirements for entry?</p>
+                                <p class="answer">- Completion of an associate degree or higher from a regionally
+                                    accredited institution.</p>
+                                <p class="answer">- Cumulative GPA of 2.5 or higher.</p>
+                                <p class="answer">- Grade of 2.5 of higher in an intermediate-level Java programming course
+                                    (such as SDEV 220) or a waiver from the Program Director.</p>
+                                <p class="answer">- Application submission and acceptance.</p>
+
+                            </div> <!--container for q and a-->
+                        </div> <!--card body-->
+                    </div> <!--collapse-->
+
+                </div> <!--the card-->
+
+            </li> <!--end of program list item-->
+
+
+
+            <!--features of program category-->
+            <li class=" li-margin accordion reposition " id="features-accordion">
+
+                <div class="card box-shadows2">
+                    <div class="card-header " id="heading-features">
+                        <button class="btn btn-link collapsed h2-style" type="button" data-toggle="collapse"
+                                data-target="#collapse-features" aria-expanded="false" aria-controls="collapse-features">
+                            Features of Green River Soft Dev</button>
+                    </div>
+
+                    <div id="collapse-features" class="collapse " aria-labelledby="heading-features" data-parent="#features-accordion">
+                        <div class="card-body bg-white ">
+                            <div class="container pad-q-and-a">
+
+                                <p class="question">What's up with this 'cohort' program?</p>
+                                <p class="answer">- You’ll be working with the same group of peers through your junior and senior
+                                    year, creating valuable contacts with like-minded individuals that you are likely to see
+                                    through your work endeavors. </p>
+                                <p class="answer">- The cohort program you will be a part of involves consistent interpersonal
+                                    communication and group work – much like the software developer’s workplace. </p>
+                                <p class="question">Is there focus on portfolio-building?</p>
+                                <p class="answer">- Yes! You'll be constantly working on projects to display for your job hunting.</p>
+                                <p class="question">I heard about a Capstone project - what's that?</p>
+                                <p class="answer">- Your senior work will include (and culminate in) a complete project tying
+                                    together the facets of what you’ve learned throughout your years of study. </p>
+                                <p class="answer">- This will display the depth of your knowledge and skill and look
+                                    great in a portfolio. </p>
+                                <p class="answer">- It will be a good example of team-based project development </p>
+
+                            </div> <!--container for q and a-->
+                        </div> <!--card body-->
+                    </div> <!--collapse-->
+
+                </div> <!--the card-->
+
+            </li> <!--end of features list item-->
+
+
+
+            <!--workforce entry category-->
+            <li class=" li-margin accordion reposition " id="workforce-accordion">
+
+                <div class="card box-shadows2">
+                    <div class="card-header " id="heading-workforce">
+                        <button class="btn btn-link collapsed h2-style" type="button" data-toggle="collapse"
+                                data-target="#collapse-workforce" aria-expanded="false" aria-controls="collapse-workforce">
+                            Workforce Entry</button>
+                    </div>
+
+                    <div id="collapse-workforce" class="collapse " aria-labelledby="heading-workforce" data-parent="#workforce-accordion">
+                        <div class="card-body bg-white ">
+                            <div class="container pad-q-and-a">
+
+                                <p class="question">Is there focus on internships?</p>
+                                <p class="answer">- Yes. Your professors and the program’s administration will stress the importance
+                                    of internships to enter the software dev workforce. </p>
+                                <p class="answer">- They’ll provide consistent information about available internships.</p>
+                                <p class="answer">- The program is designed for summers off to pursue these opportunities.</p>
+                                <p class="answer">- Generally speaking, these are well-paid internships.</p>
+                                <p class="question">Will there be any focus on my resume?</p>
+                                <p class="answer">- The professors and staff are helpful and willing to discuss what resumes should
+                                    look like.</p>
+                                <p class="answer">- The BoardMasters club will be meeting regularly, and you may just find some
+                                    workshops specifically involving resume-building.</p>
+
+                            </div> <!--container for q and a-->
+                        </div> <!--card body-->
+                    </div> <!--collapse-->
+
+                </div> <!--the card-->
+
+            </li> <!--end of workforce entry list item-->
+
+
+
+            <!--covid category-->
+            <li class=" li-margin accordion reposition " id="covid-accordion">
+
+                <div class="card box-shadows2">
+                    <div class="card-header " id="heading-covid">
+                        <button class="btn btn-link collapsed h2-style" type="button" data-toggle="collapse"
+                                data-target="#collapse-covid" aria-expanded="false" aria-controls="collapse-covid">
+                            Covid-19</button>
+                    </div>
+
+                    <div id="collapse-covid" class="collapse " aria-labelledby="heading-covid" data-parent="#covid-accordion">
+                        <div class="card-body bg-white ">
+                            <div class="container pad-q-and-a">
+
+                                <p class="question">What is attending school like during the pandemic?</p>
+                                <p class="answer">- Classes are currently online-only.</p>
+                                <p class="answer">- The future is a bit unclear, but classes may likely remain hybrid (a mix of
+                                    online and in-person) in the foreseeable future.</p>
+                                <p class="question">What do I do if I test positive for covid-19?</p>
+                                <p class="answer">- If it is affecting your day-to-day wellness, feel free to speak with your
+                                    teachers about your experience and difficulties.</p>
+                                <p class="answer">- The teachers at Green River are understanding and helpful, and can likely find
+                                    agreeable means of helping you stay up with coursework.</p>
+
+                            </div> <!--container for q and a-->
+                        </div> <!--card body-->
+                    </div> <!--collapse-->
+
+                </div> <!--the card-->
+
+            </li> <!--end of covid list item-->
+
+
+        </ul>
+
+    </article>
+
+
+    <!--footer-->
+    <footer class="container box-shadows">
+
+        <!--add a band of color @ top of footer-->
+        <div class="container color-band">
+            <div class="row py-4 d-flex align-items-center"></div>
+        </div>
+
+        <!--footer links-->
+        <div class="container text-center">
+
+            <div  class="row mt-4">
+                <div class="col">
+                    <h5>GREEN RIVER COLLEGE</h5>
+                    <hr>
+                    <p class="footer-links">This site provides information and resources
+                        for students in Green River's Bachelor's of
+                        Applied Science - Software Development
+                        program.</p>
+                </div>
+                <div class="col">
+                    <h5>USEFUL LINKS</h5>
+                    <hr>
+                    <ul class="footer-links">
+                        <li><a href="https://www.itconnect.greenrivertech.net/internships" target="_blank">Internships</a></li>
+                        <li><a href="https://www.itconnect.greenrivertech.net/studentResources" target="_blank">Student Resources</a></li>
+                        <li><a href="https://www.boardmasters.greenriverdev.com/" target="_blank">BoardMasters Club</a></li>
+                        <!--Should I have a help link here that links to same page? Prob no-->
+                    </ul>
+
+                </div>
+                <div class="col">
+                    <h5>FOLLOW</h5>
+                    <hr>
+                    <ul class="footer-links">
+                        <li><a href="https://instagram.com/greenrivertech/" target="_blank">Instagram</a></li>
+                        <li><a href="https://www.linkedin.com/groups/6781985" target="_blank">LinkedIn</a></li>
+                        <li><a href="https://www.facebook.com/greenrivertechnologyprograms" target="_blank">Facebook</a></li>
+                    </ul>
+                </div>
+                <div class="col">
+                    <h5>LEGAL</h5>
+                    <hr>
+                    <ul class="footer-links">
+                        <li><a href="https://www.greenriver.edu/about-us/website/privacy-notice.htm" target="_blank">Privacy Policy</a></li>
+                        <li><a href="https://www.greenriver.edu/student-affairs/financial-aid/ethical-principles-and-code-of-conduct.htm"
+                           target="_blank">Code of Conduct</a></li>
+                        <!--THIS POINTS NOWHERE SO FAR-->
+                        <li><a href="/" target="_blank">Admin Login</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-copyright text-center py-3">© 2021 Green River College Technology Program</div>
+
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+</body>
+
+</html>

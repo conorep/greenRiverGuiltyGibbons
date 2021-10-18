@@ -1,0 +1,186 @@
+@charset "utf-8";
+/* Kevin Price for SDEV305 GreenRiverGuiltyGibbons */
+/* Sprint 1 for GRTech FAQ */
+/* October 14, 2021 */
+
+/* setup basic styles for body */
+body {
+  background-color: rgb(248, 248, 248);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ################################# */
+/* start the form here on page load */
+#form-question {
+  opacity: 0;
+  transform: scaleY(0);
+  max-height: 0px;
+}
+
+/* ########################################### */
+/*                   buttons                   */
+
+/* reset button button, but not he div button */
+button {
+  all: unset;
+}
+button:focus {
+  outline: none;
+}
+
+.all-buttons {
+  /* only color and shadow is animated via hover transition*/
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 0px 12px 1px rgba(81, 102, 122, 0.5);
+  background-color: rgb(48, 167, 212);
+  user-select: none;
+  border-radius: 2px;
+  font-family: arial, sans-serif;
+  font-weight: 600;
+  color: rgb(240, 254, 255);
+  font-size: 15px;
+}
+
+/* ################################################### */
+/* buttons containers, this is what gets resized in js */
+.all-buttons-container {
+  /* only size is animated via keyframe animation*/
+  width: 180px;
+  /* if height gets change, update window.addEventListener("resize", function(event) in js */
+  height: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 2px;
+  /* would prefer no color here, but it's the only way */
+  /* to prevent edge flicker in firefox */
+  background-color: rgb(48, 167, 212);
+}
+
+/* needs to happen immediately upon hover */
+.button-hover-noTransition:hover {
+  cursor: pointer;
+}
+
+/* ###################################################### */
+/* everything that must transition with a fade upon hover */
+.all-buttons:hover {
+  box-shadow: 0px 0px 15px 1px rgba(88, 109, 129, 0.65);
+  color: rgb(248, 252, 252);
+  background-color: rgb(87, 185, 223);
+}
+
+/* ############################################ */
+/* button_question click scale-in-out animation */
+@keyframes button_question_click {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.97);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* ############################################## */
+/*             form for question button           */
+#form-question {
+  display: none;
+  display: flex;
+  margin: 0;
+  padding: 0 30px 8px 30px;
+  border-radius: 2px;
+  font-weight: 600;
+  box-shadow: 0px 0px 13px 1px rgba(101, 107, 112, 0.2);
+}
+
+.error {
+  color: rgb(214, 60, 60);
+}
+
+#message-sent {
+  visibility: hidden;
+  margin: 10px 0 0 0;
+  font-size: 18px;
+}
+
+#email-entry {
+  /*  this gets reffed in window.addEventListener("resize", function(event), if updated here, update there */
+  margin-bottom: 25px;
+}
+
+#form-question {
+  overflow: hidden;
+}
+
+/* only works in bootstrap 5 */
+/* #button-submit-container {
+  margin-bottom: 25px;
+} */
+
+/* ########################## */
+/* animation for form rollout */
+@keyframes form_rollout {
+  0% {
+    transform-origin: top;
+    opacity: 0;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    transform: scaleY(0);
+    max-height: 0px;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    transform-origin: top;
+    opacity: 1;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    transform: scaleY(1);
+    max-height: 410px;
+  }
+}
+.rollout {
+  animation: form_rollout 0.5s forwards;
+}
+
+/* ########################## */
+/* animation for form rollin */
+@keyframes form_rollin {
+  0% {
+    transform-origin: top;
+    opacity: 1;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    transform: scaleY(1);
+    max-height: 410px;
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    transform-origin: top;
+    opacity: 0;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    transform: scaleY(0);
+    max-height: 0px;
+  }
+}
+.rollin {
+  animation: form_rollin 0.5s forwards;
+}
+
+
+/*  */

@@ -2,11 +2,11 @@
     --bs-light-rgb: 122, 255, 181;
 }
 
-#disclaimer {
-    background-color: #f56c6c;
-    margin:20px;
-    text-align: center
-}
+/*#disclaimer {*/
+/*    background-color: #f56c6c;*/
+/*    margin:20px;*/
+/*    text-align: center*/
+/*}*/
 
 body {
     font-family: Inter;
@@ -38,7 +38,8 @@ body {
 }
 
 .accordion-button {
-    background-color: #f5fff7;
+    /*background-color: #f5fff7;*/
+    background-color: #c9fde0;
 }
 
 .accordion-body {
@@ -55,4 +56,49 @@ footer {
     background-image: linear-gradient(0deg, rgb(122, 255, 184) 99.5%, rgb(119, 215, 181));
     box-shadow: 0 -.15rem .5rem rgba(0,0,0,.09);
 
+}
+
+
+/*CONOR STYLES*/
+
+/*TAG STYLES*/
+
+hr {
+    background-color: rgba(49, 156, 164, 0.89);
+}
+
+/*CLASS STYLES*/
+
+.box-shadows {
+    box-shadow: 0 0 12px 1px rgb(81 102 122);
+}
+
+.box-shadows2 {
+    box-shadow: 0 0 8px 1px rgb(132 161 189);
+}
+
+.footer-links {
+    text-align: left;
+}
+
+.footer-list {
+    list-style-type: none;
+    padding-left: 1rem;
+}
+
+.question {
+    font-weight: bold;
+}
+
+
+/*ID STYLES*/
+
+#disclaimer {
+    text-align: center;
+    padding: 20px 15px 30px 30px;
+    margin-top: -15px;
+}
+
+#disclaimer-text {
+    font-weight: bold;
 }

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<!--
+Kevin Price for SDEV305 GreenRiverGuiltyGibbons
+October 14, 2021
+Sprint 1 for GRTech FAQ
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="questionButtonAndForm_reset.css">
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="questionButtonAndForm_styles.css">
+  <link rel="stylesheet" href="questionButtonAndForm_responsiveStyles.css">
+  <title>Question Button And Form</title>
+</head>
+  <body>
+    <!-- id naming conventions from buttons to their containers must match the first -->
+    <!-- two words or else it breaks the javascript!!! -->
+    <div id="button-question-container" class="all-buttons-container">
+      <div id="button-question" class="button-hover-noTransition all-buttons">
+         ASK A QUESTION
+      </div>
+    </div>
+
+    <span id="message-sent">Your question has been sent</span>
+
+    <form id="form-question" class="d-block form-group" method="get">
+      <!-- container for form elements -->
+      <div id="question-div" class="form-group">
+        <span class="error" id="error-question">Please Enter Question</span>
+        <textarea class="form-control" id="question-entry" rows="8" cols="40" placeholder="Ask a Question"></textarea>
+        <span class="error" id="error-email">Please Enter Email</span>
+        <input type="email" class="form-control" id="email-entry" placeholder="Contact Email">
+        <!-- id naming conventions from buttons to their containers must match the first -->
+        <!-- two words or else it breaks the javascript!!! -->
+        <button type="button" id="button-submit-container" class="all-buttons-container">
+          <div id="button-submit" class="button-hover-noTransition all-buttons">
+            <!-- absolutely will not work if the text is encapsulated in anything -->
+            SUBMIT QUESTION
+          </div>
+        </button>
+      </div>
+    </form>
+
+    <!-- for testing if everyhting below the form gets pushed down correctly -->
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna ut aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident sunt. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do</p>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="questionButtonAndForm_script.js"></script>
+  </body>
+</html>

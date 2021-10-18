@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
     <link rel="stylesheet" href="styles/styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,60 +21,103 @@
     <link rel="stylesheet" href="styles/questionButtonAndForm_styles.css">
     <link rel="stylesheet" href="styles/questionButtonAndForm_responsiveStyles.css">
 
+    <!--  Favicon  -->
+    <link rel="icon" type="img/jpg" href="images/img.png" >
+
     <title>GRC SDEV FAQ</title>
+
 </head>
+
 <body class="d-flex flex-column min-vh-100 justify-content-center">
+
 <!--This is the page nav header-->
-<nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+<nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm pt-3 pb-3">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">
-            <img src="images/img.png" alt="" width="30" height="24" class="d-inline-block align-text-top">
+
+        <a class="navbar-brand ps-3" href="#">
+            <img src="images/img.png" alt="GRTech Logo" width="48" height="42" class="d-inline-block align-text-top">
         </a>
+
+        <h3 class="d-block d-lg-none d-xl-none d-xxl-none">Green River College Software Development Program<br><em>Frequently Asked Questions</em></h3>
+
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
                 aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
+
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
+
             <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">FAQ</a>
+
+                <li class="px-md-4 px-lg-4 px-xl-4 d-none d-lg-block d-xl-block d-xxl-block">
+                    <h4>Green River College Software Development Program<br><em>Frequently Asked Questions</em></h4>
                 </li>
+
+<!--                <li class="nav-item">-->
+<!--                    <a class="nav-link active" aria-current="page" href="#">FAQ</a>-->
+<!--                </li>-->
+
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Money For College</a>
+                    <a class="nav-link" href="https://www.greenriver.edu/students/pay-for-college/" target="_blank">Money For College</a>
                 </li>
+
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Program Blog</a>
+                    <a class="nav-link" href="https://medium.com/green-river-web-mobile-developers" target="_blank">Program Blog</a>
                 </li>
+
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="ResourceDropdown" role="button"
                        data-bs-toggle="dropdown" aria-expanded="false">
                         Student Resources
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <li><a class="dropdown-item" href="#">LeetCode</a></li>
-                        <li><a class="dropdown-item" href="#">LinkedIn Learning</a></li>
-                        <li><a class="dropdown-item" href="#">Repl</a></li>
+                        <li>
+                            <a class="dropdown-item" href="https://leetcode.com/" target="_blank">LeetCode</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="https://www.linkedin.com/learning/" target="_blank">LinkedIn Learning</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="https://replit.com/" target="_blank">Repl</a>
+                        </li>
                     </ul>
                 </li>
+
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
                        data-bs-toggle="dropdown" aria-expanded="false">
                         Advising
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <li><a class="dropdown-item" href="#">Degree Audit</a></li>
-                        <li><a class="dropdown-item" href="#">Degree Requirements</a></li>
-                        <li><a class="dropdown-item" href="#">Unofficial Transcript</a></li>
+                        <li>
+                            <a class="dropdown-item" href="https://advisingapp.greenrivertech.net/" target="_blank">Advising App</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="https://grcc.greenriver.edu/Register/waci004.html" target="_blank">Advising Lookup</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="https://greenrivertech.net/advisors.php" target="_blank">10 Questions for Advisees</a>
+                        </li>
                     </ul>
                 </li>
+
             </ul>
         </div>
     </div>
+
+
 </nav>
 <!--End nav header-->
 
-<div class="card" id="disclaimer">
-    The information provided here is not official or legally binding. This is a resource created by students, for students.
+<!--<div class="card" id="disclaimer">
+    The information provided here is not official or legally binding. This is a
+    resource created by students, for students.
+</div>-->
+
+<div id="disclaimer" class="container bg-warning box-shadows2 mt-3">
+    <h2 class="row text-center"> Disclaimer</h2>
+    <h3 id="disclaimer-text"><strong>The information provided here is not official or legally binding.
+        This is a resource created by students, for students.</strong></h3>
 </div>
 
 <!--This is a question/answer accordion-->
@@ -81,20 +127,26 @@
             <button class="accordion-button" type="button" data-bs-toggle="collapse"
                     data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
                     aria-controls="panelsStayOpen-collapseOne">
-                How do I successfully apply for an internship?
+                Software Development
             </button>
         </h2>
         <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
              aria-labelledby="panelsStayOpen-headingOne">
             <div class="accordion-body">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore
-                magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                commodo
-                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim
-                id
-                est laborum.
+
+                <p class="question">What is it?</p>
+                <p class="answer">- A Bachelor's-level program at Green River College encompassing 300-
+                    and 400-level courses</p>
+                <p class="answer">- Small class sizes and hands-on faculty.</p>
+                <p class="answer">- A strong focus on career preparation and real-world work-cases.</p>
+                <p class="question">What are the requirements for entry?</p>
+                <p class="answer">- Completion of an associate degree or higher from a regionally
+                    accredited institution.</p>
+                <p class="answer">- Cumulative GPA of 2.5 or higher.</p>
+                <p class="answer">- Grade of 2.5 of higher in an intermediate-level Java programming course
+                    (such as SDEV 220) or a waiver from the Program Director.</p>
+                <p class="answer">- Application submission and acceptance.</p>
+
             </div>
         </div>
     </div>
@@ -107,16 +159,28 @@
             <button class="accordion-button" type="button" data-bs-toggle="collapse"
                     data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="true"
                     aria-controls="panelsStayOpen-collapseTwo">
-                How do I land my first tech job after graduation?
+                Features of Green River Soft Dev
             </button>
         </h2>
         <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse show"
              aria-labelledby="panelsStayOpen-headingTwo">
             <div class="accordion-body">
-                Donec eget maximus tortor, nec maximus felis. Quisque non condimentum nisi, eu aliquet felis. Nullam
-                varius placerat hendrerit. Sed turpis diam, posuere vitae mattis et, aliquet eu enim. Suspendisse
-                blandit nulla vitae aliquam congue. Duis vitae ultricies mi, quis tempus quam. Integer tortor tortor,
-                rhoncus ut urna eu, posuere tempus.
+
+                <p class="question">What's up with this 'cohort' program?</p>
+                <p class="answer">- You’ll be working with the same group of peers through your junior and senior
+                    year, creating valuable contacts with like-minded individuals that you are likely to see
+                    through your work endeavors. </p>
+                <p class="answer">- The cohort program you will be a part of involves consistent interpersonal
+                    communication and group work – much like the software developer’s workplace. </p>
+                <p class="question">Is there focus on portfolio-building?</p>
+                <p class="answer">- Yes! You'll be constantly working on projects to display for your job hunting.</p>
+                <p class="question">I heard about a Capstone project - what's that?</p>
+                <p class="answer">- Your senior work will include (and culminate in) a complete project tying
+                    together the facets of what you’ve learned throughout your years of study. </p>
+                <p class="answer">- This will display the depth of your knowledge and skill and look
+                    great in a portfolio. </p>
+                <p class="answer">- It will be a good example of team-based project development </p>
+
             </div>
         </div>
     </div>
@@ -130,27 +194,54 @@
             <button class="accordion-button" type="button" data-bs-toggle="collapse"
                     data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="true"
                     aria-controls="panelsStayOpen-collapseThree">
-                How does this program compare to a BS CS at a major university?
+                Workforce Entry
             </button>
         </h2>
         <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse show"
              aria-labelledby="panelsStayOpen-headingThree">
             <div class="accordion-body">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vulputate sollicitudin ipsum, sit amet
-                sodales nisl egestas eu. Sed viverra convallis ipsum, accumsan tempor massa tempus sed. Aenean facilisis
-                dolor id justo volutpat, sed pharetra erat dapibus. Sed risus tortor, ullamcorper id sem id, lobortis
-                varius mi. In sodales vel lorem et eleifend. Nullam varius ligula sit amet lectus vestibulum, quis
-                efficitur nisi molestie. Phasellus id odio sed justo venenatis aliquam ac ac nibh. Nullam bibendum
-                egestas ante, id mattis lectus iaculis sed. Nullam dictum, dolor nec faucibus pharetra, odio lorem
-                pretium eros, ac ultricies nunc ex non sapien. Pellentesque ullamcorper turpis sed lorem finibus, sit
-                amet sodales nisi auctor. Vestibulum aliquet purus eu elit laoreet, et vestibulum odio laoreet. Integer
-                vitae faucibus enim. Etiam iaculis non purus vitae ullamcorper. Integer massa turpis, rutrum eu lectus
-                vitae, fermentum dictum neque. Quisque tincidunt lorem sed sem venenatis, id cursus nulla volutpat.
 
-                Praesentt sodaales nunc vitae nisl convalles egestas id quis magna. Praesent a metus tempus, ultricies
-                tellus a, facilisis erat. Donec aliquam erat quam, ut ultrices sem dictum a. Nullam in magna sed ex
-                pretium efficitur. Morbi leo sapien, porta ut faucibus et, euismod id arcu. Donec et sem fringilla,
-                hendrerit leo pharetra, pulvinar maures. Nulla vel tellus leo. Etiam pulvinar tincidunt scelerisque.
+                <p class="question">Is there focus on internships?</p>
+                <p class="answer">- Yes. Your professors and the program’s administration will stress the importance
+                    of internships to enter the software dev workforce. </p>
+                <p class="answer">- They’ll provide consistent information about available internships.</p>
+                <p class="answer">- The program is designed for summers off to pursue these opportunities.</p>
+                <p class="answer">- Generally speaking, these are well-paid internships.</p>
+                <p class="question">Will there be any focus on my resume?</p>
+                <p class="answer">- The professors and staff are helpful and willing to discuss what resumes should
+                    look like.</p>
+                <p class="answer">- The BoardMasters club will be meeting regularly, and you may just find some
+                    workshops specifically involving resume-building.</p>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!--End q/a here-->
+
+<div class="container accordion" id="accordionPanelsStayOpenExampleFour">
+    <div class="accordion-item shadow-sm">
+        <h2 class="accordion-header" id="panelsStayOpen-headingFour">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="true"
+                    aria-controls="panelsStayOpen-collapseFour">
+                Covid-19
+            </button>
+        </h2>
+        <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse show"
+             aria-labelledby="panelsStayOpen-headingFour">
+            <div class="accordion-body">
+
+                <p class="question">What is attending school like during the pandemic?</p>
+                <p class="answer">- Classes are currently online-only.</p>
+                <p class="answer">- The future is a bit unclear, but classes may likely remain hybrid (a mix of
+                    online and in-person) in the foreseeable future.</p>
+                <p class="question">What do I do if I test positive for covid-19?</p>
+                <p class="answer">- If it is affecting your day-to-day wellness, feel free to speak with your
+                    teachers about your experience and difficulties.</p>
+                <p class="answer">- The teachers at Green River are understanding and helpful, and can likely find
+                    agreeable means of helping you stay up with coursework.</p>
+
             </div>
         </div>
     </div>
@@ -179,80 +270,111 @@
         <input type="email" class="form-control" id="email-entry" placeholder="Contact Email">
         <!-- id naming conventions from buttons to their containers must match the first -->
         <!-- two words or else it breaks the javascript!!! -->
-        <button type="button" id="button-submit-container" class="all-buttons-container disable-default-button-styles">
+        <div id="button-submit-container" class="all-buttons-container disable-default-button-styles">
             <div id="button-submit" class="button-hover-noTransition all-buttons">
                 <!-- absolutely will not work if the text is encapsulated in anything -->
                 SUBMIT QUESTION
             </div>
-        </button>
+        </div>
     </div>
 </form>
 
-<!-- for testing if everyhting below the form gets pushed down correctly -->
+<!-- for testing if everything below the form gets pushed down correctly -->
 <!--<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna ut aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non prident sunt. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do</p>-->
 </div>
 
 <!--End Kevin's QnA Here-->
 
 <!--Footer begins here-->
-<footer class="bg-light text-center text-lg-start footer mt-auto py-3">
+<footer class="bg-light text-center text-lg-start footer mt-auto py-3 ">
+
     <!-- Grid container -->
-    <div class="container p-4 d-flex justify-content-around">
+    <div class="container p-4  justify-content-around">
+
         <!--Grid row-->
         <div class="row justify-content-around">
+
             <!--Grid column-->
-            <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+            <div class="col-lg-3 col-md-6 mb-4 mb-md-0 text-center">
                 <h5 class="text-uppercase">Green River College</h5>
-
-                <ul class="list-unstyled mb-0">
-                    <li>
-                        <a href="#!" class="text-dark">GRC Homepage</a>
-                    </li>
-                    <li>
-                        <a href="#!" class="text-dark">Admissions</a>
-                    </li>
-                    <li>
-                        <a href="#!" class="text-dark">Advising</a>
-                    </li>
-                </ul>
+                <hr>
+<!--                <ul class="list-unstyled mb-0">-->
+<!--                    <li>-->
+<!--                        <a href="#!" class="text-dark">GRC Homepage</a>-->
+<!--                    </li>-->
+<!--                    <li>-->
+<!--                        <a href="#!" class="text-dark">Admissions</a>-->
+<!--                    </li>-->
+<!--                    <li>-->
+<!--                        <a href="#!" class="text-dark">Advising</a>-->
+<!--                    </li>-->
+<!--                </ul>-->
+                <p class="footer-links">This site provides information and resources
+                    for students in Green River's Bachelor's of
+                    Applied Science - Software Development
+                    program.</p>
             </div>
             <!--Grid column-->
 
             <!--Grid column-->
-            <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+            <div class="col-lg-3 col-md-6 mb-4 mb-md-0 text-center">
                 <h5 class="text-uppercase mb-0">Useful Links</h5>
-
-                <ul class="list-unstyled">
+                <hr>
+                <ul class="footer-list footer-links">
                     <li>
-                        <a href="#!" class="text-dark">Internships</a>
+                        <a class="text-dark" href="https://www.itconnect.greenrivertech.net/internships" target="_blank">Internships</a>
                     </li>
                     <li>
-                        <a href="#!" class="text-dark">Student Resources</a>
+                        <a class="text-dark" href="https://www.itconnect.greenrivertech.net/studentResources" target="_blank">Student Resources</a>
                     </li>
                     <li>
-                        <a href="#!" class="text-dark">BoardMaster's</a>
+                        <a class="text-dark" href="https://www.boardmasters.greenriverdev.com/" target="_blank">BoardMasters Club</a>
                     </li>
                 </ul>
             </div>
             <!--Grid column-->
 
             <!--Grid column-->
-            <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+            <div class="col-lg-3 col-md-6 mb-4 mb-md-0 text-center">
                 <h5 class="text-uppercase">Follow</h5>
+                <hr>
 
-                <ul class="list-unstyled mb-0">
+                <!--NOTE: all of these groups got deleted recently I guess. I kept the links the greenrivertech page has though. -->
+                <ul class="footer-list mb-0 footer-links">
                     <li>
-                        <a href="#!" class="text-dark">Instagram</a>
+                        <a class="text-dark" href="https://instagram.com/greenrivertech/" target="_blank">Instagram</a>
                     </li>
                     <li>
-                        <a href="#!" class="text-dark">LinkedIn</a>
+                        <a class="text-dark" href="https://www.linkedin.com/groups/6781985" target="_blank">LinkedIn</a>
                     </li>
                     <li>
-                        <a href="#!" class="text-dark">Blog</a>
+                        <a class="text-dark" href="https://www.facebook.com/greenrivertechnologyprograms" target="_blank">Facebook</a>
                     </li>
                 </ul>
             </div>
             <!--Grid column-->
+
+            <div class="col-lg-3 col-md-6 mb-4 mb-md-0 text-center">
+                <h5 class="text-uppercase ">Legal</h5>
+                <hr>
+
+                <!--NOTE: all of these groups got deleted recently I guess. I kept the links the greenrivertech page has though. -->
+                <ul class="footer-list mb-0 footer-links pl-3">
+                    <li>
+                        <a class="text-dark" href="https://www.greenriver.edu/about-us/website/privacy-notice.htm" target="_blank">Privacy Policy</a>
+                    </li>
+                    <li>
+                        <a class="text-dark" href="https://www.greenriver.edu/student-affairs/financial-aid/ethical-principles-and-code-of-conduct.htm"
+                           target="_blank">Code of Conduct</a>
+                    </li>
+                    <!--THIS POINTS NOWHERE SO FAR-->
+                    <li>
+                        <a class="text-dark" href="/" target="_blank">Admin Login</a>
+                    </li>
+                </ul>
+            </div>
+            <!--Grid column-->
+
         </div>
         <!--Grid row-->
     </div>

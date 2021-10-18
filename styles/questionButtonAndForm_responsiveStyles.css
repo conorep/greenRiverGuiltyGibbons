@@ -9,7 +9,7 @@
     /* hover fades show no change on tablet and mobile */
     /* this must be exactly the same as #button_question */
     .all-buttons:hover {
-        box-shadow: 0px 0px 12px 1px rgba(81, 102, 122, 0.5);
+        box-shadow: 0px 0px 6px 1px rgba(64, 84, 79, 0.3);
         color: rgb(240, 254, 255);
         background-color: rgb(48, 167, 212);
     }
@@ -24,7 +24,7 @@
     /* hover fades show no change on tablet and mobile */
     /* this must be exactly the same as #button_question */
     .all-buttons:hover {
-        box-shadow: 0px 0px 12px 1px rgba(81, 102, 122, 0.5);
+        box-shadow: 0px 0px 6px 1px rgba(64, 84, 79, 0.3);
         color: rgb(240, 254, 255);
         background-color: rgb(48, 167, 212);
     }
@@ -39,7 +39,7 @@
     /* hover fades show no change on tablet and mobile */
     /* this must be exactly the same as #button_question */
     .all-buttons:hover {
-        box-shadow: 0px 0px 12px 1px rgba(81, 102, 122, 0.5);
+        box-shadow: 0px 0px 6px 1px rgba(64, 84, 79, 0.3);
         color: rgb(240, 254, 255);
         background-color: rgb(48, 167, 212);
     }

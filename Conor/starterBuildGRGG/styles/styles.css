@@ -1,0 +1,153 @@
+/*stylesheet*/
+
+
+/*main tag styles*/
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f8f8f8;
+}
+
+header {
+    margin: 0 5% 2.5% 5%;
+    background-color: #28a745;
+    padding-bottom: 0.5rem;
+}
+
+footer {
+    bottom: 0;
+    padding-top: 0.5rem;
+    margin-top: 2%;
+}
+
+ul {
+    list-style-type: none;
+}
+
+li {
+    padding: 0.5rem;
+}
+
+a {
+    color: black;
+}
+
+a:hover {
+    color: #676767;
+}
+
+hr {
+    background-color: rgba(70, 206, 215, 0.89);
+}
+
+
+/*ID styles*/
+
+#header-content {
+    background-color: white;
+}
+
+#top-nav {
+    padding-bottom: 20px;
+}
+
+#disclaimer {
+    text-align: center;
+    padding-left: 30px;
+    margin-top: -15px;
+}
+
+#disclaimer-text {
+    font-weight: bold;
+}
+
+#color-band {
+    background-color: #28a745;
+}
+
+#gr-tech-image {
+    height: 30px;
+    width: 30px;
+}
+
+#top-nav, #header-content {
+    margin: 0 -15px -8px;
+}
+
+
+#color-band {
+    margin-top: -8px;
+}
+
+
+
+
+/*class styles*/
+
+.box-shadows {
+    box-shadow: 0 0 12px 1px rgb(81 102 122);
+}
+
+.box-shadows2 {
+    box-shadow: 0 0 12px 1px rgb(132 161 189);
+}
+
+.footer-copyright {
+    margin: 10px -15px 0;
+    background-color: rgba(0,0,0,.2);
+}
+
+.wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.spacing-header {
+    padding: 1rem;
+}
+
+.navbar-brand {
+    padding-left: 10px;
+}
+
+.footer-links {
+    text-align: left;
+}
+
+.li-margin {
+    margin-left: -20px;
+    margin-top: 20px;
+}
+
+.h2-style {
+    padding-left: 30px;
+    color: #565656;
+}
+
+.pad-q-and-a {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-radius: 0 0 15px 15px;
+}
+
+.content-li {
+    padding: 1rem 0 0 0;
+    background-image: linear-gradient(to right, #65be4e, #c9efc1);
+    border-radius: 0 0 15px 15px;
+}
+
+.question {
+    font-weight: bold;
+}
+
+
+/*trying to override container to allow for full-width. not working yet.*/
+/*.container-custom {
+    width: 100%;
+    margin-right: -15px;
+    margin-left: -15px;
+}*/
+
+
+

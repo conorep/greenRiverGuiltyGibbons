@@ -93,27 +93,61 @@ function rollin()
 }
 
 
+///////////////////////////////////////////
+// let leftScroll = window.pageXOffset;
+// let topScroll = window.pageYOffset;
+// // // needed later for smooth scroll
+// // let prevScroll = window.pageYOffset;
+// window.addEventListener('scroll', function() {
+//   console.log('scrolling: left: ', window.pageXOffset, " top: ", window.pageYOffset, 'otherone ',document.body.scrollHeight)
+//
+// });
+
+/*
+* function scrolls scrollbar to bottom repeatedly for length of time in ms
+* set in timeOUt param
+*/
+function inhibitScroll(timeOut) {
+
+    // repeatedly set scrollbar to bottom via passing htis func into the setInterval below
+    function doit() {
+      window.scrollTo(window.pageXOffset, document.body.scrollHeight);
+    }
+
+    // put the setInterval in a variable so we can shut it off later
+    let inhibitingNow = setInterval(doit, 1); // action to do and frame rate in ms
+    // will need this to call the clearInterval, can't just pass it in the setTimeout
+    function stopIt() {
+      clearInterval(inhibitingNow);
+    }
+    // timer to stop the scrolling
+    setTimeout(stopIt, timeOut);
+}
+
 ////////////////////////////////////////////////////////////////////////////////////////////////
 // add event listener to "ask a question" button for firing off the form rollout / rollin anims
 ////////////////////////////////////////////////////////////////////////////////////////////////
-document.getElementById('button-question-container').addEventListener('click', function()
+document.getElementById('button-question-container').addEventListener('click', function(event)
 {
-    // one animation for the rollout
-    if (form_rolled_inout === 'in')
-    {
-        // console.log('rollin out')
-        // hide the successful delivery mesasage
-        document.getElementById('message-sent').style.visibility = 'hidden';
-        // remove rollin class for rollin anim
-        document.getElementById('form-question').classList.remove('rollin');
-        // add rollout class for rollout anim
-        document.getElementById('form-question').classList.add('rollout');
-        form_rolled_inout = 'out';
-    } // different animation for the rollin
-    else if (form_rolled_inout === 'out')
-    {
-        rollin();
-    }
+   // one animation for the rollout
+   if (form_rolled_inout === 'in')
+   {
+      // console.log('rollin out')
+      // start the scroll inhibiter
+      inhibitScroll(350);
+      // hide the successful delivery mesasage
+      document.getElementById('message-sent').style.visibility = 'hidden';
+
+      // remove rollin class for rollin anim
+      document.getElementById('form-question').classList.remove('rollin');
+      // add rollout class for rollout anim
+      document.getElementById('form-question').classList.add('rollout');
+      form_rolled_inout = 'out';
+   } // different animation for the rollin
+   else if (form_rolled_inout === 'out')
+   {
+      rollin();
+   }
 });
 
 ///////////////////////////////////////////////////////////////////////
