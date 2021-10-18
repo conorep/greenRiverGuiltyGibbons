@@ -8,6 +8,10 @@
 // not "fade-in" upon page load / refresh
 let all_buttons = document.getElementsByClassName('all-buttons');
 
+// need this in the event listeners / functions later for fixing margin shenanigans
+let message_sent = document.getElementById('message-sent');
+let form_question = document.getElementById('form-question');
+
 /**
  * function enables button :hover transitions for hover fade transitions
  */
@@ -87,8 +91,10 @@ let form_rolled_inout = 'in'; // or "out"
 function rollin()
 {
     // console.log('rolling in')
-    document.getElementById('form-question').classList.remove('rollout');
-    document.getElementById('form-question').classList.add('rollin');
+    form_question.classList.remove('rollout');
+    // always gotta reset this one, this is rolled in state
+    message_sent.style.margin = '10px 0 7px 0';
+    form_question.classList.add('rollin');
     form_rolled_inout = 'in';
 }
 
@@ -111,7 +117,15 @@ function inhibitScroll(timeOut) {
 
     // repeatedly set scrollbar to bottom via passing htis func into the setInterval below
     function doit() {
-      window.scrollTo(window.pageXOffset, document.body.scrollHeight);
+      // console.log('is it still auto-scrolling?')
+      // console.log(window.outerWidth, window.outerHeight)
+      if (window.outerWidth > 1199 && window.outerHeight > 800) {
+        document.getElementsByTagName('footer')[0].scrollIntoView(); // goes to page bottom
+      }
+      else {
+        document.getElementById('message-sent').scrollIntoView(); // centers the form
+      }
+      // {block: "end", behavior: "auto"}  // these still ignore margins apparently
     }
 
     // put the setInterval in a variable so we can shut it off later
@@ -127,21 +141,30 @@ function inhibitScroll(timeOut) {
 ////////////////////////////////////////////////////////////////////////////////////////////////
 // add event listener to "ask a question" button for firing off the form rollout / rollin anims
 ////////////////////////////////////////////////////////////////////////////////////////////////
+
+
 document.getElementById('button-question-container').addEventListener('click', function(event)
 {
    // one animation for the rollout
    if (form_rolled_inout === 'in')
    {
       // console.log('rollin out')
-      // start the scroll inhibiter
-      inhibitScroll(350);
-      // hide the successful delivery mesasage
-      document.getElementById('message-sent').style.visibility = 'hidden';
+      // console.log(window.outerWidth)
+      // start the scroll inhibiter if we are not in a mobile
+      // if (window.outerWidth > 767) {
+        inhibitScroll(500); // going just a bit longer than the animation cuttoff ensures it goes all the way down
+      // }
+
+      // hide the successful delivery mesasage and set it's margins to just a bit less than what
+      // it is on page load to compensate for the rollout taking more space
+      message_sent.style.visibility = 'hidden';
+      message_sent.style.margin = '1px 0 2px 0';
+      // form_question.style.margin = '0 0 0 15px'; bootstrap doesn't like this, nyuk nyuk
 
       // remove rollin class for rollin anim
-      document.getElementById('form-question').classList.remove('rollin');
+      form_question.classList.remove('rollin');
       // add rollout class for rollout anim
-      document.getElementById('form-question').classList.add('rollout');
+      form_question.classList.add('rollout');
       form_rolled_inout = 'out';
    } // different animation for the rollin
    else if (form_rolled_inout === 'out')
@@ -271,8 +294,9 @@ function validate_on_submit()
     {
         // do form rollin anim and show confirmation if all checks returned valid
         rollin();
-        // show success omessage
-        document.getElementById('message-sent').style.visibility = 'visible';
+        // show success message and reset it's margins to the closed form state
+        message_sent.style.visibility = 'visible';
+        message_sent.style.margin = '10px 0 7px 0';
     }
 }
 

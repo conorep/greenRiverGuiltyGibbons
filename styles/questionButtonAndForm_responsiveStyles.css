@@ -10,8 +10,8 @@
     /* this must be exactly the same as #button_question */
     .all-buttons:hover {
         box-shadow: 0px 0px 6px 1px rgba(64, 84, 79, 0.3);
-        color: rgb(240, 254, 255);
-        background-color: rgb(48, 167, 212);
+        color: rgb(4, 5, 5);
+        background-color: rgb(134, 203, 231);
     }
 }
 
@@ -25,8 +25,8 @@
     /* this must be exactly the same as #button_question */
     .all-buttons:hover {
         box-shadow: 0px 0px 6px 1px rgba(64, 84, 79, 0.3);
-        color: rgb(240, 254, 255);
-        background-color: rgb(48, 167, 212);
+        color: rgb(4, 5, 5);
+        background-color: rgb(134, 203, 231);
     }
 }
 
@@ -40,8 +40,8 @@
     /* this must be exactly the same as #button_question */
     .all-buttons:hover {
         box-shadow: 0px 0px 6px 1px rgba(64, 84, 79, 0.3);
-        color: rgb(240, 254, 255);
-        background-color: rgb(48, 167, 212);
+        color: rgb(4, 5, 5);
+        background-color: rgb(134, 203, 231);
     }
 }
 
