@@ -1,5 +1,5 @@
 // Kevin Price for SDEV305 GreenRiverGuiltyGibbons
-/* Sprint 1 for GRTech FAQ */
+// Sprint 1 for GRTech FAQ
 // October 14, 2021
 
 /////////////////////////////////////////////////////////////////////////////////
@@ -11,10 +11,11 @@ let all_buttons = document.getElementsByClassName('all-buttons');
 // need this in the event listeners / functions later for fixing margin shenanigans
 let message_sent = document.getElementById('message-sent');
 let form_question = document.getElementById('form-question');
+let form_and_button_container = document.getElementById('kevin-container');
 
-/**
- * function enables button :hover transitions for hover fade transitions
- */
+/*
+* function enables button :hover transitions for hover fade transitions
+*/
 function addButtonTransitionCSS()
 {
     // iterate so that all-buttons.style.transition = '1s' to enable button :hover fade transitions
@@ -84,9 +85,9 @@ for (let i = 0; i < all_buttons_container.length; i++)
 }
 
 ///////////////////////////////////////////////////////////////////////
-// ask a qustion rollout rollin flag
+// ask a qustion rollout rollin functions and listener
 ///////////////////////////////////////////////////////////////////////
-let form_rolled_inout = 'in'; // or "out"
+let form_rolled_inout = 'in'; // wil become 'out' later on
 
 function rollin()
 {
@@ -94,45 +95,38 @@ function rollin()
     form_question.classList.remove('rollout');
     // always gotta reset this one, this is rolled in state
     message_sent.style.margin = '10px 0 7px 0';
+    form_and_button_container.style.margin = '0 0 -24px 0';
     form_question.classList.add('rollin');
     form_rolled_inout = 'in';
 }
-
-
-///////////////////////////////////////////
-// let leftScroll = window.pageXOffset;
-// let topScroll = window.pageYOffset;
-// // // needed later for smooth scroll
-// // let prevScroll = window.pageYOffset;
-// window.addEventListener('scroll', function() {
-//   console.log('scrolling: left: ', window.pageXOffset, " top: ", window.pageYOffset, 'otherone ',document.body.scrollHeight)
-//
-// });
 
 /*
 * function scrolls scrollbar to bottom repeatedly for length of time in ms
 * set in timeOUt param
 */
-function inhibitScroll(timeOut) {
-
+function inhibitScroll(timeOut)
+{
     // repeatedly set scrollbar to bottom via passing htis func into the setInterval below
-    function doit() {
-      // console.log('is it still auto-scrolling?')
-      // console.log(window.outerWidth, window.outerHeight)
-      if (window.outerWidth > 1199 && window.outerHeight > 800) {
+    function doit()
+    {
+    // console.log('is it still auto-scrolling?')
+    // console.log(window.outerWidth, window.outerHeight)
+    if (window.outerWidth > 1199 && window.outerHeight > 800)
+    {
         document.getElementsByTagName('footer')[0].scrollIntoView(); // goes to page bottom
-      }
-      else {
+    }
+    else
+    {
         document.getElementById('message-sent').scrollIntoView(); // centers the form
-      }
+    }
       // {block: "end", behavior: "auto"}  // these still ignore margins apparently
     }
-
     // put the setInterval in a variable so we can shut it off later
     let inhibitingNow = setInterval(doit, 1); // action to do and frame rate in ms
     // will need this to call the clearInterval, can't just pass it in the setTimeout
-    function stopIt() {
-      clearInterval(inhibitingNow);
+    function stopIt()
+    {
+        clearInterval(inhibitingNow);
     }
     // timer to stop the scrolling
     setTimeout(stopIt, timeOut);
@@ -141,36 +135,33 @@ function inhibitScroll(timeOut) {
 ////////////////////////////////////////////////////////////////////////////////////////////////
 // add event listener to "ask a question" button for firing off the form rollout / rollin anims
 ////////////////////////////////////////////////////////////////////////////////////////////////
-
-
 document.getElementById('button-question-container').addEventListener('click', function(event)
 {
-   // one animation for the rollout
-   if (form_rolled_inout === 'in')
-   {
-      // console.log('rollin out')
-      // console.log(window.outerWidth)
-      // start the scroll inhibiter if we are not in a mobile
-      // if (window.outerWidth > 767) {
+    // one animation for the rollout
+    if (form_rolled_inout === 'in')
+    {
+        // console.log('rollin out')
+        // console.log(window.outerWidth)
+        // start the scroll inhibiter if we are not in a mobile
         inhibitScroll(500); // going just a bit longer than the animation cuttoff ensures it goes all the way down
-      // }
 
-      // hide the successful delivery mesasage and set it's margins to just a bit less than what
-      // it is on page load to compensate for the rollout taking more space
-      message_sent.style.visibility = 'hidden';
-      message_sent.style.margin = '1px 0 2px 0';
-      // form_question.style.margin = '0 0 0 15px'; bootstrap doesn't like this, nyuk nyuk
+        // hide the successful delivery mesasage and set it's margins to just a bit less than what
+        // it is on page load to compensate for the rollout taking more space
+        message_sent.style.visibility = 'hidden';
+        message_sent.style.margin = '1px 0 2px 0';
+        form_and_button_container.style.margin = '0 0 19px 0';
+        // form_question.style.margin = '0 0 0 15px'; bootstrap doesn't like this, even though it is needed
 
-      // remove rollin class for rollin anim
-      form_question.classList.remove('rollin');
-      // add rollout class for rollout anim
-      form_question.classList.add('rollout');
-      form_rolled_inout = 'out';
-   } // different animation for the rollin
-   else if (form_rolled_inout === 'out')
-   {
-      rollin();
-   }
+        // remove rollin class for rollin anim
+        form_question.classList.remove('rollin');
+        // add rollout class for rollout anim
+        form_question.classList.add('rollout');
+        form_rolled_inout = 'out';
+    } // different animation for the rollin
+    else if (form_rolled_inout === 'out')
+    {
+        rollin();
+    }
 });
 
 ///////////////////////////////////////////////////////////////////////
@@ -259,10 +250,10 @@ document.getElementById('button-submit-container').addEventListener('keypress', 
     }
 });
 
-/**
- * validate on submit function validates form for errors, fires off form rollin anim and displays
- * success animation.
- */
+/*
+* validate on submit function validates form for errors, fires off form rollin anim and displays
+* success animation.
+*/
 function validate_on_submit()
 {
     // console.log('submit got clicked')
@@ -307,10 +298,10 @@ let priorWindowWidth = window.outerWidth;
 let priorWindowHeight = window.outerHeight;
 let priorRatio = window.outerWidth / window.outerHeight;
 
-/**
- * function is a custom media query for taking into consideration screen size ratio
- * and window width in determining the sizing of the submit button and the margin above it
- */
+/*
+* function is a custom media query for taking into consideration screen size ratio
+* and window width in determining the sizing of the submit button and the margin above it
+*/
 function height_of_submit_and_margin()
 {
     let windowWidth = window.outerWidth;
@@ -334,6 +325,8 @@ function height_of_submit_and_margin()
         {
             pageJustLoaded = false;
         }
+
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////
         // check for screen ratio change
         if (ratio >= 1.08)
         {
@@ -392,6 +385,7 @@ function height_of_submit_and_margin()
                 email.style.marginBottom = emailOriginalmarginBottom.toString() + 'px';
             }
         }
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////
         // check for screen ratio change
         else if (ratio < 1.08 && ratio >= 0.7)
         {
@@ -434,8 +428,8 @@ function height_of_submit_and_margin()
                 submit.style.height = submitOriginalHeight.toString() + 'px';
                 email.style.marginBottom = emailOriginalmarginBottom.toString() + 'px';
             }
-
         }
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////
         // check for screen ratio change
         else if (ratio < 0.7 && ratio >= 0)
         {
@@ -497,6 +491,7 @@ function height_of_submit_and_margin()
 
 // set the submit button sizing upon page load
 height_of_submit_and_margin(window.outerWidth)
+
 /////////////////////////////////////////
 // event listener for every resize event
 window.addEventListener('resize', function()
