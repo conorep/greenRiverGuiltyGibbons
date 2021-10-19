@@ -12,6 +12,7 @@ let all_buttons = document.getElementsByClassName('all-buttons');
 let message_sent = document.getElementById('message-sent');
 let form_question = document.getElementById('form-question');
 let form_and_button_container = document.getElementById('kevin-container');
+let button_question_container = document.getElementById('button-question-container');
 
 /*
 * function enables button :hover transitions for hover fade transitions
@@ -109,18 +110,36 @@ function inhibitScroll(timeOut)
     // repeatedly set scrollbar to bottom via passing htis func into the setInterval below
     function doit()
     {
-    // console.log('is it still auto-scrolling?')
-    // console.log(window.outerWidth, window.outerHeight)
-    if (window.outerWidth > 1199 && window.outerHeight > 800)
-    {
-        document.getElementsByTagName('footer')[0].scrollIntoView(); // goes to page bottom
+        // console.log('is it still auto-scrolling?')
+        // console.log(window.outerWidth, window.outerHeight)
+
+        // inhibiting other browsers because only Firefox can do this auto scroll and form animation simultaneously
+        let is_invalid_browser = navigator.userAgent.toLowerCase();
+        // console.log(is_invalid_browser)
+        if (is_invalid_browser.indexOf('chrome') >= 0 || is_invalid_browser.indexOf('opera') >= 0){
+            is_invalid_browser = true;
+        } else {
+            is_invalid_browser = false;
+        }
+        // console.log(is_invalid_browser);
+
+        // if the only browser that works exists
+        if (is_invalid_browser === false) {
+            // scroll to target for wide monitors is the page bottom, for all others, it's the form center
+            if (window.innerWidth > 1199 && window.innerHeight > 800)
+            {
+                document.getElementsByTagName('footer')[0].scrollIntoView(); // goes to page bottom
+                // console.log('auto scroll bigger')
+                // console.log(window.innerWidth, window.outerWidth)
+            }
+            else
+            {   // centers the form... but only in firefox does it do it simultaneously with the rollout
+                // chrome and opera are broken as usual and can't do this as expected, they insert a delay
+                button_question_container.scrollIntoView(); // this is the one chrome does not like...
+            }
+        }
     }
-    else
-    {
-        document.getElementById('message-sent').scrollIntoView(); // centers the form
-    }
-      // {block: "end", behavior: "auto"}  // these still ignore margins apparently
-    }
+
     // put the setInterval in a variable so we can shut it off later
     let inhibitingNow = setInterval(doit, 1); // action to do and frame rate in ms
     // will need this to call the clearInterval, can't just pass it in the setTimeout
@@ -135,7 +154,7 @@ function inhibitScroll(timeOut)
 ////////////////////////////////////////////////////////////////////////////////////////////////
 // add event listener to "ask a question" button for firing off the form rollout / rollin anims
 ////////////////////////////////////////////////////////////////////////////////////////////////
-document.getElementById('button-question-container').addEventListener('click', function(event)
+button_question_container.addEventListener('click', function(event)
 {
     // one animation for the rollout
     if (form_rolled_inout === 'in')
@@ -143,7 +162,6 @@ document.getElementById('button-question-container').addEventListener('click', f
         // console.log('rollin out')
         // console.log(window.outerWidth)
         // start the scroll inhibiter if we are not in a mobile
-        inhibitScroll(500); // going just a bit longer than the animation cuttoff ensures it goes all the way down
 
         // hide the successful delivery mesasage and set it's margins to just a bit less than what
         // it is on page load to compensate for the rollout taking more space
@@ -151,6 +169,7 @@ document.getElementById('button-question-container').addEventListener('click', f
         message_sent.style.margin = '1px 0 2px 0';
         form_and_button_container.style.margin = '0 0 19px 0';
         // form_question.style.margin = '0 0 0 15px'; bootstrap doesn't like this, even though it is needed
+        inhibitScroll(500); // going just a bit longer than the animation cuttoff ensures it goes all the way down
 
         // remove rollin class for rollin anim
         form_question.classList.remove('rollin');
@@ -294,9 +313,9 @@ function validate_on_submit()
 ///////////////////////////////////////////////////////////////////////////////////////
 // will need these to inhibit jumpiness, checking prior to setting submit button sizing
 let pageJustLoaded = true;
-let priorWindowWidth = window.outerWidth;
-let priorWindowHeight = window.outerHeight;
-let priorRatio = window.outerWidth / window.outerHeight;
+let priorWindowWidth = window.innerWidth;
+let priorWindowHeight = window.innerHeight;
+let priorRatio = window.innerWidth / window.innerHeight;
 
 /*
 * function is a custom media query for taking into consideration screen size ratio
@@ -304,8 +323,8 @@ let priorRatio = window.outerWidth / window.outerHeight;
 */
 function height_of_submit_and_margin()
 {
-    let windowWidth = window.outerWidth;
-    let windowHeight = window.outerHeight;
+    let windowWidth = window.innerWidth;
+    let windowHeight = window.innerHeight;
     let ratio = windowWidth / windowHeight;
     let submit = document.getElementById('button-submit-container');
     let email = document.getElementById('email-entry');
@@ -484,13 +503,13 @@ function height_of_submit_and_margin()
         }
     }
     // update these for our "did we really scale?" if statement
-    priorWindowWidth = window.outerWidth;
-    priorWindowHeight = window.outerHeight;
-    priorRatio = window.outerWidth / window.outerHeight;
+    priorWindowWidth = window.innerWidth;
+    priorWindowHeight = window.innerHeight;
+    priorRatio = window.innerWidth / window.innerHeight;
 }
 
 // set the submit button sizing upon page load
-height_of_submit_and_margin(window.outerWidth)
+height_of_submit_and_margin(window.innerWidth)
 
 /////////////////////////////////////////
 // event listener for every resize event
