@@ -90,6 +90,9 @@ hr {
     font-weight: bold;
 }
 
+.navbar-brand {
+    margin-right: 0;
+}
 
 /*ID STYLES*/
 
