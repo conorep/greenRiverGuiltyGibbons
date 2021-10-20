@@ -95,10 +95,11 @@ hr {
 
 #disclaimer {
     text-align: center;
-    padding: 20px 15px 30px 30px;
-    margin-top: -15px;
+    padding: 1rem;
 }
 
 #disclaimer-text {
     font-weight: bold;
+    font-size: 1.2rem;
+    margin: 0;
 }
