@@ -103,3 +103,8 @@ hr {
     font-size: 1.2rem;
     margin: 0;
 }
+
+#spacer {
+    margin-right: auto;
+    margin-left: auto;
+}
