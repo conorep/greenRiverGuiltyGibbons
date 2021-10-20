@@ -22,7 +22,7 @@ function addButtonTransitionCSS()
     // iterate so that all-buttons.style.transition = '1s' to enable button :hover fade transitions
     for (let i = 0; i < all_buttons.length; i++)
     {
-        all_buttons[i].style.transition = '1s';
+        all_buttons[i].style.transition = '0.25s';
     }
 }
 // delay enabling the button :hover transitions by 100 milliseconds on page load so the fade does not fade in on page load
@@ -46,45 +46,56 @@ function remove_animation()
 /////////////////////////////////////////////////////////////////////////
 // add click event listener to all buttons
 /////////////////////////////////////////////////////////////////////////
-for (let i = 0; i < all_buttons_container.length; i++)
+function runButtonScaleAnim(event)
 {
-    all_buttons_container[i].addEventListener('click', function(event)
+    // get clicked id from event that works in Firefox and Chrome somehow...
+    // console.log(event.target.id);
+    let clicked_button_id = event.target.id;
+    // fire off the button clicked anim for only clicked button
+    for (let i = 0; i < all_buttons_container.length; i++)
     {
-        // get clicked id from event that works in Firefox and Chrome somehow...
-        // console.log(event.target.id);
-        let clicked_button_id = event.target.id;
-        // fire off the button clicked anim for only clicked button
-        for (let i = 0; i < all_buttons_container.length; i++)
+        // check string lengths before comparing,
+        // just in case of bubbling / browser issues...
+        let iterated_id = all_buttons_container[i].attributes.id.value;
+        let match_true = false;
+        // console.log(iterated_id)
+        // console.log(clicked_button_id)
+        // commencing with comparing string length of the ids to make sure
+        // our "is this string inside this other string" check will always work
+        if (iterated_id.length > clicked_button_id.length)
         {
-            // check string lengths before comparing,
-            // just in case of bubbling / browser issues...
-            let iterated_id = all_buttons_container[i].attributes.id.value;
-            let match_true = false;
-            // commencing with comparing string length of the ids to make sure
-            // our "is this string inside this other string" check will always work
-            if (iterated_id.length > clicked_button_id.length)
-            {
-                match_true = iterated_id.indexOf(clicked_button_id) >= 0;
-            }
-            else if (clicked_button_id.length > iterated_id.length)
-            {
-                match_true = clicked_button_id.indexOf(iterated_id) >= 0;
-            } else
-            {
-                match_true = clicked_button_id === iterated_id;
-            }
-            // if the clicked button and the iterated button are a match, fire off the button scale-in-out anim
-            if (match_true)
-            {
-                all_buttons_container[i].style.animationDuration = '0.3s';
-                all_buttons_container[i].style.animationName = 'button_question_click';
-            }
+            match_true = iterated_id.indexOf(clicked_button_id) >= 0;
         }
-        // remove it slightly after the animation is done
-        setTimeout(remove_animation, 350);
-    });
+        else if (clicked_button_id.length > iterated_id.length)
+        {
+            match_true = clicked_button_id.indexOf(iterated_id) >= 0;
+        } else
+        {
+            match_true = clicked_button_id === iterated_id;
+        }
+        // if the clicked button and the iterated button are a match, fire off the button scale-in-out anim
+        if (match_true)
+        {
+            all_buttons_container[i].style.animationDuration = '0.3s';
+            all_buttons_container[i].style.animationName = 'button_question_click';
+        }
+    }
+    // remove it slightly after the animation is done
+    setTimeout(remove_animation, 350);
 }
 
+//////////////////////////////////////////////////
+// click event listeners for button scale anim
+for (let i = 0; i < all_buttons_container.length; i++)
+{
+    all_buttons_container[i].addEventListener('click', runButtonScaleAnim);
+}
+/////////////////////////////////////////////////
+// enter button keypress for button scale anim
+for (let i = 0; i < all_buttons_container.length; i++)
+{
+    all_buttons_container[i].addEventListener('keypress', runButtonScaleAnim);
+}
 ///////////////////////////////////////////////////////////////////////
 // ask a qustion rollout rollin functions and listener
 ///////////////////////////////////////////////////////////////////////
@@ -116,7 +127,8 @@ function inhibitScroll(timeOut)
         // inhibiting other browsers because only Firefox can do this auto scroll and form animation simultaneously
         let is_invalid_browser = navigator.userAgent.toLowerCase();
         // console.log(is_invalid_browser)
-        if (is_invalid_browser.indexOf('chrome') >= 0 || is_invalid_browser.indexOf('opera') >= 0){
+        if (is_invalid_browser.indexOf('chrome') >= 0 || is_invalid_browser.indexOf('opera') >= 0)
+        {
             is_invalid_browser = true;
         } else {
             is_invalid_browser = false;
@@ -124,7 +136,8 @@ function inhibitScroll(timeOut)
         // console.log(is_invalid_browser);
 
         // if the only browser that works exists
-        if (is_invalid_browser === false) {
+        if (is_invalid_browser === false)
+        {
             // scroll to target for wide monitors is the page bottom, for all others, it's the form center
             if (window.innerWidth > 1199 && window.innerHeight > 800)
             {
@@ -208,8 +221,9 @@ function validate_email(email)
             dot_count++;
         }
     }
-    // return false if either is still -1
-    if (at_i === -1 || dot_i === -1)
+    // console.log(email, email.length, email.indexOf('.') === email.length-1)
+    // return false if either is still -1, or if the domain identifiers have . or @ at the end
+    if (at_i === -1 || dot_i === -1 || email.indexOf('.') === email.length-1 || email.indexOf('@') === email.length-1)
     {
         return false;
     }
@@ -222,15 +236,19 @@ function validate_email(email)
         } else { // 1 and 1, correct order
             return true;
         }
-    } else { // multiple dots and ats mostly ok, except domain extensions have no special chars
+    }
+    else
+    { // multiple dots and ats mostly ok, except domain extensions have no special chars
         if (at_i < dot_i && (dot_i - at_i === 1))
         { // literally the bottom of the barrel here
             return false;
-        } if (at_i < dot_i)
+        }
+        if (at_i < dot_i)
         { // domain extensions have no special chars
             return true;
         }
-        else {
+        else
+        {
             return false;
         }
     }
@@ -262,10 +280,13 @@ button_submit.addEventListener('click', validate_on_submit);
 // add keypress listener for getting enter
 document.getElementById('button-submit-container').addEventListener('keypress', function(event)
 {
+    event.preventDefault();
+    // console.log(event.key)
+    // event.stopPropagation();
     // if keypress was an enter, validate on submit
     if (event.key === 'Enter')
     {
-        validate_on_submit();
+        validate_on_submit(event);
     }
 });
 
@@ -273,8 +294,10 @@ document.getElementById('button-submit-container').addEventListener('keypress', 
 * validate on submit function validates form for errors, fires off form rollin anim and displays
 * success animation.
 */
-function validate_on_submit()
+function validate_on_submit(event)
 {
+    event.preventDefault();
+    // event.stopPropagation();
     // console.log('submit got clicked')
     // get email and message text
     let email = document.getElementById('email-entry').value;
