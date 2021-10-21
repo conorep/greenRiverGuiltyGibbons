@@ -23,6 +23,7 @@ function addButtonTransitionCSS()
     for (let i = 0; i < all_buttons.length; i++)
     {
         all_buttons[i].style.transition = '0.25s';
+        message_sent.style.transition = '0.25s';
     }
 }
 // delay enabling the button :hover transitions by 100 milliseconds on page load so the fade does not fade in on page load
@@ -112,6 +113,7 @@ function rollin()
     form_question.classList.remove('rollout');
     // always gotta reset this one, this is rolled-in state
     message_sent.style.margin = '10px 0 7px 0';
+    message_sent.classList.remove('remove_confirm'); // resetting hjust in case rolloud out after confirmed already
     form_and_button_container.style.margin = '0 0 -24px 0';
     form_question.classList.add('rollin');
     form_rolled_inout = 'in';
@@ -343,6 +345,28 @@ function validate_on_submit(event)
         message_sent.style.visibility = 'visible';
         message_sent.style.margin = '10px 0 7px 0';
     }
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////
+// for removing the submission message upon click
+message_sent.addEventListener('click', removeConfirmationMessage);
+message_sent.addEventListener('keypress', removeConfirmationMessage);
+
+/*
+* function removes confirmation message upon click
+*/
+function removeConfirmationMessage(event)
+{
+    /* runs in settimeout
+    */
+    function removed()
+    {
+        message_sent.style.visibility = 'hidden';
+    }
+
+    // remove it after anim is played
+    message_sent.classList.add('remove_confirm');
+    setTimeout(removed, 400);
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////
