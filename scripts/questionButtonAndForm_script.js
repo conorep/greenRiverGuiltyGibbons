@@ -4,11 +4,11 @@
 
 /////////////////////////////////////////////////////////////////////////////////
 // delay application of button transition style until after page loads so it does
-/////////////////////////////////////////////////////////////////////////////////
 // not "fade-in" upon page load / refresh
+/////////////////////////////////////////////////////////////////////////////////
 let all_buttons = document.getElementsByClassName('all-buttons');
 
-// need this in the event listeners / functions later for fixing margin shenanigans
+// need this in the event listeners / functions later for fixing margin problems
 let message_sent = document.getElementById('message-sent');
 let form_question = document.getElementById('form-question');
 let form_and_button_container = document.getElementById('kevin-container');
@@ -33,11 +33,13 @@ setTimeout(addButtonTransitionCSS, 100);
 ///////////////////////////////////////////////////////////////////////////////////////////////
 // event listener and function for ASK A QUESTION button click animation
 let all_buttons_container = document.getElementsByClassName('all-buttons-container');
-// for removing the animation after use, required for allowing re-click
+/*
+* for removing the animation after use, required for allowing re-click
+*/
 function remove_animation()
-{
+{   // iterate all buttons
     for (let i = 0; i < all_buttons_container.length; i++)
-    {
+    {   // remove the animation
         all_buttons_container[i].style.animationName = '';
         all_buttons_container[i].style.animationDuration = '';
     }
@@ -48,7 +50,7 @@ function remove_animation()
 /////////////////////////////////////////////////////////////////////////
 function runButtonScaleAnim(event)
 {
-    // get clicked id from event that works in Firefox and Chrome somehow...
+    // get clicked id from event that works in Firefox and Chrome...
     // console.log(event.target.id);
     let clicked_button_id = event.target.id;
     // fire off the button clicked anim for only clicked button
@@ -97,15 +99,18 @@ for (let i = 0; i < all_buttons_container.length; i++)
     all_buttons_container[i].addEventListener('keypress', runButtonScaleAnim);
 }
 ///////////////////////////////////////////////////////////////////////
-// ask a qustion rollout rollin functions and listener
+// ask a qustion rollout / rollin functions and listener
 ///////////////////////////////////////////////////////////////////////
-let form_rolled_inout = 'in'; // wil become 'out' later on
+let form_rolled_inout = 'in'; // will become 'out' later on
 
+/*
+* rolls in the form
+*/
 function rollin()
 {
     // console.log('rolling in')
     form_question.classList.remove('rollout');
-    // always gotta reset this one, this is rolled in state
+    // always gotta reset this one, this is rolled-in state
     message_sent.style.margin = '10px 0 7px 0';
     form_and_button_container.style.margin = '0 0 -24px 0';
     form_question.classList.add('rollin');
@@ -114,17 +119,19 @@ function rollin()
 
 /*
 * function scrolls scrollbar to bottom repeatedly for length of time in ms
-* set in timeOUt param
+* set in timeOut param
 */
-function inhibitScroll(timeOut)
+function scrollDown(timeOut)
 {
-    // repeatedly set scrollbar to bottom via passing htis func into the setInterval below
-    function doit()
+    /*
+    * repeatedly set scrollbar to bottom via passing htis func into the setInterval below
+    */
+    function scrolling()
     {
         // console.log('is it still auto-scrolling?')
         // console.log(window.outerWidth, window.outerHeight)
 
-        // inhibiting other browsers because only Firefox can do this auto scroll and form animation simultaneously
+        // inhibiting chrome and opera, because they can't scroll to a location and play an animation simultaneously
         let is_invalid_browser = navigator.userAgent.toLowerCase();
         // console.log(is_invalid_browser)
         if (is_invalid_browser.indexOf('chrome') >= 0 || is_invalid_browser.indexOf('opera') >= 0)
@@ -135,10 +142,11 @@ function inhibitScroll(timeOut)
         }
         // console.log(is_invalid_browser);
 
-        // if the only browser that works exists
+        // if we have any other browser, run the scroll to form motion
         if (is_invalid_browser === false)
         {
-            // scroll to target for wide monitors is the page bottom, for all others, it's the form center
+            // scroll to target for wide monitors is the page bottom, for all others, it scrolls so taht top of page
+            // aligns with the top of the question button
             if (window.innerWidth > 1199 && window.innerHeight > 800)
             {
                 document.getElementsByTagName('footer')[0].scrollIntoView(); // goes to page bottom
@@ -146,19 +154,21 @@ function inhibitScroll(timeOut)
                 // console.log(window.innerWidth, window.outerWidth)
             }
             else
-            {   // centers the form... but only in firefox does it do it simultaneously with the rollout
-                // chrome and opera are broken as usual and can't do this as expected, they insert a delay
-                button_question_container.scrollIntoView(); // this is the one chrome does not like...
+            {   // centers the form...
+                // chrome and opera insert a delay before firinghtis one off, do not use this with an animation with them
+                button_question_container.scrollIntoView();
             }
         }
     }
 
     // put the setInterval in a variable so we can shut it off later
-    let inhibitingNow = setInterval(doit, 1); // action to do and frame rate in ms
-    // will need this to call the clearInterval, can't just pass it in the setTimeout
+    let scrollingIterator = setInterval(scrolling, 10); // action to do and frame rate in ms
+    /*
+    * function stops the setInterval iteration
+    */
     function stopIt()
     {
-        clearInterval(inhibitingNow);
+        clearInterval(scrollingIterator);
     }
     // timer to stop the scrolling
     setTimeout(stopIt, timeOut);
@@ -176,13 +186,13 @@ button_question_container.addEventListener('click', function(event)
         // console.log(window.outerWidth)
         // start the scroll inhibiter if we are not in a mobile
 
-        // hide the successful delivery mesasage and set it's margins to just a bit less than what
+        // hide the successful delivery message and set it's margins to just a bit less than what
         // it is on page load to compensate for the rollout taking more space
         message_sent.style.visibility = 'hidden';
         message_sent.style.margin = '1px 0 2px 0';
         form_and_button_container.style.margin = '0 0 19px 0';
         // form_question.style.margin = '0 0 0 15px'; bootstrap doesn't like this, even though it is needed
-        inhibitScroll(500); // going just a bit longer than the animation cuttoff ensures it goes all the way down
+        scrollDown(500); // going just a bit longer than the animation cuttoff ensures it goes all the way down
 
         // remove rollin class for rollin anim
         form_question.classList.remove('rollin');
@@ -257,10 +267,12 @@ function validate_email(email)
 ////////////////////////////////////////////////////
 // submit button validation
 ///////////////////////////////////////////////////
-// wil be using these later in multiple places
+// will be using these later in multiple places
 let error_messages = document.getElementsByClassName('error');
 
-// clear error messages on load / reload
+/*
+* clear error messages on load / reload
+*/
 function clear_form_errors()
 {
     // iterate all error messages and hide them
@@ -541,5 +553,3 @@ window.addEventListener('resize', function()
     // set the submit button sizing
     height_of_submit_and_margin();
 });
-
-//
