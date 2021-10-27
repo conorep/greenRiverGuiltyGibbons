@@ -12,6 +12,7 @@
 <?php
     echo "<p>Search Results: </p>";
 
+
     $search_results = $_POST['search-results'];
 
 ?>
