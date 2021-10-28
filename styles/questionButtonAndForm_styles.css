@@ -26,6 +26,7 @@
     border-radius: 4px;
     font-weight: 600;
     box-shadow: 0px 4px 5px 1px rgba(212, 197, 221, 0.1);
+    /* position: relative; */
 }
 
 /* ########################################### */
@@ -162,11 +163,11 @@
         margin-top: 20px;
         margin-bottom: 20px;
         transform: scaleY(1);
-        max-height: 410px;
+        max-height: 510px;
     }
 }
 .rollout {
-    animation: form_rollout 0.5s forwards;
+    animation: form_rollout 0.5s forwards ease-out;
 }
 
 /* ########################## */
@@ -178,7 +179,7 @@
         margin-top: 20px;
         margin-bottom: 20px;
         transform: scaleY(1);
-        max-height: 410px;
+        max-height: 510px;
     }
     20% {
         opacity: 1;
@@ -193,7 +194,7 @@
     }
 }
 .rollin {
-    animation: form_rollin 0.5s forwards;
+    animation: form_rollin 0.7s forwards ease-out;
 }
 
 /* remove confirm message anim */
@@ -208,3 +209,29 @@
 .remove_confirm {
     animation: remove_confirm 0.3s forwards;
 }
+
+/* ######################################### */
+/*    will need to move thse up once the lname and fname are implemented */
+#question-div {
+    position: relative;
+}
+#button-submit-container {
+    position: absolute;
+    bottom: -91px
+}
+
+#email-entry {
+    margin-bottom: 92px;
+}
+
+
+
+
+
+
+
+
+
+
+
+/*  */

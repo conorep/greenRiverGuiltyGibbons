@@ -164,7 +164,7 @@ function scrollDown(timeOut)
     }
 
     // put the setInterval in a variable so we can shut it off later
-    let scrollingIterator = setInterval(scrolling, 10); // action to do and frame rate in ms
+    let scrollingIterator = setInterval(scrolling, 1); // action to do and frame rate in ms
     /*
     * function stops the setInterval iteration
     */
@@ -194,7 +194,7 @@ button_question_container.addEventListener('click', function(event)
         message_sent.style.margin = '1px 0 2px 0';
         form_and_button_container.style.margin = '0 0 19px 0';
         // form_question.style.margin = '0 0 0 15px'; bootstrap doesn't like this, even though it is needed
-        scrollDown(500); // going just a bit longer than the animation cuttoff ensures it goes all the way down
+        scrollDown(650); // going just a bit longer than the animation cuttoff ensures it goes all the way down
 
         // remove rollin class for rollin anim
         form_question.classList.remove('rollin');
@@ -369,211 +369,11 @@ function removeConfirmationMessage(event)
     setTimeout(removed, 400);
 }
 
-///////////////////////////////////////////////////////////////////////////////////////
-// will need these to inhibit jumpiness, checking prior to setting submit button sizing
-let pageJustLoaded = true;
-let priorWindowWidth = window.innerWidth;
-let priorWindowHeight = window.innerHeight;
-let priorRatio = window.innerWidth / window.innerHeight;
 
-/*
-* function is a custom media query for taking into consideration screen size ratio
-* and window width in determining the sizing of the submit button and the margin above it
-*/
-function height_of_submit_and_margin()
-{
-    let windowWidth = window.innerWidth;
-    let windowHeight = window.innerHeight;
-    let ratio = windowWidth / windowHeight;
-    let submit = document.getElementById('button-submit-container');
-    let email = document.getElementById('email-entry');
-    let submitOriginalHeight = 50;
-    let emailOriginalHeight = 35;
-    let emailOriginalmarginBottom = 25;
-    // console.log('ratio ',ratio, 'windowWidth ', windowWidth, 'windowHeight: ',windowHeight);
-
-    // multiplier for diminishing button and email margin height
-    let mult = 1;
-
-    // "did we really scale?" if-statement to ensure we aren't resizing the button upon merely resizing the width of window
-    if ((ratio !== priorRatio && windowHeight !== priorWindowHeight) || pageJustLoaded === true)
-    {
-        // won't need this again until page is refreshed
-        if (pageJustLoaded === true)
-        {
-            pageJustLoaded = false;
-        }
-
-        //////////////////////////////////////////////////////////////////////////////////////////////////////////
-        // check for screen ratio change
-        if (ratio >= 1.08)
-        {
-            // console.log('ffffffffffffffffffffffffffirst')
-            if (windowWidth > 1400 && windowWidth <= 1800)
-            {
-                mult = 0.95;
-                // console.log('mult',mult)
-                submit.style.height = Math.floor(submitOriginalHeight * (mult * 0.7)).toString() + 'px';
-                email.style.marginBottom = Math.floor(emailOriginalmarginBottom * (0.65)).toString() + 'px';
-            }
-            if (windowWidth > 1800 && windowWidth <= 2100)
-            {
-                mult = 0.95;
-                // console.log('mult',mult)
-                submit.style.height = Math.floor(submitOriginalHeight * mult).toString() + 'px';
-                email.style.marginBottom = Math.floor(emailOriginalmarginBottom * (0.8)).toString() + 'px';
-            }
-            else if (windowWidth > 2100 && windowWidth <= 2500)
-            {
-                mult = 0.85;
-                // console.log('mult',mult)
-                submit.style.height = Math.floor(submitOriginalHeight * mult).toString() + 'px';
-                email.style.marginBottom = Math.floor(emailOriginalmarginBottom * (0.8)).toString() + 'px';
-            }
-            else if (windowWidth > 2500 && windowWidth <= 3000)
-            {
-                mult = 0.77;
-                // console.log('mult',mult)
-                submit.style.height = Math.floor(submitOriginalHeight * mult).toString() + 'px';
-                email.style.marginBottom = Math.floor(emailOriginalmarginBottom * (0.75)).toString() + 'px';
-            }
-            else if (windowWidth > 3000 && windowWidth <= 4000)
-            {
-                mult = 0.65;
-                // console.log('mult',mult)
-                submit.style.height = Math.floor(submitOriginalHeight * mult).toString() + 'px';
-                email.style.marginBottom = Math.floor(emailOriginalmarginBottom * (mult + 0.05)).toString() + 'px';
-            }
-            else if (windowWidth > 4000 && windowWidth <= 5000)
-            {
-                mult = 0.55;
-                // console.log('mult',mult)
-                submit.style.height = Math.floor(submitOriginalHeight * mult).toString() + 'px';
-                email.style.marginBottom = Math.floor(emailOriginalmarginBottom * (mult + 0.15)).toString() + 'px';
-            }
-            else if (windowWidth > 5000)
-            {
-                mult = 0.45;
-                // console.log('mult',mult)
-                submit.style.height = Math.floor(submitOriginalHeight * mult).toString() + 'px';
-                email.style.marginBottom = Math.floor(emailOriginalmarginBottom * (mult + 0.15)).toString() + 'px';
-            } else
-            { // normal starting sizes
-                submit.style.height = submitOriginalHeight.toString() + 'px';
-                email.style.marginBottom = emailOriginalmarginBottom.toString() + 'px';
-            }
-        }
-        //////////////////////////////////////////////////////////////////////////////////////////////////////////
-        // check for screen ratio change
-        else if (ratio < 1.08 && ratio >= 0.7)
-        {
-            // console.log('mmmmmmmmmmmmmmmmmmmmmmmmid')
-            // check for width of screen and alter button and margin sizes accordingly
-            if (windowWidth > 600 && windowWidth <= 900)
-            {
-                mult = 0.95;
-                // console.log('mult',mult)
-                submit.style.height = Math.floor(submitOriginalHeight * mult).toString() + 'px';
-            }
-            else if (windowWidth > 900 && windowWidth <= 1300)
-            {
-                mult = 0.8;
-                // console.log('mult',mult)
-                submit.style.height = Math.floor(submitOriginalHeight * mult).toString() + 'px';
-            }
-            else if (windowWidth > 1300 && windowWidth <= 1700)
-            {
-                mult = 0.75;
-                // console.log('mult',mult)
-                submit.style.height = Math.floor(submitOriginalHeight * mult).toString() + 'px';
-                email.style.marginBottom = emailOriginalmarginBottom.toString() + 'px';  /// always have to reset this one
-            }
-            else if (windowWidth > 1700 && windowWidth <= 2000)
-            {
-                mult = 0.65;
-                // console.log('mult',mult)
-                submit.style.height = Math.floor(submitOriginalHeight * mult).toString() + 'px';
-                email.style.marginBottom = Math.floor(emailOriginalmarginBottom * 0.9).toString() + 'px';
-            }
-            else if (windowWidth > 2000)
-            {
-                mult = 0.55;
-                // console.log('mult',mult)
-                submit.style.height = Math.floor(submitOriginalHeight * mult).toString() + 'px';
-                email.style.marginBottom = Math.floor(emailOriginalmarginBottom * (mult + 0.1)).toString() + 'px';
-            } else
-            { // normal starting sizes
-                submit.style.height = submitOriginalHeight.toString() + 'px';
-                email.style.marginBottom = emailOriginalmarginBottom.toString() + 'px';
-            }
-        }
-        //////////////////////////////////////////////////////////////////////////////////////////////////////////
-        // check for screen ratio change
-        else if (ratio < 0.7 && ratio >= 0)
-        {
-            // console.log('llllllllllllllllllllllllllllllast')
-            // check for width of screen and alter button and margin sizes accordingly
-            if (windowWidth > 600 && windowWidth <= 800)
-            {
-                mult = 0.9;
-                // console.log('mult',mult)
-                submit.style.height = Math.floor(submitOriginalHeight * mult).toString() + 'px';
-                email.style.marginBottom = Math.floor(emailOriginalmarginBottom * (mult)).toString() + 'px';
-            }
-            else if (windowWidth > 800 && windowWidth <= 900)
-            {
-                mult = 0.8;
-                // console.log('mult',mult)
-                submit.style.height = Math.floor(submitOriginalHeight * mult).toString() + 'px';
-                email.style.marginBottom = Math.floor(emailOriginalmarginBottom * (mult - 0.3)).toString() + 'px';
-            }
-            else if (windowWidth > 900 && windowWidth <= 1000)
-            {
-                mult = 0.7;
-                // console.log('mult',mult)
-                submit.style.height = Math.floor(submitOriginalHeight * mult).toString() + 'px';
-                email.style.marginBottom = Math.floor(emailOriginalmarginBottom * (mult - 0.2)).toString() + 'px';
-            }
-            else if (windowWidth > 1000 && windowWidth <= 1100)
-            {
-                mult = 0.65;
-                // console.log('mult',mult)
-                submit.style.height = Math.floor(submitOriginalHeight * mult).toString() + 'px';
-                email.style.marginBottom = Math.floor(emailOriginalmarginBottom * (mult - 0.2)).toString() + 'px';
-            }
-            else if (windowWidth > 1100 && windowWidth <= 1200)
-            {
-                mult = 0.55;
-                // console.log('mult',mult)
-                submit.style.height = Math.floor(submitOriginalHeight * mult).toString() + 'px';
-                email.style.marginBottom = Math.floor(emailOriginalmarginBottom * (mult - 0.2)).toString() + 'px';
-            }
-            else if (windowWidth > 1200)
-            {
-                mult = 0.45;
-                // console.log('mult',mult)
-                submit.style.height = Math.floor(submitOriginalHeight * mult).toString() + 'px';
-                email.style.marginBottom = Math.floor(emailOriginalmarginBottom * (mult + 0.25)).toString() + 'px';
-            } else
-            { // normal starting sizes
-                submit.style.height = submitOriginalHeight.toString() + 'px';
-                email.style.marginBottom = emailOriginalmarginBottom.toString() + 'px';
-            }
-        }
-    }
-    // update these for our "did we really scale?" if statement
-    priorWindowWidth = window.innerWidth;
-    priorWindowHeight = window.innerHeight;
-    priorRatio = window.innerWidth / window.innerHeight;
-}
-
-// set the submit button sizing upon page load
-height_of_submit_and_margin(window.innerWidth)
 
 /////////////////////////////////////////
-// event listener for every resize event
-window.addEventListener('resize', function()
-{
-    // set the submit button sizing
-    height_of_submit_and_margin();
-});
+// for anything needed in debugging
+// window.addEventListener('resize', function()
+// {
+//     console.log(window.innerWidth)
+// });
