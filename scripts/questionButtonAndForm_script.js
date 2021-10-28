@@ -12,7 +12,7 @@ let all_buttons = document.getElementsByClassName('all-buttons');
 let message_sent = document.getElementById('message-sent');
 let form_question = document.getElementById('form-question');
 let form_and_button_container = document.getElementById('kevin-container');
-let button_question_container = document.getElementById('button-question-container');
+let button_question_container = document.getElementById('button-question');
 
 /*
 * function enables button :hover transitions for hover fade transitions
@@ -26,23 +26,21 @@ function addButtonTransitionCSS()
         message_sent.style.transition = '0.25s';
     }
 }
-// delay enabling the button :hover transitions by 100 milliseconds on page load so the fade does not fade in on page load
+// // delay enabling the button :hover transitions by 100 milliseconds on page load so the fade does not fade in on page load
 setTimeout(addButtonTransitionCSS, 100);
 
 ///////////////////////////////////////////////////////////////////////////////////////////////
 // remove animation button, it can run thru both buttons when only 1 is clicked and still works
 ///////////////////////////////////////////////////////////////////////////////////////////////
 // event listener and function for ASK A QUESTION button click animation
-let all_buttons_container = document.getElementsByClassName('all-buttons-container');
 /*
 * for removing the animation after use, required for allowing re-click
 */
 function remove_animation()
 {   // iterate all buttons
-    for (let i = 0; i < all_buttons_container.length; i++)
+    for (let i = 0; i < all_buttons.length; i++)
     {   // remove the animation
-        all_buttons_container[i].style.animationName = '';
-        all_buttons_container[i].style.animationDuration = '';
+        all_buttons[i].classList.remove('button-click');
     }
 }
 
@@ -54,33 +52,13 @@ function runButtonScaleAnim(event)
     // get clicked id from event that works in Firefox and Chrome...
     // console.log(event.target.id);
     let clicked_button_id = event.target.id;
+    // console.log(clicked_button_id," got clicked")
     // fire off the button clicked anim for only clicked button
-    for (let i = 0; i < all_buttons_container.length; i++)
-    {
-        // check string lengths before comparing,
-        // just in case of bubbling / browser issues...
-        let iterated_id = all_buttons_container[i].attributes.id.value;
-        let match_true = false;
-        // console.log(iterated_id)
-        // console.log(clicked_button_id)
-        // commencing with comparing string length of the ids to make sure
-        // our "is this string inside this other string" check will always work
-        if (iterated_id.length > clicked_button_id.length)
-        {
-            match_true = iterated_id.indexOf(clicked_button_id) >= 0;
-        }
-        else if (clicked_button_id.length > iterated_id.length)
-        {
-            match_true = clicked_button_id.indexOf(iterated_id) >= 0;
-        } else
-        {
-            match_true = clicked_button_id === iterated_id;
-        }
-        // if the clicked button and the iterated button are a match, fire off the button scale-in-out anim
-        if (match_true)
-        {
-            all_buttons_container[i].style.animationDuration = '0.3s';
-            all_buttons_container[i].style.animationName = 'button_question_click';
+    for (let i = 0; i < all_buttons.length; i++)
+    {   // remove the animation
+        if (all_buttons[i].id === clicked_button_id) {
+            all_buttons[i].classList.add('button-click');
+
         }
     }
     // remove it slightly after the animation is done
@@ -89,15 +67,15 @@ function runButtonScaleAnim(event)
 
 //////////////////////////////////////////////////
 // click event listeners for button scale anim
-for (let i = 0; i < all_buttons_container.length; i++)
+for (let i = 0; i < all_buttons.length; i++)
 {
-    all_buttons_container[i].addEventListener('click', runButtonScaleAnim);
+    all_buttons[i].addEventListener('click', runButtonScaleAnim);
 }
 /////////////////////////////////////////////////
 // enter button keypress for button scale anim
-for (let i = 0; i < all_buttons_container.length; i++)
+for (let i = 0; i < all_buttons.length; i++)
 {
-    all_buttons_container[i].addEventListener('keypress', runButtonScaleAnim);
+    all_buttons[i].addEventListener('keypress', runButtonScaleAnim);
 }
 ///////////////////////////////////////////////////////////////////////
 // ask a qustion rollout / rollin functions and listener
@@ -290,19 +268,20 @@ clear_form_errors();
 ////////////////////////////////////////////////////////////
 let button_submit = document.getElementById('button-submit');
 // adding validate on submit button
-button_submit.addEventListener('click', validate_on_submit);
+// button_submit.addEventListener('click', validate_on_submit);
 // add keypress listener for getting enter
-document.getElementById('button-submit-container').addEventListener('keypress', function(event)
-{
-    event.preventDefault();
-    // console.log(event.key)
-    // event.stopPropagation();
-    // if keypress was an enter, validate on submit
-    if (event.key === 'Enter')
-    {
-        validate_on_submit(event);
-    }
-});
+// document.getElementById('button-submit').addEventListener('keypress', function(event)
+// {
+//     //event.preventDefault();
+//     // console.log(event.key)
+//     // event.stopPropagation();
+//     // if keypress was an enter, validate on submit
+//     if (event.key === 'Enter')
+//     {
+//         validate_on_submit(event);
+//     }
+// });
+
 
 /*
 * validate on submit function validates form for errors, fires off form rollin anim and displays
@@ -310,11 +289,13 @@ document.getElementById('button-submit-container').addEventListener('keypress', 
 */
 function validate_on_submit(event)
 {
-    event.preventDefault();
+    //event.preventDefault();
     // event.stopPropagation();
     // console.log('submit got clicked')
     // get email and message text
     let email = document.getElementById('email-entry').value;
+    let lname = document.getElementById('lname-entry').value;
+    let fname = document.getElementById('fname-entry').value;
     let question = document.getElementById('question-entry').value;
     // check for email formatting
     let email_is_valid = validate_email(email);
@@ -331,6 +312,16 @@ function validate_on_submit(event)
         submitFlag = false;
         document.getElementById('error-email').style.visibility = 'visible';
     } // validate question
+    if (lname === '')
+    {
+        submitFlag = false;
+        document.getElementById('error-lname').style.visibility = 'visible';
+    } // validate question
+    if (fname === '')
+    {
+        submitFlag = false;
+        document.getElementById('error-fname').style.visibility = 'visible';
+    } // validate question
     if (question === '')
     {
         submitFlag = false;
@@ -344,6 +335,11 @@ function validate_on_submit(event)
         // show success message and reset it's margins to the closed form state
         message_sent.style.visibility = 'visible';
         message_sent.style.margin = '10px 0 7px 0';
+        // console.log("returned true");
+        return true;
+    } else {
+        // console.log("returned false");
+        return false;
     }
 }
 
