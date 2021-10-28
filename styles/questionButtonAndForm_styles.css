@@ -247,6 +247,10 @@
     background-color: var(--button-background-color);
 }
 
+#question-entry {
+    resize: none;
+}
+
 /* doesn't work with enter key, does for click */
 /* .all-buttons:active {
     transform: scale(98.5%);
