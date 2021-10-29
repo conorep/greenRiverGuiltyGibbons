@@ -278,7 +278,7 @@
 
     <button type="button" id="message-sent">Your question has been sent</button>
 
-    <form id="form-question" class="d-block form-group" onsubmit="return validate_on_submit(event);" method="POST">
+    <form id="form-question" class="d-block form-group" action="submissionSuccess.html" onsubmit="return validate_on_submit();" method="POST">
         <!-- container for form elements -->
         <div id="question-div" class="form-group">
             <span class="error" id="error-question">Please Enter Question</span>
@@ -288,7 +288,7 @@
             <span class="error" id="error-lname">Please Enter Last Name</span>
             <input type="text" class="form-control" id="lname-entry" placeholder="Last Name">
             <span class="error" id="error-email">Please Enter Email</span>
-            <input type="email" class="form-control" id="email-entry" placeholder="Contact Email">
+            <input type="text" class="form-control" id="email-entry" placeholder="Contact Email">
             <!-- id naming conventions from buttons to their containers must match the first -->
             <!-- two words or else it breaks the javascript!!! -->
             <button type="submit" id="button-submit" class="button-hover-noTransition disable-default-button-styles all-buttons btn-submit">

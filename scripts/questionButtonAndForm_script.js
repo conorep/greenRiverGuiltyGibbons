@@ -287,7 +287,7 @@ let button_submit = document.getElementById('button-submit');
 * validate on submit function validates form for errors, fires off form rollin anim and displays
 * success animation.
 */
-function validate_on_submit(event)
+function validate_on_submit()
 {
     //event.preventDefault();
     // event.stopPropagation();
