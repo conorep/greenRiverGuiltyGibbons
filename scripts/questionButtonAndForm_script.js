@@ -282,6 +282,10 @@ let button_submit = document.getElementById('button-submit');
 //     }
 // });
 
+///////////////////////////////////////////////////////
+// only if not using submit function in html
+// button_submit.addEventListener('click', validate_on_submit);
+
 
 /*
 * validate on submit function validates form for errors, fires off form rollin anim and displays
@@ -336,8 +340,10 @@ function validate_on_submit()
         message_sent.style.visibility = 'visible';
         message_sent.style.margin = '10px 0 7px 0';
         // console.log("returned true");
+        // document.question_form_name.submit();
         return true;
-    } else {
+    }
+    else {
         // console.log("returned false");
         return false;
     }
