@@ -255,7 +255,9 @@
 /* .all-buttons:active {
     transform: scale(98.5%);
 } */
-
+#hide_iframe {
+    display: none;
+}
 
 
 
