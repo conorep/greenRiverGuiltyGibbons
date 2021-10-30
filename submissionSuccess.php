@@ -9,7 +9,7 @@
         <?php
         // send imap_getmailboxes
         $toEmail = "Price.Kevin@student.greenriver.edu";
-        $fromName = "fromename"; // $to would be the admin, $from would be a form variable from the submit form
+        $fromName = $_POST['fname']; // $to would be the admin, $from would be a form variable from the submit form
         $fromEmail = "fromemail"; //this will be fromt eh faq form
         $subject = "New Order";
         $headers = "From: $fromName <$fromEmail>";
