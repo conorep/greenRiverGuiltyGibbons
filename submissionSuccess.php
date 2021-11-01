@@ -6,14 +6,15 @@
         <title>success</title>
     </head>
     <body>
+
         <?php
         // send imap_getmailboxes
-        $toEmail = "Price.Kevin@student.greenriver.edu";
-        $fromName = "fromename"; // $to would be the admin, $from would be a form variable from the submit form
-        $fromEmail = "fromemail"; //this will be fromt eh faq form
-        $subject = "New Order";
+        $toEmail = "Obrien.Conor@student.greenriver.edu";
+        $fromName = $_POST["fName"]; // $to would be the admin, $from would be a form variable from the submit form
+        $fromEmail = $_POST["email"]; //this will be from the faq form
+        $subject = "Question from FAQ Page";
         $headers = "From: $fromName <$fromEmail>";
-        $message = "mesage body";
+        $message = $_POST["question"];
 
         ///////////////////////////////////////////////////////////////////
         // this sends the email

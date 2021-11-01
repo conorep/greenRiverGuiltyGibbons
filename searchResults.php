@@ -31,6 +31,8 @@
 
     <title>GRC SDEV SEARCH RESULTS</title>
 </head>
+
+
 <body class="d-flex flex-column min-vh-100 justify-content-center">
 
 <!--This is the page nav header-->
@@ -41,7 +43,7 @@
             <img src="images/img.png" alt="GRTech Logo"  width="48" height="42" class="d-inline-block align-text-top">
         </a>
 
-        <h3 class="d-block d-lg-none d-xl-none d-xxl-none">Green River College Software Development Program<br><em>FAQ</em></h3>
+        <h3 class="d-block d-lg-none d-xl-none d-xxl-none">Green River College Soft Dev Program<br><em>Frequently Asked Questions</em></h3>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
                 aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -124,13 +126,27 @@
     </div>
 </nav>
 
-<?php
-    echo "<p>Search Results: </p>";
 
+<article class="container-fluid row">
 
-    $search_results = $_POST['search-results'];
+    <div class="col-2"></div>
+    <div class="col-8 mt-5">
+    <?php
 
-?>
+        // TURN ON ERROR REPORTING
+        ini_set('display_errors', 1);
+        error_reporting(E_ALL);
+
+        $search_results = $_POST['search-results'];
+//        var_dump($search_results);
+        echo "<h1>Search Results for: '$search_results'</h1>";
+
+    ?>
+    </div>
+    <div class="col-2"></div>
+
+</article>
+
 
 
 <!--Footer begins here-->
@@ -177,13 +193,13 @@
                 <!--NOTE: all of these groups got deleted recently I guess. I kept the links the greenrivertech page has though. -->
                 <ul class="footer-list mb-0 footer-links">
                     <li>
-                        <a class="text-dark" href="https://instagram.com/greenrivertech/" target="_blank">Instagram</a>
+                        <a class="text-dark" href="https://www.instagram.com/greenriverc/" target="_blank">Instagram</a>
                     </li>
                     <li>
-                        <a class="text-dark" href="https://www.linkedin.com/groups/6781985" target="_blank">LinkedIn</a>
+                        <a class="text-dark" href="https://www.linkedin.com/school/green-river-community-college/" target="_blank">LinkedIn</a>
                     </li>
                     <li>
-                        <a class="text-dark" href="https://www.facebook.com/greenrivertechnologyprograms" target="_blank">Facebook</a>
+                        <a class="text-dark" href="https://www.facebook.com/greenriverdevs/" target="_blank">Facebook</a>
                     </li>
                 </ul>
             </div>
