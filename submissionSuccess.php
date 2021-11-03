@@ -17,7 +17,7 @@
 
         <?php
         // send imap_getmailboxes
-        $toEmail = "Obrien.Conor@student.greenriver.edu";
+        $toEmail = "price.kevin@student.greenriver.edu";
         $fromName = $_POST["fName"]; // $to would be the admin, $from would be a form variable from the submit form
         $fromEmail = $_POST["email"]; //this will be from the faq form
         $subject = "Question from FAQ Page";
