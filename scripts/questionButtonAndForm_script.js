@@ -87,7 +87,7 @@ let form_rolled_inout = 'in'; // will become 'out' later on
 */
 function rollin()
 {
-    console.log('rolling in')
+    // console.log('rolling in')
     form_question.classList.remove('rollout');
     // always gotta reset this one, this is rolled-in state
     message_sent.style.margin = '10px 0 7px 0';
@@ -162,7 +162,7 @@ button_question_container.addEventListener('click', function(event)
     // one animation for the rollout
     if (form_rolled_inout === 'in')
     {
-        console.log('rollin out')
+        // console.log('rollin out')
         // console.log(window.outerWidth)
         // start the scroll inhibiter if we are not in a mobile
 
