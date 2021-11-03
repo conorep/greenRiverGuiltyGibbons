@@ -210,8 +210,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
             <div>
                 <button type="submit" class="btn btn-primary">Submit</button>
-            </div>
 
+            </div>
+            <span class="error"> <?php echo $tryAgain;?></span>
         </div>
 
     </fieldset>
