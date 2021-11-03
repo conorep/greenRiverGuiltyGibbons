@@ -1,7 +1,7 @@
 <?php
 ob_start();
-$username = "admin";
-$password = "@dm1n";
+$username = "@dm1n";
+$password = "password";
 $tryAgain = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
