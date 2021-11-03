@@ -27,6 +27,7 @@
     <!-- Kevin's CSS, Next Two Lines -->
     <link rel="stylesheet" href="styles/questionButtonAndForm_styles.css">
     <link rel="stylesheet" href="styles/questionButtonAndForm_responsiveStyles.css">
+    <link rel="stylesheet" href="styles/headerWidth_responsive.css">
 
     <!--  Favicon  -->
     <link rel="icon" type="img/jpg" href="images/img.png" >
@@ -37,16 +38,16 @@
 <body class="d-flex flex-column min-vh-100 justify-content-center">
 
 <!--This is the page nav header-->
-<nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm pt-3 pb-3" role="navigation">
-    <div class="container-fluid">
+<nav id="nav-margin-bottom" class="navbar navbar-expand-lg navbar-light bg-light shadow-sm pt-3 pb-3" role="navigation">
+    <div class="container-fluid" id="header-width">
 
-        <a class="navbar-brand ps-3" href="https://www.software.greenrivertech.net/" target="_blank">
+        <a class="navbar-brand" id="scoot-image" href="https://www.software.greenrivertech.net/" target="_blank">
             <img src="images/logo2_optimized_inkscape.svg" alt="GRTech Logo"  width="48" height="42" class="d-inline-block align-text-top">
         </a>
 
         <h3 class="d-block d-lg-none d-xl-none d-xxl-none">Green River College Soft Dev Program<br><em>Frequently Asked Questions</em></h3>
 
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+        <button class="navbar-toggler" id="hamburger-nudge" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
                 aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -128,7 +129,7 @@
         </div>
 
         <!--search form and button-->
-        <form class="px-md-2  px-lg-2 px-xl-2 py-sm-2 py-xs-2" action="searchResults.php" method="post">
+        <form id="search-mobile-nudge" class="px-md-2  px-lg-2 px-xl-2 py-sm-2 py-xs-2" action="searchResults.php" method="post">
             <label class="input-group mb-3">
                 <input name="search-results" type="text" class="form-control " placeholder="Search Here" >
                 <button id="search-btn" type="submit" class="input-group-text btn-success" > Search</button>

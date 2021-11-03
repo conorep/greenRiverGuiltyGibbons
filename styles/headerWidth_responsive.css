@@ -1,0 +1,72 @@
+@charset "utf-8";
+/* Kevin Price for SDEV305 GreenRiverGuiltyGibbons */
+/* Sprint 1 for GRTech FAQ */
+/* October 13, 2021 */
+/* ############################################################ */
+/*  bootstrap equivalent mobile to tablet col-, col-sm, col-md  */
+/* @media screen and (max-width: 991px)  { */
+    /* hover fades show no change on tablet and mobile */
+    /* this must be exactly the same as #button_question */
+    /* #header-width {
+        width: 1200px;
+    }
+} */
+
+#nav-margin-bottom {
+    margin-bottom: 11px;
+}
+
+#scoot-image {
+    /* margin-left: -10px; */
+    padding-left: 5px;
+    /* margin: 0, 0, 0, -15px; */
+}
+
+#hamburger-nudge {
+    margin-right: 8px;
+}
+
+#header-width {
+    padding-left: 3px;
+    padding-right: 3px;
+}
+
+
+@media screen and (max-width: 767px) {
+    #header-width {
+        width: 600px;
+    }
+
+    #search-mobile-nudge {
+        margin-left: 8px;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+    #header-width {
+        width: 750px;
+    }
+
+}
+
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+    #header-width {
+        width: 1100px;
+    }
+
+}
+
+
+@media screen and (min-width: 1200px) and (max-width: 1399px) {
+    #header-width {
+        width: 1330px;
+    }
+
+}
+
+@media screen and (min-width: 1400px) {
+    #header-width {
+        width: 1650px;
+    }
+
+}

@@ -315,12 +315,7 @@ function validate_on_submit()
     {
         submitFlag = false;
         document.getElementById('error-email').style.visibility = 'visible';
-    } // validate question
-    if (lname === '')
-    {
-        submitFlag = false;
-        document.getElementById('error-lname').style.visibility = 'visible';
-    } // validate question
+    }
     if (fname === '')
     {
         submitFlag = false;
