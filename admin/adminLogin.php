@@ -195,7 +195,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </form>-->
 
 <!--Bootstrap login here-->
-<form method="post"  action="<?php echo $_SERVER["PHP_SELF"];?>" >
+<form  method="post" class="container" id="adminLogin"  action="<?php echo $_SERVER["PHP_SELF"];?>" >
     <fieldset>
         <div class="col form-group">
             <div class="row">
@@ -209,8 +209,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <input type="text" class="form-control" id="password" placeholder="password" name="password">
             </div>
         </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
     </fieldset>
-    <button type="submit" class="btn btn-primary">Submit</button>
+
 </form>
 
 
