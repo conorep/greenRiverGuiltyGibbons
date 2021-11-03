@@ -197,19 +197,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <!--Bootstrap login here-->
 <form  method="post" class="container" id="adminLogin"  action="<?php echo $_SERVER["PHP_SELF"];?>" >
     <fieldset>
-        <div class="col form-group">
-            <div class="row">
+        <div class="form-group d-grid gap-3">
+            <div>
                 <label for="username">Username:</label>
                 <span class="error"> <?php echo $usernameErr;?></span>
                 <input type="text" class="form-control" id="username" placeholder="username" name="username">
             </div>
-            <div class="row">
+            <div>
                 <label for="password">Password:</label>
                 <span class="error"> <?php echo $passwordErr;?></span>
                 <input type="text" class="form-control" id="password" placeholder="password" name="password">
             </div>
+            <div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+
     </fieldset>
 
 </form>
