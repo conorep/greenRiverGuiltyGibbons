@@ -2,6 +2,7 @@
 ob_start();
 $username = "admin";
 $password = "password";
+$tryAgain = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $inputName = $_POST["username"];
@@ -10,7 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $usernameErr = "Please enter a username";
     } else {
         if ($inputName != $username) {
-            $usernameErr = "Invalid name entered";
+            $usernameErr = "Invalid username entered";
         }
     }
 
@@ -23,6 +24,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($inputPassword != $password) {
             $passwordErr = "Invalid password entered";
         }
+    }
+
+    //'try again' structure here
+    if ($inputPassword != $password || $inputName != $username) {
+       $tryAgain = "Please try again.";
+
     }
 
     if ($usernameErr == "" && $passwordErr=="") {
@@ -175,15 +182,41 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
 <!--ADMIN LOGIN HERE-->
-<form method="post"  action="<?php echo $_SERVER["PHP_SELF"];?>" >
-    <label for="username">First Name</label>
-    <span class="error"> <?php echo $usernameErr;?></span>
+<!--<form method="post"  action="<?php /*echo $_SERVER["PHP_SELF"];*/?>" >
+    <label for="username">Username</label>
+    <span class="error"> <?php /*echo $usernameErr;*/?></span>
     <input type="text" class="form-control" id="username" placeholder="Username" name="username">
 
     <label for="password">Password</label>
-    <span class="error"> <?php echo $passwordErr;?></span>
+    <span class="error"> <?php /*echo $passwordErr;*/?></span>
     <input type="text" class="form-control" id="password" placeholder="Password" name="password">
     <button type="submit" >Submit</button>
+    <span class="error"> <?php /*echo $tryAgain;*/?></span>
+</form>-->
+
+<!--Bootstrap login here-->
+<form  method="post" class="container" id="adminLogin"  action="<?php echo $_SERVER["PHP_SELF"];?>" >
+    <fieldset>
+        <div class="form-group d-grid gap-3">
+            <div>
+                <label for="username">Username:</label>
+                <span class="error"> <?php echo $usernameErr;?></span>
+                <input type="text" class="form-control" id="username" placeholder="username" name="username">
+            </div>
+            <div>
+                <label for="password">Password:</label>
+                <span class="error"> <?php echo $passwordErr;?></span>
+                <input type="text" class="form-control" id="password" placeholder="password" name="password">
+            </div>
+            <div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+
+            </div>
+            <span class="error"> <?php echo $tryAgain;?></span>
+        </div>
+
+    </fieldset>
+
 </form>
 
 

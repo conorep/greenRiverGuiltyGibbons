@@ -104,3 +104,7 @@ footer {
     margin-right: auto;
     margin-left: auto;
 }
+
+#adminLogin {
+    margin: 2rem auto auto auto;
+}
