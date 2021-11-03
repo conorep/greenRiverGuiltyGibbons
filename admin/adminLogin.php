@@ -200,12 +200,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="col form-group">
             <div class="row">
                 <label for="username">Username:</label>
-                <span class="err"> <?php echo $usernameErr;?></span>
+                <span class="error"> <?php echo $usernameErr;?></span>
                 <input type="text" class="form-control" id="username" placeholder="username" name="username">
             </div>
             <div class="row">
                 <label for="password">Password:</label>
-                <span class="err"> <?php echo $passwordErr;?></span>
+                <span class="error"> <?php echo $passwordErr;?></span>
                 <input type="text" class="form-control" id="password" placeholder="password" name="password">
             </div>
         </div>
