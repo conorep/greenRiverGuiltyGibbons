@@ -11,7 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $usernameErr = "Please enter a username";
     } else {
         if ($inputName != $username) {
-            $usernameErr = "Invalid name entered";
+            $usernameErr = "Invalid username entered";
         }
     }
 
@@ -182,16 +182,35 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
 <!--ADMIN LOGIN HERE-->
-<form method="post"  action="<?php echo $_SERVER["PHP_SELF"];?>" >
-    <label for="username">First Name</label>
-    <span class="error"> <?php echo $usernameErr;?></span>
+<!--<form method="post"  action="<?php /*echo $_SERVER["PHP_SELF"];*/?>" >
+    <label for="username">Username</label>
+    <span class="error"> <?php /*echo $usernameErr;*/?></span>
     <input type="text" class="form-control" id="username" placeholder="Username" name="username">
 
     <label for="password">Password</label>
-    <span class="error"> <?php echo $passwordErr;?></span>
+    <span class="error"> <?php /*echo $passwordErr;*/?></span>
     <input type="text" class="form-control" id="password" placeholder="Password" name="password">
     <button type="submit" >Submit</button>
-    <span class="error"> <?php echo $tryAgain;?></span>
+    <span class="error"> <?php /*echo $tryAgain;*/?></span>
+</form>-->
+
+<!--Bootstrap login here-->
+<form method="post"  action="<?php echo $_SERVER["PHP_SELF"];?>" >
+    <fieldset>
+        <div class="col form-group">
+            <div class="row">
+                <label for="username">Username:</label>
+                <span class="error"> <?php echo $usernameErr;?></span>
+                <input type="text" class="form-control" id="username" placeholder="username" name="username">
+            </div>
+            <div class="row">
+                <label for="password">Password:</label>
+                <span class="error"> <?php echo $passwordErr;?></span>
+                <input type="text" class="form-control" id="password" placeholder="password" name="password">
+            </div>
+        </div>
+    </fieldset>
+    <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 
 
