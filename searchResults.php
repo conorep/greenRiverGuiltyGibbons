@@ -43,7 +43,7 @@
             <img src="images/logo2_optimized_inkscape.svg" alt="GRTech Logo"  width="48" height="42" class="d-inline-block align-text-top">
         </a>
 
-        <h3 class="d-block d-lg-none d-xl-none d-xxl-none">Green River College Soft Dev Program<br><em>Frequently Asked Questions</em></h3>
+        <h3 class="d-block d-lg-none d-xl-none d-xxl-none">Green River College Soft Dev Program<br><em>Search Results</em></h3>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
                 aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -56,7 +56,7 @@
             <ul class="navbar-nav">
                 <li class="px-md-4 px-lg-4 px-xl-4 d-none d-lg-block d-xl-block d-xxl-block">
                     <h4>Green River College Software Development Program</h4>
-                    <h5><em>Frequently Asked Questions</em></h5>
+                    <h5><em>Search Results</em></h5>
                 </li>
             </ul>
 
