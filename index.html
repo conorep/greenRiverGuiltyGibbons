@@ -1,4 +1,9 @@
-<!---->
+<!--
+    Gr-Guilty-Gibbons FAQ
+    Kevin, Conor, Pat
+    SDEV 305 2021
+    index.html
+-->
 
 
 
@@ -36,10 +41,10 @@
     <div class="container-fluid">
 
         <a class="navbar-brand ps-3" href="https://www.software.greenrivertech.net/" target="_blank">
-            <img src="images/img.png" alt="GRTech Logo"  width="48" height="42" class="d-inline-block align-text-top">
+            <img src="images/logo2_optimized_inkscape.svg" alt="GRTech Logo"  width="48" height="42" class="d-inline-block align-text-top">
         </a>
 
-        <h3 class="d-block d-lg-none d-xl-none d-xxl-none">Green River College Software Development Program<br><em>Frequently Asked Questions</em></h3>
+        <h3 class="d-block d-lg-none d-xl-none d-xxl-none">Green River College Soft Dev Program<br><em>Frequently Asked Questions</em></h3>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
                 aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -67,7 +72,7 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="ResourceDropdown" role="button"
                        data-bs-toggle="dropdown" aria-expanded="false">
-                        Student Resources
+                        Learning Resources
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <li>
@@ -109,17 +114,27 @@
                 </li>
 
                 <!--search form and button-->
-                <li  class="px-md-2  px-lg-2 px-xl-2 py-sm-2 py-xs-2">
+                <!--<li  class="px-md-2  px-lg-2 px-xl-2 py-sm-2 py-xs-2">
                     <form action="searchResults.php" method="post">
                         <label class="input-group mb-3">
                             <input name="search-results" type="text" class="form-control " placeholder="Search Here" >
                             <button id="search-btn" type="submit" class="input-group-text btn-success" > Search</button>
                         </label>
                     </form>
-                </li>
+                </li>-->
 
             </ul>
+
         </div>
+
+        <!--search form and button-->
+        <form class="px-md-2  px-lg-2 px-xl-2 py-sm-2 py-xs-2" action="searchResults.php" method="post">
+            <label class="input-group mb-3">
+                <input name="search-results" type="text" class="form-control " placeholder="Search Here" >
+                <button id="search-btn" type="submit" class="input-group-text btn-success" > Search</button>
+            </label>
+        </form>
+
     </div>
 </nav>
 <!--End nav header-->
@@ -132,9 +147,9 @@
 
 <!--This is a question/answer accordion-->
 <div class="container accordion " id="accordionPanelsStayOpenExample">
-    <div class="accordion-item shadow-sm">
+    <div class="accordion-item shadow-sm ">
         <h2 class="accordion-header" id="panelsStayOpen-headingOne">
-            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+            <button class="accordion-button fw-bold text-uppercase" type="button" data-bs-toggle="collapse"
                     data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
                     aria-controls="panelsStayOpen-collapseOne">
                 Software Development
@@ -145,18 +160,18 @@
             <div class="accordion-body">
 
                 <p class="question">What is it?</p>
-                <p class="answer">- A Bachelor's-level program at Green River College encompassing 300-
+                <p class="answer">&nbsp;&nbsp;&nbsp;A Bachelor's-level program at Green River College encompassing 300-
                     and 400-level courses</p>
-                <p class="answer">- Small class sizes and hands-on faculty.</p>
-                <p class="answer">- A strong focus on career preparation and real-world work-cases.</p>
+                <p class="answer">&nbsp;&nbsp;&nbsp;Small class sizes and hands-on faculty.</p>
+                <p class="answer">&nbsp;&nbsp;&nbsp;A strong focus on career preparation and real-world work-cases.</p>
                 <p class="question">What are the requirements for entry?</p>
-                <p class="answer">- Completion of an associate degree or higher from a regionally
+                <p class="answer">&nbsp;&nbsp;&nbsp;Completion of an associate degree or higher from a regionally
                     accredited institution.</p>
-                <p class="answer">- Cumulative GPA of 2.5 or higher.</p>
-                <p class="answer">- Grade of 2.5 or higher in an intermediate-level Java programming course
+                <p class="answer">&nbsp;&nbsp;&nbsp;Cumulative GPA of 2.5 or higher.</p>
+                <p class="answer">&nbsp;&nbsp;&nbsp;Grade of 2.5 or higher in an intermediate-level Java programming course
                     (such as SDEV 220) or a waiver from the Program Director.</p>
-                <p class="answer">- Application submission and acceptance.</p>
-                <p class="answer">- A typical preparation sequence for students coming from other disciplines might include:</p>
+                <p class="answer">&nbsp;&nbsp;&nbsp;Application submission and acceptance.</p>
+                <p class="answer">&nbsp;&nbsp;&nbsp;A typical preparation sequence for students coming from other disciplines might include:</p>
                     <ul>
                         <li>IT 201 or SDEV 201 Database Fundamentals<br></li>
                         <li>SDEV 106 Front-End Web Development<br></li>
@@ -165,7 +180,7 @@
                         <li>SDEV 219 or CS&141 Java 1<br></li>
                         <li>SDEV 220 or CS 145 Java 2<br></li>
                     </ul>
-                    Contact software@greenriver.edu for the most accurate, up-to-date information.
+                <em>Contact software@greenriver.edu for the most accurate, up-to-date information.</em>
             </div>
         </div>
     </div>
@@ -175,32 +190,32 @@
 <div class="container accordion" id="accordionPanelsStayOpenExampleTwo">
     <div class="accordion-item shadow-sm">
         <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
-            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+            <button class="accordion-button fw-bold text-uppercase" type="button" data-bs-toggle="collapse"
                     data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="true"
                     aria-controls="panelsStayOpen-collapseTwo">
                 Features of Green River Soft Dev
             </button>
         </h2>
-        <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse show"
+        <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse "
              aria-labelledby="panelsStayOpen-headingTwo">
             <div class="accordion-body">
 
                 <p class="question">What's up with this 'cohort' program?</p>
-                <p class="answer">- You’ll be working with the same group of peers through your junior and senior
+                <p class="answer">&nbsp;&nbsp;&nbsp;You’ll be working with the same group of peers through your junior and senior
                     year, creating valuable contacts with like-minded individuals that you are likely to see
                     through your work endeavors. </p>
-                <p class="answer">- The cohort program you will be a part of involves consistent interpersonal
+                <p class="answer">&nbsp;&nbsp;&nbsp;The cohort program you will be a part of involves consistent interpersonal
                     communication and group work – much like the software developer’s workplace. </p>
                 <p class="question">Is there focus on portfolio-building?</p>
-                <p class="answer">- Yes! You'll be constantly working on projects to display for your job hunting.</p>
+                <p class="answer">&nbsp;&nbsp;&nbsp;Yes! You'll be constantly working on projects to display for your job hunting.</p>
                 <p class="question">I heard about a Capstone project - what's that?</p>
-                <p class="answer">- Your senior work will include (and culminate in) a complete project tying
+                <p class="answer">&nbsp;&nbsp;&nbsp;Your senior work will include (and culminate in) a complete project tying
                     together the facets of what you’ve learned throughout your years of study. </p>
-                <p class="answer">- This will display the depth of your knowledge and skill and look
+                <p class="answer">&nbsp;&nbsp;&nbsp;This will display the depth of your knowledge and skill and look
                     great in a portfolio. </p>
-                <p class="answer">- It will be a good example of team-based project development </p>
+                <p class="answer">&nbsp;&nbsp;&nbsp;It will be a good example of team-based project development </p>
                 <p class="question">What language does the program focus on?</p>
-                <p class="answer">- For object oriented programming, the SDEV program focuses on Java. </p>
+                <p class="answer">&nbsp;&nbsp;&nbsp;For object oriented programming, the SDEV program focuses on Java. </p>
 
             </div>
         </div>
@@ -211,26 +226,26 @@
 <div class="container accordion" id="accordionPanelsStayOpenExampleThree">
     <div class="accordion-item shadow-sm">
         <h2 class="accordion-header" id="panelsStayOpen-headingThree">
-            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+            <button class="accordion-button fw-bold text-uppercase" type="button" data-bs-toggle="collapse"
                     data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="true"
                     aria-controls="panelsStayOpen-collapseThree">
                 Workforce Entry
             </button>
         </h2>
-        <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse show"
+        <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse "
              aria-labelledby="panelsStayOpen-headingThree">
             <div class="accordion-body">
 
                 <p class="question">Is there a focus on internships?</p>
-                <p class="answer">- Yes. Your professors and the program’s administration will stress the importance
+                <p class="answer">&nbsp;&nbsp;&nbsp;Yes. Your professors and the program’s administration will stress the importance
                     of internships to enter the software dev workforce. </p>
-                <p class="answer">- They’ll provide consistent information about available internships.</p>
-                <p class="answer">- The program is designed for summers off to pursue these opportunities.</p>
-                <p class="answer">- Generally speaking, these are well-paid internships.</p>
+                <p class="answer">&nbsp;&nbsp;&nbsp;They’ll provide consistent information about available internships.</p>
+                <p class="answer">&nbsp;&nbsp;&nbsp;The program is designed for summers off to pursue these opportunities.</p>
+                <p class="answer">&nbsp;&nbsp;&nbsp;Generally speaking, these are well-paid internships.</p>
                 <p class="question">Will there be any focus on my resume?</p>
-                <p class="answer">- The professors and staff are helpful and willing to discuss what resumes should
+                <p class="answer">&nbsp;&nbsp;&nbsp;The professors and staff are helpful and willing to discuss what resumes should
                     look like.</p>
-                <p class="answer">- The BoardMasters club will be meeting regularly, and you may just find some
+                <p class="answer">&nbsp;&nbsp;&nbsp;The BoardMasters club will be meeting regularly, and you may just find some
                     workshops specifically involving resume-building.</p>
 
             </div>
@@ -242,24 +257,24 @@
 <div class="container accordion" id="accordionPanelsStayOpenExampleFour">
     <div class="accordion-item shadow-sm">
         <h2 class="accordion-header" id="panelsStayOpen-headingFour">
-            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+            <button class="accordion-button fw-bold text-uppercase" type="button" data-bs-toggle="collapse"
                     data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="true"
                     aria-controls="panelsStayOpen-collapseFour">
                 Covid-19
             </button>
         </h2>
-        <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse show"
+        <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse "
              aria-labelledby="panelsStayOpen-headingFour">
             <div class="accordion-body">
 
                 <p class="question">What is attending school like during the pandemic?</p>
-                <p class="answer">- Classes are currently online-only.</p>
-                <p class="answer">- The future is a bit unclear, but classes may likely remain hybrid (a mix of
+                <p class="answer">&nbsp;&nbsp;&nbsp;Classes are currently online-only.</p>
+                <p class="answer">&nbsp;&nbsp;&nbsp;The future is a bit unclear, but classes may likely remain hybrid (a mix of
                     online and in-person) in the foreseeable future.</p>
-                <p class="question">What do I do if I test positive for covid-19?</p>
-                <p class="answer">- If it is affecting your day-to-day wellness, feel free to speak with your
+                <p class="question">What do I do if I test positive for Covid-19?</p>
+                <p class="answer">&nbsp;&nbsp;&nbsp;If it is affecting your day-to-day wellness, feel free to speak with your
                     teachers about your experience and difficulties.</p>
-                <p class="answer">- The teachers at Green River are understanding and helpful, and can likely find
+                <p class="answer">&nbsp;&nbsp;&nbsp;The teachers at Green River are understanding and helpful, and can likely find
                     agreeable means of helping you stay up with coursework.</p>
 
             </div>
@@ -283,13 +298,13 @@
         <!-- container for form elements -->
         <div id="question-div" class="form-group">
             <span class="error" id="error-question">Please Enter Question</span>
-            <textarea name="textarea" class="form-control" id="question-entry" rows="8" cols="40" placeholder="Ask a Question"></textarea>
+            <textarea class="form-control" id="question-entry" rows="8" cols="40" name="question" placeholder="Ask a Question"></textarea>
             <span class="error" id="error-fname">Please Enter First Name</span>
-            <input name="fname" type="text" class="form-control" id="fname-entry" placeholder="First Name">
+            <input type="text" class="form-control" id="fname-entry" name="fName" placeholder="First Name">
             <span class="error" id="error-lname">Please Enter Last Name</span>
-            <input name="lname" type="text" class="form-control" id="lname-entry" placeholder="Last Name">
+            <input type="text" class="form-control" id="lname-entry" name="lName" placeholder="Last Name">
             <span class="error" id="error-email">Please Enter Email</span>
-            <input name="email" type="text" class="form-control" id="email-entry" placeholder="Contact Email">
+            <input type="text" class="form-control" id="email-entry" name="email" placeholder="Contact Email">
             <!-- id naming conventions from buttons to their containers must match the first -->
             <!-- two words or else it breaks the javascript!!! -->
             <button type="submit" id="button-submit" class="button-hover-noTransition disable-default-button-styles all-buttons btn-submit">
@@ -345,13 +360,13 @@
                 <!--NOTE: all of these groups got deleted recently I guess. I kept the links the greenrivertech page has though. -->
                 <ul class="footer-list mb-0 footer-links">
                     <li>
-                        <a class="text-dark" href="https://instagram.com/greenrivertech/" target="_blank">Instagram</a>
+                        <a class="text-dark" href="https://www.instagram.com/greenriverc/" target="_blank">Instagram</a>
                     </li>
                     <li>
-                        <a class="text-dark" href="https://www.linkedin.com/groups/6781985" target="_blank">LinkedIn</a>
+                        <a class="text-dark" href="https://www.linkedin.com/school/green-river-community-college/" target="_blank">LinkedIn</a>
                     </li>
                     <li>
-                        <a class="text-dark" href="https://www.facebook.com/greenrivertechnologyprograms" target="_blank">Facebook</a>
+                        <a class="text-dark" href="https://www.facebook.com/greenriverdevs/" target="_blank">Facebook</a>
                     </li>
                 </ul>
             </div>
@@ -361,7 +376,7 @@
                 <h5 class="text-uppercase ">Legal</h5>
                 <hr>
 
-                <!--NOTE: all of these groups got deleted recently I guess. I kept the links the greenrivertech page has though. -->
+                <!--Links to associated linkedIn/Instagram/Facebook pages -->
                 <ul class="footer-list mb-0 footer-links pl-3">
                     <li>
                         <a class="text-dark" href="https://www.greenriver.edu/about-us/website/privacy-notice.htm" target="_blank">Privacy Policy</a>
@@ -370,9 +385,9 @@
                         <a class="text-dark" href="https://www.greenriver.edu/student-affairs/financial-aid/ethical-principles-and-code-of-conduct.htm"
                            target="_blank">Code of Conduct</a>
                     </li>
-                    <!--THIS POINTS NOWHERE SO FAR-->
+                    <!--THIS POINTS NOWHERE USEFUL SO FAR-->
                     <li>
-                        <a class="text-dark" href="https://www.software.greenrivertech.net/login.php" target="_blank">Admin Login</a>
+                        <a class="text-dark" href="https://gr-guilty-gibbons.greenriverdev.com/admin/adminLogin.php" target="_blank">Admin Login</a>
                     </li>
                 </ul>
             </div>

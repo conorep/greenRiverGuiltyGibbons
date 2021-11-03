@@ -2,17 +2,27 @@
     --bs-light-rgb: 122, 255, 181;
 }
 
-/*#disclaimer {*/
-/*    background-color: #f56c6c;*/
-/*    margin:20px;*/
-/*    text-align: center*/
-/*}*/
+
+/*MAIN STYLES*/
 
 body {
-    font-family: Inter;
+    font-family: Inter, sans-serif;
     /*background-color: #fcffff;*/
     background-image: linear-gradient(180deg, rgba(255,255,255,0), white),linear-gradient(70deg, #ebfff3 50%, #fff8ea);
 }
+
+hr {
+    background-color: rgba(49, 156, 164, 0.89);
+}
+
+footer {
+    background-image: linear-gradient(0deg, rgb(122, 255, 184) 99.5%, rgb(119, 215, 181));
+    box-shadow: 0 -.15rem .5rem rgba(0,0,0,.09);
+
+}
+
+
+/*CLASS STYLES*/
 
 
 .bg-light {
@@ -51,23 +61,6 @@ body {
     color:black;
     background-color: #c9fde0;
 }
-
-footer {
-    background-image: linear-gradient(0deg, rgb(122, 255, 184) 99.5%, rgb(119, 215, 181));
-    box-shadow: 0 -.15rem .5rem rgba(0,0,0,.09);
-
-}
-
-
-/*CONOR STYLES*/
-
-/*TAG STYLES*/
-
-hr {
-    background-color: rgba(49, 156, 164, 0.89);
-}
-
-/*CLASS STYLES*/
 
 .box-shadows {
     box-shadow: 0 0 12px 1px rgb(81 102 122);
