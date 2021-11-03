@@ -1,7 +1,7 @@
 <?php
 ob_start();
 $username = "admin";
-$password = "password";
+$password = "@dm1n";
 $tryAgain = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -12,6 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         if ($inputName != $username) {
             $usernameErr = "Invalid username entered";
+            $tryAgain = "Please try again.";
         }
     }
 
@@ -23,14 +24,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         if ($inputPassword != $password) {
             $passwordErr = "Invalid password entered";
+            $tryAgain = "Please try again.";
         }
     }
 
     //'try again' structure here
-    if ($inputPassword != $password || $inputName != $username) {
+/*    if ($inputPassword != $password || $inputName != $username) {
        $tryAgain = "Please try again.";
 
-    }
+    }*/
 
     if ($usernameErr == "" && $passwordErr=="") {
         header('Location: https://gr-guilty-gibbons.greenriverdev.com/admin/adminPanel.html');
