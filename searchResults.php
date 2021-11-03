@@ -138,8 +138,13 @@
         error_reporting(E_ALL);
 
         $search_results = $_POST['search-results'];
-//        var_dump($search_results);
+
         echo "<h1>Search Results for: '$search_results'</h1>";
+
+        // not using this, just testing stuff and leaving breadcrumbs
+        /*echo "<script type='text/javascript'>
+               window.open('https://cobrien2.greenriverdev.com/305/Resume/', '_blank');
+            </script>";*/
 
     ?>
     </div>
