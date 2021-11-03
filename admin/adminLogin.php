@@ -2,6 +2,7 @@
 ob_start();
 $username = "admin";
 $password = "password";
+$tryAgain = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $inputName = $_POST["username"];
@@ -23,6 +24,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($inputPassword != $password) {
             $passwordErr = "Invalid password entered";
         }
+    }
+
+    //'try again' structure here
+    if ($inputPassword != $password || $inputName != $username) {
+       $tryAgain = "Please try again.";
+
     }
 
     if ($usernameErr == "" && $passwordErr=="") {
@@ -184,6 +191,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <span class="error"> <?php echo $passwordErr;?></span>
     <input type="text" class="form-control" id="password" placeholder="Password" name="password">
     <button type="submit" >Submit</button>
+    <span class="error"> <?php echo $tryAgain;?></span>
 </form>
 
 
