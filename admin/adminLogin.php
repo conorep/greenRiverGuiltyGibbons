@@ -79,14 +79,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body class="d-flex flex-column min-vh-100 justify-content-center">
 
 <!--This is the page nav header-->
-<nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm pt-3 pb-3" role="navigation">
+<nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm pt-3 pb-3">
     <div class="container-fluid">
 
         <a class="navbar-brand ps-3" href="https://www.software.greenrivertech.net/" target="_blank">
             <img src="../images/logo2_optimized_inkscape.svg" alt="GRTech Logo"  width="48" height="42" class="d-inline-block align-text-top">
         </a>
 
-        <h3 class="d-block d-lg-none d-xl-none d-xxl-none">Green River College Soft Dev Program<br><em>Frequently Asked Questions</em></h3>
+        <h3 class="d-block d-lg-none d-xl-none d-xxl-none">Green River College Soft Dev Program<br><em>Admin Login</em></h3>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
                 aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -99,7 +99,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <ul class="navbar-nav">
                 <li class="px-md-4 px-lg-4 px-xl-4 d-none d-lg-block d-xl-block d-xxl-block">
                     <h4>Green River College Software Development Program</h4>
-                    <h5><em>Frequently Asked Questions</em></h5>
+                    <h5><em>Admin Login</em></h5>
                 </li>
             </ul>
 
@@ -170,11 +170,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
 
         <!--search form and button-->
-        <form class="px-md-2  px-lg-2 px-xl-2 py-sm-2 py-xs-2" action="../searchResults.php" method="post">
-            <label class="input-group mb-3">
+        <form id="search-mobile-nudge" class="px-md-2  px-lg-2 px-xl-2 py-sm-2 py-xs-2" action="searchResults.php" method="post">
+            <div class="input-group mb-3">
                 <input name="search-results" type="text" class="form-control " placeholder="Search Here" >
                 <button id="search-btn" type="submit" class="input-group-text btn-success" > Search</button>
-            </label>
+            </div>
         </form>
 
     </div>
