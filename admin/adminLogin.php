@@ -46,7 +46,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     Gr-Guilty-Gibbons FAQ
     Kevin, Conor, Pat
     SDEV 305 2021
-    index.html
+    adminLogin.php
 -->
 
 <!DOCTYPE html>
@@ -196,30 +196,36 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <span class="error"> <?php /*echo $tryAgain;*/?></span>
 </form>-->
 
-<!--Bootstrap login here-->
-<form  method="post" class="container" id="adminLogin"  action="<?php echo $_SERVER["PHP_SELF"];?>" >
-    <fieldset>
-        <div class="form-group d-grid gap-3">
-            <div>
-                <label for="username">Username:</label>
-                <span class="error"> <?php echo $usernameErr;?></span>
-                <input type="text" class="form-control" id="username" placeholder="username" name="username">
-            </div>
-            <div>
-                <label for="password">Password:</label>
-                <span class="error"> <?php echo $passwordErr;?></span>
-                <input type="text" class="form-control" id="password" placeholder="password" name="password">
-            </div>
-            <div>
-                <button type="submit" class="btn btn-primary">Submit</button>
 
+<div class="container">
+
+    <!--Bootstrap login here-->
+    <form  method="post" class="card box-shadows " id="adminLogin"  action="<?php echo $_SERVER["PHP_SELF"];?>" >
+
+        <fieldset>
+            <div class="form-group d-grid gap-3">
+                <div>
+                    <label for="username">Username:</label>
+                    <span class="error"> <?php echo $usernameErr;?></span>
+                    <input type="text" class="form-control" id="username" placeholder="username" name="username">
+                </div>
+                <div>
+                    <label for="password">Password:</label>
+                    <span class="error"> <?php echo $passwordErr;?></span>
+                    <input type="text" class="form-control" id="password" placeholder="password" name="password">
+                </div>
+                <div>
+                    <button type="submit" class="button-hover-noTransition btn-admin btn-question mt-2">Submit</button>
+                </div>
+                <span class="error"> <?php echo $tryAgain;?></span>
             </div>
-            <span class="error"> <?php echo $tryAgain;?></span>
-        </div>
 
-    </fieldset>
+        </fieldset>
 
-</form>
+    </form>
+
+</div>
+
 
 
 
