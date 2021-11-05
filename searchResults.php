@@ -227,7 +227,7 @@
                     </li>
                     <!--THIS POINTS NOWHERE SO FAR-->
                     <li>
-                        <a class="text-dark" href="https://www.software.greenrivertech.net/login.php" target="_blank">Admin Login</a>
+                        <a class="text-dark" href="https://gr-guilty-gibbons.greenriverdev.com/admin/adminLogin.php" target="_blank">Admin Login</a>
                     </li>
                 </ul>
             </div>
