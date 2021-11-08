@@ -170,7 +170,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
 
         <!--search form and button-->
-        <form id="search-mobile-nudge" class="px-md-2  px-lg-2 px-xl-2 py-sm-2 py-xs-2" action="searchResults.php" method="post">
+        <form id="search-mobile-nudge" class="px-md-2  px-lg-2 px-xl-2 py-sm-2 py-xs-2" action="../searchResults.php" method="post">
             <div class="input-group mb-3">
                 <input name="search-results" type="text" class="form-control " placeholder="Search Here" >
                 <button id="search-btn" type="submit" class="input-group-text btn-success" > Search</button>
