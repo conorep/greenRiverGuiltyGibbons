@@ -156,21 +156,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </li>
 
                 <!--search form and button-->
-                <!--<li  class="px-md-2  px-lg-2 px-xl-2 py-sm-2 py-xs-2">
-                    <form action="searchResults.php" method="post">
-                        <label class="input-group mb-3">
+                <li  class="px-md-2  px-lg-2 px-xl-2 py-sm-2 py-xs-2 mt-3 d-lg-none d-xl-none d-xxl-none">
+                    <form action="../searchResults.php" method="post">
+                        <div class="input-group mb-3 w-50">
+                            <button id="search-btn1" type="submit" class="input-group-text btn-success" > Search</button>
                             <input name="search-results" type="text" class="form-control " placeholder="Search Here" >
-                            <button id="search-btn" type="submit" class="input-group-text btn-success" > Search</button>
-                        </label>
+                        </div>
                     </form>
-                </li>-->
+                </li>
 
             </ul>
 
         </div>
 
         <!--search form and button-->
-        <form id="search-mobile-nudge" class="px-md-2  px-lg-2 px-xl-2 py-sm-2 py-xs-2" action="../searchResults.php" method="post">
+        <form id="search-mobile-nudge" class="px-md-2  px-lg-2 px-xl-2 py-sm-2 py-xs-2 mt-3 d-none d-lg-block d-xl-block d-xxl-block" action="searchResults.php" method="post">
             <div class="input-group mb-3">
                 <input name="search-results" type="text" class="form-control " placeholder="Search Here" >
                 <button id="search-btn" type="submit" class="input-group-text btn-success" > Search</button>
@@ -200,7 +200,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <div class="container">
 
     <!--Bootstrap login here-->
-    <form  method="post" class="card box-shadows " id="adminLogin"  action="<?php echo $_SERVER["PHP_SELF"];?>" >
+    <form  method="post" class="card box-shadows mb-4" id="adminLogin"  action="<?php echo $_SERVER["PHP_SELF"];?>" >
 
         <fieldset>
             <div class="form-group d-grid gap-3">
@@ -233,14 +233,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <footer class="bg-light text-center text-lg-start footer mt-auto py-3 pb-0">
 
     <!-- Grid container -->
-    <div class="container p-4  justify-content-around">
+    <div class="container p-4  ">
 
         <!--Grid row-->
-        <div class="row justify-content-around">
+        <div class="row ">
 
             <!--Grid column-->
-            <div class="col-lg-3 col-md-6 mb-4 mb-md-0 text-center">
-                <h5 class="text-uppercase">Green River College</h5>
+            <div class="col-lg-3 col-md-6 mb-4 mb-md-0 px-4">
+                <h5 class="text-uppercase text-center">Green River College</h5>
                 <hr>
                 <p class="footer-links">This site provides information and resources
                     for students in Green River's Bachelor's of
@@ -249,8 +249,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
 
             <!--Grid column-->
-            <div class="col-lg-3 col-md-6 mb-4 mb-md-0 text-center">
-                <h5 class="text-uppercase mb-0">Useful Links</h5>
+            <div class="col-lg-3 col-md-6 mb-4 mb-md-0 px-5">
+                <h5 class="text-uppercase mb-0 text-center">Useful Links</h5>
                 <hr>
                 <ul class="footer-list footer-links">
                     <li>
@@ -266,11 +266,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
 
             <!--Grid column-->
-            <div class="col-lg-3 col-md-6 mb-4 mb-md-0 text-center">
-                <h5 class="text-uppercase">Follow</h5>
+            <div class="col-lg-3 col-md-6 mb-4 mb-md-0 px-5">
+                <h5 class="text-uppercase text-center">Follow</h5>
                 <hr>
 
-                <!--NOTE: all of these groups got deleted recently I guess. I kept the links the greenrivertech page has though. -->
+                <!--Links to associated linkedIn/Instagram/Facebook pages -->
                 <ul class="footer-list mb-0 footer-links">
                     <li>
                         <a class="text-dark" href="https://www.instagram.com/greenriverc/" target="_blank">Instagram</a>
@@ -285,11 +285,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
 
             <!--Grid column-->
-            <div class="col-lg-3 col-md-6 mb-4 mb-md-0 text-center">
-                <h5 class="text-uppercase ">Legal</h5>
+            <div class="col-lg-3 col-md-6 mb-4 mb-md-0 px-5">
+                <h5 class="text-uppercase text-center">Legal</h5>
                 <hr>
 
-                <!--Links to associated linkedIn/Instagram/Facebook pages -->
+                <!--Links to FinAid/Ethics pages -->
                 <ul class="footer-list mb-0 footer-links pl-3">
                     <li>
                         <a class="text-dark" href="https://www.greenriver.edu/about-us/website/privacy-notice.htm" target="_blank">Privacy Policy</a>
@@ -298,7 +298,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <a class="text-dark" href="https://www.greenriver.edu/student-affairs/financial-aid/ethical-principles-and-code-of-conduct.htm"
                            target="_blank">Code of Conduct</a>
                     </li>
-                    <!--THIS POINTS NOWHERE USEFUL SO FAR-->
+
                     <li>
                         <a class="text-dark" href="https://gr-guilty-gibbons.greenriverdev.com/admin/adminLogin.php" target="_blank">Admin Login</a>
                     </li>
