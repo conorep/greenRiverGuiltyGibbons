@@ -114,17 +114,18 @@
                     <a class="nav-link" href="https://medium.com/green-river-web-mobile-developers" target="_blank">Program Blog</a>
                 </li>
 
-                <!--search form and button-->
-                <li  class="px-md-2  px-lg-2 px-xl-2 py-sm-2 py-xs-2">
-                    <form action="index.html" method="post">
-                        <label class="input-group mb-3">
-                            <button id="search-btn" type="submit" class="btn btn-success" > Back to FAQ</button>
-                        </label>
-                    </form>
-                </li>
 
             </ul>
+
         </div>
+
+        <!--back to faq button-->
+        <form id="search-mobile-nudge" class="px-md-2  px-lg-2 px-xl-2 py-sm-2 py-xs-2 mt-3" action="index.html" method="post">
+            <div class="input-group mb-3">
+                <button id="search-btn" type="submit" class="input-group-text btn-success" > Back to FAQ</button>
+            </div>
+        </form>
+
     </div>
 </nav>
 

@@ -112,6 +112,10 @@ footer {
     background-color: rgb(134, 203, 231);
 }
 
+.search-text {
+    font-size: smaller;
+}
+
 /*ID STYLES*/
 
 #disclaimer {
