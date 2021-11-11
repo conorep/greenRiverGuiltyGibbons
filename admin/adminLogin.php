@@ -181,7 +181,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </nav>
 <!--Nav ends here-->
 
+<div id="disclaimer" class="container bg-warning box-shadows2 mt-3 py-4 alert alert-info alert-dismissible fade show border-0" role="alert">
+    <!--    <h2 class="row text-center"> Disclaimer</h2>-->
 
+    <h3 id="disclaimer-text" class="px-3"><strong>The information provided here is not official or legally binding.
+            This is a resource created by students, for students.</strong></h3>
+    <button class="btn-close " data-bs-dismiss="alert" type="button" aria-label="Close"></button>
+
+</div>
 
 <!--ADMIN LOGIN HERE-->
 <!--<form method="post"  action="<?php /*echo $_SERVER["PHP_SELF"];*/?>" >

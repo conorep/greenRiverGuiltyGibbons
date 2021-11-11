@@ -129,11 +129,21 @@
     </div>
 </nav>
 
+<div id="disclaimer" class="container bg-warning box-shadows2 mt-3 py-4 alert alert-info alert-dismissible fade show border-0" role="alert">
+    <!--    <h2 class="row text-center"> Disclaimer</h2>-->
 
+    <h3 id="disclaimer-text" class="px-3"><strong>The information provided here is not official or legally binding.
+            This is a resource created by students, for students.</strong></h3>
+    <button class="btn-close " data-bs-dismiss="alert" type="button" aria-label="Close"></button>
+
+</div>
+
+<!--main body with search results stuff-->
 <article class="container-fluid row">
 
     <div class="col-2"></div>
     <div class="col-8 mt-5">
+
     <?php
 
         // TURN ON ERROR REPORTING
