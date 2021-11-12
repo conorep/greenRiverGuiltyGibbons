@@ -35,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }*/
 
     if ($usernameErr == "" && $passwordErr=="") {
-        header('Location: https://gr-guilty-gibbons.greenriverdev.com/admin/adminPanel.html');
+        header('Location: https://gr-guilty-gibbons.greenriverdev.com/admin/adminPanel.php');
         exit();
 
     }

@@ -2,7 +2,7 @@
     Gr-Guilty-Gibbons FAQ
     Kevin, Conor, Pat
     SDEV 305 2021
-    adminPanel.html
+    adminPanel.php
 -->
 
 <!DOCTYPE html>
@@ -25,6 +25,10 @@
     <!-- Kevin's CSS, Next Two Lines -->
     <link rel="stylesheet" href="../styles/questionButtonAndForm_styles.css">
     <link rel="stylesheet" href="../styles/questionButtonAndForm_responsiveStyles.css">
+
+    <!--datatables stuff-->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.dataTables.min.css">
 
     <!--  Favicon  -->
     <link rel="icon" type="img/jpg" href="../images/img.png" >
@@ -79,6 +83,69 @@
 
 
 <!--Control Panel Content Here-->
+
+<div class="container"><!--content container-->
+
+    <table id="guestbook-entries" class="display " style="width:100%">
+        <thead>
+        <tr>
+            <th>Message ID</th>
+            <th>Date</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Question</th>
+        </tr>
+        </thead>
+
+        <tbody>
+
+        <?php
+
+            require("/home/grguilty/db-creds.php");
+
+            $cnxn = mysqli_connect($host, $username, $password, $database)
+            or die("Error connecting to the database.");
+
+            // display guestbook questions
+            $sql ="SELECT * FROM client_questions ORDER BY entry_id DESC";
+            $result = mysqli_query($cnxn, $sql);
+
+            foreach($result as $row) {
+                $entry_id = $row['entry_id'];
+                $fname = $row['fname'];
+                $lname = $row['lname'];
+                $email = $row['email'];
+                $question = $row['question'];
+                $entry_date = date("m/d/Y h:ma", strtotime($row['entry_date']));
+
+
+                echo "
+               <tr>          
+                    <td>$entry_id</td>
+                    <td>$entry_date</td>
+                    <td>$fname $lname</td>
+                    <td>$email</td>
+                    <td>$question</td>
+                </tr>";
+            }
+
+        ?>
+
+        </tbody>
+
+        <tfoot>
+        <tr>
+            <th>Message ID</th>
+            <th>Date</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Question</th>
+        </tr>
+        </tfoot>
+
+    </table>
+
+</div><!--end content container-->
 
 
 <!--Footer begins here-->
@@ -173,14 +240,29 @@
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+<!--<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
         crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>-->
 
+<!--YOU DONT NEED HTTPS: OR HTTP:. WOAH-->
+<script src="//code.jquery.com/jquery-3.5.1.js"></script>
+<script src="//cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+<script src="//cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
+
+<script>
+    $('#guestbook-entries').DataTable(
+        {
+            responsive: true
+        }
+    );
+</script>
+
+
+<!--is this needed-->
 <!-- Kevin's Script Below -->
 <script src="../scripts/questionButtonAndForm_script.js"></script>
 
