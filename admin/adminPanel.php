@@ -101,16 +101,23 @@
 
         <?php
 
-            require("/home/grguilty/db-creds.php");
+            // TURN ON ERROR REPORTING
+            ini_set('display_errors', 1);
+            error_reporting(E_ALL);
 
-            $cnxn = mysqli_connect($host, $username, $password, $database)
+           require("/home/grguilty/configs.php");
+
+            $cnxn = mysqli_connect($db_host, $db_user, $db_password, $db_database)
             or die("Error connecting to the database.");
 
-            // display guestbook questions
-            $sql ="SELECT * FROM client_questions ORDER BY entry_id DESC";
+            // display client questions
+            $sql ="SELECT * FROM client_questions";
             $result = mysqli_query($cnxn, $sql);
 
+            echo "<p>$result</p>";
+
             foreach($result as $row) {
+
                 $entry_id = $row['entry_id'];
                 $fname = $row['fname'];
                 $lname = $row['lname'];
@@ -248,6 +255,11 @@
         crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>-->
 
+
+<!--is this needed-->
+<!-- Kevin's Script Below -->
+<script src="../scripts/questionButtonAndForm_script.js"></script>
+
 <!--YOU DONT NEED HTTPS: OR HTTP:. WOAH-->
 <script src="//code.jquery.com/jquery-3.5.1.js"></script>
 <script src="//cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
@@ -260,11 +272,6 @@
         }
     );
 </script>
-
-
-<!--is this needed-->
-<!-- Kevin's Script Below -->
-<script src="../scripts/questionButtonAndForm_script.js"></script>
 
 
 </body>
