@@ -113,14 +113,14 @@
 
         //////////////////////////////////////////////////////////////////////
         // server database
-        // require("/home/grguilty/configs.php");
-        // $cnxn = mysqli_connect($db_host, $db_user, $db_password, $db_database); //////////////////////////////////
+        require("/home/grguilty/configs.php");
+        $cnxn = mysqli_connect($db_host, $db_user, $db_password, $db_database); //////////////////////////////////
         //////////////////////////////////////////////////////////////////////
 
         //////////////////////////////////////////////////////////////////////
         // server database 2
-        require("/home/grguilty/db-creds.php");
-        $cnxn = mysqli_connect($host, $username, $password, $database); //////////////////////////////////
+        // require("/home/grguilty/db-creds.php");
+        // $cnxn = mysqli_connect($host, $username, $password, $database); //////////////////////////////////
         //////////////////////////////////////////////////////////////////////
 
         //////////////////////////////////////////////////////////////////////
@@ -178,6 +178,8 @@
                 # update database
                 mysqli_query($cnxn, $sql); ////////////////////////////////////////////////////////////////////////////////
 
+
+
                 /////////////////////////////////////////////////////////////////////
                 // setting up things needed to send the email to the admin
                 /////////////////////////////////////////////////////////////////////
@@ -194,7 +196,7 @@
                 $success = true;
                 //$success = mail($toEmail, $subject, $message, $headers); ////////////////////////////////////// commented out for debugging
 
-                if (!$success) {
+                if (!$success && !$sql) {
                     echo $error_message;
                 } else {
                     echo $success_message;
