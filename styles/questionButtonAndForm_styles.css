@@ -9,6 +9,7 @@
 
 /* setup basic styles for body */
 #kevin-container {
+    position: relative;
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -86,7 +87,7 @@
 
 /* ###################################################### */
 /* everything that must transition with a fade upon hover */
-.all-buttons:hover, #message-sent:hover {
+.all-buttons:hover {
     /* box-shadow: 0px 0px 7px 1px rgba(99, 135, 126, 0.55); */
     box-shadow: 0px 2px 5px 1px rgba(134, 123, 136, 0.3);
     color: rgb(4, 5, 5);
@@ -133,18 +134,33 @@
   margin: 3px 0 0 0;
 }
 
-#message-sent {
-    visibility: hidden;
-    cursor: pointer;
-    margin: 10px 0 7px 0;
-    padding: 0 7px 0 7px;
-    font-size: 18px;
+#kevin-container {
+    padding-top: 24px;
+}
 
+#message-sent {
+    position: relative;
+    visibility: hidden;
+    /* cursor: pointer; */
+    margin: 12px 0 7px 0;
+    padding: 0 7px 0 7px;
+    font-size: 16px;
+    width: 350px;
+    height: 28px;
+
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    /* align-items: center; */
     /* taken from .all-buttons */
     border-radius: 4px;
     box-shadow: 0px 2px 3px 1px rgba(139, 129, 140, 0.2);
     background-color: var(--button-background-color);
     border: solid 1px rgba(85, 158, 182, 0.22);
+}
+
+#message-sent::-webkit-scrollbar {
+  display: none;
 }
 
 #email-entry {
@@ -255,12 +271,64 @@
 /* .all-buttons:active {
     transform: scale(98.5%);
 } */
+/* ######################################################################################################### debug undo */
+/* #hide_iframe {
+    width: 80px;
+} */
+
 #hide_iframe {
-    display: none;
+    /* position: absolute; */
+    /* top: 0; */
+    height: 28px;
+    width: 245px;
+    margin: 0;
+    padding: 0;
+    user-select: none;
+    /* background-color: red; */
+    margin-top: 4px;
+    overflow: hidden;
+
+
 }
 
 
+#hide_iframe::-webkit-scrollbar {
+  display: none;
+}
 
+/* #iframe-inside {
+    background-color: red;
+    background-color:red;
+} */
+#processing-message {
+    position: absolute;
+    visibility: hidden;
+    user-select: none;
+    top: 1px;
+    z-index: 1;
+    /* background-color: red; */
+    background-color: var(--button-background-color);
+    font-size: 16px;
+    padding: 0 25px;
+    font-weight: 400;
+}
+
+#the-x {
+    position: absolute;
+    cursor: pointer;
+    padding: 0 5px;
+    top: 1.5px;
+    font-family: arial;
+    right: 4px;
+    font-weight: 500;
+    transform: scaleX(130%);
+    color: rgb(30, 94, 112);
+}
+
+#the-x:hover {
+    color: rgb(6, 33, 41);
+    user-select: none;
+}
 
 
 /*  */

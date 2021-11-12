@@ -295,9 +295,16 @@
         ASK A QUESTION
     </button>
 
-    <button type="button" id="message-sent">Your question has been sent</button>
+    <div id="message-sent">
+        <div id="processing-message">Processing your request...</div>
+        <iframe src="submissionSuccess.php" id="hide_iframe" name="email_iframe"></iframe>
+        <div id="the-x">X</div>
+    </div>
 
-    <form name="question_form_name" id="form-question" class="d-block form-group" action="submissionSuccess.php" target="email_iframe" onsubmit="return validate_on_submit();" method="POST">
+    <!--  target="email_iframe" -->
+    <!-- onsubmit="return validate_on_submit();" -->
+    <!-- onsubmit="return fakeSubmit();" -->
+    <form name="question_form_name" id="form-question" class="d-block form-group" target="email_iframe" action="submissionSuccess.php" onsubmit="return validate_on_submit();" method="POST">
     <!-- <form name="question_form_name" id="form-question" class="d-block form-group" method="POST"> -->
         <!-- container for form elements -->
         <div id="question-div" class="form-group">
@@ -314,7 +321,7 @@
             <button type="submit" id="button-submit" class="button-hover-noTransition disable-default-button-styles all-buttons btn-submit">
                 SUBMIT QUESTION
             </button>
-            <iframe id="hide_iframe" name="email_iframe"></iframe>
+
         </div>
     </form>
 </div>

@@ -12,27 +12,197 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title>success</title>
+
     </head>
-    <body>
+
+    <body id="iframe-cont" style="display:flex;justify-content:center;align-items:center;overflow:hidden;display:flex;justify-content:center;font-family:arial;font-size:16px;font-weight:400;">
+
+        <div id="display" style="position:absolute;top:0.5px;width:300px;margin:0;padding:0;overflow:hidden;display:flex;justify-content:center;user-select:none;">
+            Processing your question...
+        </div>
 
         <?php
-        // send imap_getmailboxes
-        $toEmail = "price.kevin@student.greenriver.edu";
-        $fromName = $_POST["fName"]; // $to would be the admin, $from would be a form variable from the submit form
-        $fromEmail = $_POST["email"]; //this will be from the faq form
-        $subject = "Question from FAQ Page";
-        $headers = "From: $fromName <$fromEmail>";
-        $message = $_POST["question"];
+        error_reporting(0);
 
-        ///////////////////////////////////////////////////////////////////
-        // this sends the email
-        $success = mail($toEmail, $subject, $message, $headers);
-        if (!$success) {
-            echo "<p>email NOT sent!</p>";
-        } else {
-            echo "email was sent";
+        /////////////////////////////////////////////////////////////////////
+        // validating form fields
+        /////////////////////////////////////////////////////////////////////
+
+        /*
+        * form removes '../' patterns and replaces ';' with ':'
+        * $string is input to be cleaned
+        */
+        function removeHackyStuff($string) {
+            // removing ';' and replacing with ':'
+            for ($i = 0; $i < strlen($string); $i++) {
+                // removing ';' and replacing with ':'
+                if ($string[$i] == ';') {
+                    $string[$i] = ':';
+                }
+                // removing '../'
+                if ($i < strlen($string) - 2) {
+                    if ($string[$i] == "." && $string[$i+1] == "." && $string[$i+2] == "/") {
+                        $string[$i] = "*";
+                        $string[$i+1] = "*";
+                        $string[$i+2] = "*";
+                    }
+                }
+            }
+            return $string;
         }
-        ////////////////////////////////////////////////////////////////
+
+        /*
+        * cleans and prepares a string from a form input for database
+        * $str is string from a user input
+        */
+        function clean($str) {
+            // needed to get charset of connection for mysqli_real...
+            global $cnxn;
+            $str = removeHackyStuff($str);
+            return mysqli_real_escape_string($cnxn, $str);
+        }
+
+
+        function emailValidation($str) {
+
+            if ($str == "") {
+                return false;
+            } else {
+                // counters and 'last index' indicators
+                // for '@' and '.' chars
+                $ats_cntr = 0;
+                $dots_cntr = 0;
+                $ats_lasti = -1;
+                $dots_lasti = -1;
+
+                $is_valid = true;
+
+                // count occurances of '.' and '@', find last index of each
+                for ($i = 0; $i < strlen($str); $i++) {
+                    // count them up
+                    if ($str[$i] == "@") {
+                        $ats_cntr++;
+                        $ats_lasti = $i;
+                    }
+                    if ($str[$i] == ".") {
+                        $dots_cntr++;
+                        $dots_lasti = $i;
+                    }
+                    // find if two in a row of either exist
+                    if ($i <= strlen($str) - 2) {
+                        if (($str[$i] == '@' and $str[$i+1] == '@') || ($str[$i] == '.' and $str[$i+1] == '.')) {
+                            $is_valid = false;
+                        }
+                    }
+                }
+                // '.' or '@' at beginning or end is invalid
+                if ($str[0] == '@' || $str[strlen($str)-1] == '@' || $str[0] == '.' || $str[strlen($str)-1] == '.') {
+                    $is_valid = false;
+                }
+                // last '.' must occur after last '@'
+                // '@' and '.' can't be immediately adjacent
+                if ($ats_lasti > $dots_lasti || $dots_lasti - $ats_lasti == 1 ) {
+                    $is_valid = false;
+                }
+                if ($ats_cntr == 0 || $dots_cntr == 0) {
+                    $is_valid = false;
+                }
+                return $is_valid;
+            }
+        }
+
+        //////////////////////////////////////////////////////////////////////
+        // server database
+        require("/home/grguilty/configs.php");
+        $cnxn = mysqli_connect($db_host, $db_user, $db_password, $db_database); //////////////////////////////////
+        //////////////////////////////////////////////////////////////////////
+
+        //////////////////////////////////////////////////////////////////////
+        // local database
+        // require("../local_db_creds.php");
+        // $cnxn = mysqli_connect($host, $user, $password, $database); //////////////////////////////////
+        //////////////////////////////////////////////////////////////////////
+
+        ///////////////////////////////////////////////////////////////////////
+        // validation flag
+        $form_valid = true;
+        $error_message = "<script>
+                          document.getElementById('display').innerText = 'Form was invalid, please try again';
+                          </script>";
+
+        $success_message = "<script>
+                            document.getElementById('display').innerText = 'Your question was submitted';
+                            </script>";
+
+
+        ///////////////////////////////////////////////////////////////////////
+        // validate keys
+        $correct_keys = " question fName lName email ";
+        $post_keys = array_keys($_POST);
+        for ($i = 0; $i < sizeof($post_keys); $i++) {
+            //echo $post_keys[$i];
+            //echo $post_keys[$i];
+            if (strpos($correct_keys, $post_keys[$i]) == false) {
+                $form_valid = false;
+            }
+        }
+
+        /////////////////////////////////////////////////////////////////////
+        // if keys are correct, validate rest of form
+        if ($form_valid) {
+
+            /////////////////////////////////////
+            // validate question, first name and email
+            if($_POST['question'] == "" || $_POST['fName'] == "" || !emailValidation($_POST['email'])) {
+                $form_valid = false;
+            }
+
+            //$form_valid = false;
+            if ($form_valid) {
+                //////////////////////////////////////////////////////////////////////
+                // grab and clean all inputs for sql
+                $fname = clean($_POST['fName']);
+                $lname = clean($_POST['lName']);
+                $email = clean($_POST['email']);
+                $question = clean($_POST['question']);
+
+                $sql = "INSERT INTO client_questions (fname, lname, email, question)
+                        VALUES ('$fname', '$lname', '$email', '$question');";
+                # echo $sql;
+                # update database
+                mysqli_query($cnxn, $sql); ////////////////////////////////////////////////////////////////////////////////
+
+                /////////////////////////////////////////////////////////////////////
+                // setting up things needed to send the email to the admin
+                /////////////////////////////////////////////////////////////////////
+                // send imap_getmailboxes
+                $toEmail = "price.kevin@student.greenriver.edu";
+                $fromName = $_POST["fName"]; // $to would be the admin, $from would be a form variable from the submit form
+                $fromEmail = $_POST["email"]; //this will be from the faq form
+                $subject = "Question from FAQ Page";
+                $headers = "From: $fromName <$fromEmail>";
+                $message = $_POST["question"];
+
+                ///////////////////////////////////////////////////////////////////
+                // this sends the email
+                $success = true;
+                //$success = mail($toEmail, $subject, $message, $headers); ////////////////////////////////////// commented out for debugging
+
+                if (!$success) {
+                    echo $error_message;
+                } else {
+                    echo $success_message;
+                }
+                ////////////////////////////////////////////////////////////////
+            } else {
+                echo $error_message;
+            }
+
+        } else {
+            echo $error_message;
+
+        }
+
         ?>
         <!-- <h1>Form submission was successful</h1> -->
 

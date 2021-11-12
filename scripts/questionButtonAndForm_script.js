@@ -90,7 +90,7 @@ function rollin()
     // console.log('rolling in')
     form_question.classList.remove('rollout');
     // always gotta reset this one, this is rolled-in state
-    message_sent.style.margin = '10px 0 7px 0';
+    message_sent.style.margin = '12px 0 7px 0';
     message_sent.classList.remove('remove_confirm'); // resetting hjust in case rolloud out after confirmed already
     form_and_button_container.style.margin = '0 0 -24px 0';
     form_question.classList.add('rollin');
@@ -186,61 +186,69 @@ button_question_container.addEventListener('click', function(event)
     }
 });
 
+/*
+* looks for 2 consecutiver instances of passed "needle" single char in "haystack" string
+* true if 2 in a row are found, false if not
+*/
+function findTwoInARow(needle, haystack) {
+    // iterate string
+    for (let i = 0; i < haystack.length; i++) {
+        // if we still have one char left
+        if (i <= haystack.length - 2) {
+            // if there are 2 in a row, return false
+            if (haystack[i] === needle && haystack[i+1] === needle) {
+                return true;
+            }
+        }
+    }
+    return false;
+}
+
 ///////////////////////////////////////////////////////////////////////
 // question form email validator
 ///////////////////////////////////////////////////////////////////////
-function validate_email(email)
-{
-    let at = '@';
-    let at_i = -1;
-    let at_count = 0;
-    let dot = '.';
-    let dot_i = -1;
-    let dot_count = 0;
-    // find relationship between @ and . chars
-    for (let i = 0; i < email.length; i++)
-    {
-        if (email[i] === at)
-        {
-            at_i = i;
-            at_count++;
+function validate_email(email) {
+    if (email == "") {
+        return false
+    } else {
+        let at_i = -1;
+        let at_count = 0;
+        let dot_i = -1;
+        let dot_count = 0;
+        // find relationship between '@' and '.' chars
+        for (let i = 0; i < email.length; i++) {
+            if (email[i] === '@') {
+                at_i = i;
+                at_count++;
+            }
+            if (email[i] === '.') {
+                dot_i = i;
+                dot_count++;
+            }
         }
-        if (email[i] === dot)
-        {
-            dot_i = i;
-            dot_count++;
+        // console.log(email, email.length, email.indexOf('.') === email.length-1)
+        // return false if either is still -1, or if the domain identifiers have '.' or '@' at the end
+        let isValid = true;
+
+        // needs at least 1 '@' and 1 '.', and none at either end
+        if (at_i === -1 || dot_i === -1 || email[email.length-1] === '.' || email[email.length-1] === '@' || email[0] === '.' || email[0] === '@') {
+            isValid = false;
         }
-    }
-    // console.log(email, email.length, email.indexOf('.') === email.length-1)
-    // return false if either is still -1, or if the domain identifiers have . or @ at the end
-    if (at_i === -1 || dot_i === -1 || email.indexOf('.') === email.length-1 || email.indexOf('@') === email.length-1)
-    {
-        return false;
-    }
-    // email addresses with 1 @ and 1 .
-    if (at_count === 1 && dot_count === 1)
-    {
-        if (dot_i < at_i)
-        {
-            return false;
-        } else { // 1 and 1, correct order
-            return true;
+        // last '.' must occur after last '@'
+        if (dot_i < at_i) {
+            isValid = false;
+        } // '@' and '.' can't be immediately adjacent
+        if (dot_i - at_i === 1) {
+            isValid = false;
         }
-    }
-    else
-    { // multiple dots and ats mostly ok, except domain extensions have no special chars
-        if (at_i < dot_i && (dot_i - at_i === 1))
-        { // literally the bottom of the barrel here
-            return false;
+
+        twoDots = findTwoInARow('.', email);
+        twoAts = findTwoInARow('@', email);
+        // if 2 '..' or '@@', invalid
+        if (twoDots || twoAts) {
+            isValid = false;
         }
-        if (at_i < dot_i)
-        { // domain extensions have no special chars
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        return isValid;
     }
 }
 
@@ -333,21 +341,41 @@ function validate_on_submit()
         rollin();
         // show success message and reset it's margins to the closed form state
         message_sent.style.visibility = 'visible';
-        message_sent.style.margin = '10px 0 7px 0';
+        message_sent.style.margin = '12px 0 7px 0';
+        processMessageOn();
         // console.log("returned true");
         // document.question_form_name.submit();
         return true;
     }
     else {
         // console.log("returned false");
-        return false;
+        return false; 
     }
+}
+
+function fakeSubmit(){
+    rollin();
+    // show success message and reset it's margins to the closed form state
+    message_sent.style.visibility = 'visible';
+    message_sent.style.margin = '12px 0 7px 0';
+    processMessageOn();
+    // console.log("returned true");
+    // document.question_form_name.submit();
+    return true;
+}
+
+function processMessageOn() {
+    document.getElementById('processing-message').style.visibility = 'visible';
+    setTimeout(function() {
+        document.getElementById('processing-message').style.visibility = 'hidden';
+    }, 2000);
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////
 // for removing the submission message upon click
-message_sent.addEventListener('click', removeConfirmationMessage);
-message_sent.addEventListener('keypress', removeConfirmationMessage);
+let theX = document.getElementById('the-x');
+theX.addEventListener('click', removeConfirmationMessage);
+theX.addEventListener('keypress', removeConfirmationMessage);
 
 /*
 * function removes confirmation message upon click
@@ -365,6 +393,8 @@ function removeConfirmationMessage(event)
     message_sent.classList.add('remove_confirm');
     setTimeout(removed, 400);
 }
+
+
 
 
 
