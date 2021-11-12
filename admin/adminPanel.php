@@ -84,7 +84,7 @@
 
 <!--Control Panel Content Here-->
 
-<div class="container"><!--content container-->
+<div class="container py-4"><!--content container-->
 
     <table id="guestbook-entries" class="display " style="width:100%">
         <thead>
@@ -114,7 +114,7 @@
             $sql ="SELECT * FROM client_questions";
             $result = mysqli_query($cnxn, $sql);
 
-            echo "<p>$result</p>";
+            /*echo "<p>$result</p>";*/
 
             foreach($result as $row) {
 
