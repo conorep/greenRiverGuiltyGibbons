@@ -43,16 +43,16 @@
     <div class="container-fluid">
 
         <a class="navbar-brand ps-3" href="https://www.software.greenrivertech.net/" target="_blank">
-            <img src="../images/grtechlogo.svg" alt="GRTech Logo"  width="160"  class="d-inline-block align-text-top">
+            <img src="../images/siteGRGGrivShift.svg" alt="GRTech Logo"  width="200"  class="d-inline-block align-text-top">
         </a>
 
-        <h3 class="d-block d-lg-none d-xl-none d-xxl-none">Green River College Soft Dev Program<br><em>Admin Control Panel</em></h3>
+        <h3 class="d-block d-lg-none d-xl-none d-xxl-none pt-4">GRC Soft Dev Program<br><em>Frequently Asked Questions</em></h3>
 
         <!--hamburger not needed for admin yet, maybe later though? keeping it for the spacing it holds-->
-        <button class="navbar-toggler invisible" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+<!--        <button class="navbar-toggler invisible d-none d-lg-block d-xl-block d-xxl-block" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
                 aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
-        </button>
+        </button>-->
 
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
 
@@ -68,6 +68,24 @@
             <ul class="navbar-nav" id="spacer">
             </ul>
         </div>
+
+        <!--search form and button-->
+        <span  class="px-md-2  px-lg-2 px-xl-2 py-sm-2 py-xs-2 mt-3 d-lg-none d-xl-none d-xxl-none">
+            <form action="../searchResults.php" method="post">
+                <div class="input-group mb-3 w-75">
+                    <button id="search-btn1" type="submit" class="input-group-text btn-success" > Search</button>
+                    <input name="search-results" type="text" class="form-control text-muted search-text" placeholder="Search Here" >
+                </div>
+            </form>
+        </span>
+
+        <!--search form and button-->
+        <form id="search-mobile-nudge" class="px-md-2  px-lg-2 px-xl-2 py-sm-2 py-xs-2 mt-3 d-none d-lg-block d-xl-block d-xxl-block" action="../searchResults.php" method="post">
+            <div class="input-group mb-3">
+                <input name="search-results" type="text" class="form-control search-text" placeholder="Search Here" >
+                <button id="search-btn" type="submit" class="input-group-text btn-success" > Search</button>
+            </div>
+        </form>
 
         <!--back to faq button-->
         <form id="search-mobile-nudge" class="px-md-2  px-lg-2 px-xl-2 py-sm-2 py-xs-2 mt-3" action="../index.html" method="post">

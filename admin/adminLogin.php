@@ -82,11 +82,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm pt-3 pb-3">
     <div class="container-fluid">
 
-        <a class="navbar-brand ps-3" href="https://www.software.greenrivertech.net/" target="_blank">
-            <img src="../images/grtechlogo.svg" alt="GRTech Logo"  width="160"  class="d-inline-block align-text-top">
+        <a class="navbar-brand" id="scoot-image" href="https://www.software.greenrivertech.net/" target="_blank">
+            <img src="../images/siteGRGGrivShift.svg" alt="GRTech Logo"  width="200"  class="d-inline-block align-text-top">
         </a>
 
-        <h3 class="d-block d-lg-none d-xl-none d-xxl-none">Green River College Soft Dev Program<br><em>Admin Login</em></h3>
+        <h3 class="d-block d-lg-none d-xl-none d-xxl-none pt-4">GRC Soft Dev Program<br><em>Frequently Asked Questions</em></h3>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
                 aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
