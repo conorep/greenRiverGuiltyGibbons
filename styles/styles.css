@@ -116,6 +116,17 @@ footer {
     font-size: smaller;
 }
 
+.toast {
+    position: absolute;
+    top: 6rem;
+    left: 50%;
+    transform: translate(-50%, 0);
+    text-align: center;
+    text-align: -moz-center;
+    text-align: -webkit-center;
+    font-size: larger;
+}
+
 /*ID STYLES*/
 
 #disclaimer {
