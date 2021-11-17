@@ -154,16 +154,24 @@
 
         echo "<h1>Search Results for: '$search_results'</h1>";
 
-        // not using this, just testing stuff and leaving breadcrumbs
-        /*echo "<script type='text/javascript'>
-               window.open('https://cobrien2.greenriverdev.com/305/Resume/', '_blank');
-            </script>";*/
 
     ?>
+
+    <br>
+
+    <!--search form and button-->
+    <form action="searchResults.php" method="post">
+        <div class="input-group mx-3 py-5">
+            <input name="search-results" type="text" class="form-control search-text" placeholder="Search Here" >
+            <button id="search-btn" type="submit" class="input-group-text btn-success" > Search Again?</button>
+        </div>
+    </form>
+
     </div>
     <div class="col-2"></div>
 
 </article>
+
 
 
 
