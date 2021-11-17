@@ -146,6 +146,7 @@
     padding: 0 7px 0 7px;
     font-size: 16px;
     width: 350px;
+    /* width: 380px; */
     height: 28px;
 
     display: flex;
@@ -281,6 +282,7 @@
     /* top: 0; */
     height: 28px;
     width: 245px;
+    width: 310px;
     margin: 0;
     padding: 0;
     user-select: none;
@@ -308,9 +310,13 @@
     z-index: 1;
     /* background-color: red; */
     background-color: var(--button-background-color);
+    /* background-color: rgb(191, 45, 201); */
     font-size: 16px;
-    padding: 0 25px;
+    /* padding: 0 15px; */
+    width: 310px;
     font-weight: 400;
+    display: flex;
+    justify-content: center;
 }
 
 #the-x {

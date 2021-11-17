@@ -132,14 +132,17 @@
         ///////////////////////////////////////////////////////////////////////
         // validation flag
         $form_valid = true;
-        $error_message = "<script>
-                          document.getElementById('display').innerText = 'Form was invalid, please try again';
-                          </script>";
-
+        $error_message = "<script>document.getElementById('display').innerText = 'Error: ";
+                          // longest possible error:
+                          // Error: question, first name, email required
         $success_message = "<script>
                             document.getElementById('display').innerText = 'Your question was submitted';
                             </script>";
 
+        ///////////////////////////////////////////////////////////////////////
+        // use this to accumulate error text
+        $errors = array();
+        $errors_end = " required';</script>";
 
         ///////////////////////////////////////////////////////////////////////
         // validate keys
@@ -154,14 +157,48 @@
         }
 
         /////////////////////////////////////////////////////////////////////
+        // check referring url
+        if (array_key_exists("HTTP_REFERER", $_SERVER)) {
+            if ($_SERVER["HTTP_REFERER"] != "https://gr-guilty-gibbons.greenriverdev.com/") {
+            // if ($_SERVER["HTTP_REFERER"] != "http://localhost:8000/") {
+                $isValid = false;
+            }
+        } else {
+            $isValid = false;
+        }
+
+        /////////////////////////////////////////////////////////////////////
         // if keys are correct, validate rest of form
         if ($form_valid) {
 
             /////////////////////////////////////
             // validate question, first name and email
-            if($_POST['question'] == "" || $_POST['fName'] == "" || !emailValidation($_POST['email'])) {
+            if($_POST['question'] == "") {
                 $form_valid = false;
+                array_push($errors, "question");
             }
+            if($_POST['fName'] == "") {
+                $form_valid = false;
+                if (count($errors) > 0){
+                    array_push($errors, ", ");
+                }
+                array_push($errors, "first name");
+            }
+            if(!emailValidation($_POST['email'])) {
+                $form_valid = false;
+                if (count($errors) > 0){
+                    array_push($errors, ", ");
+                }
+                array_push($errors, "email");
+            }
+
+
+            //////////////////////////////////////////////////////////////////////////
+            // combine errors
+            foreach ($errors as $item){
+                $error_message = $error_message . $item;
+            }
+            $error_message = $error_message . " required';</script>";
 
             //$form_valid = false;
             if ($form_valid) {
