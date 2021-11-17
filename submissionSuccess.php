@@ -244,12 +244,11 @@
             }
 
         } else {
+            $error_message = $error_message . " form tampering';</script>";
             echo $error_message;
-
         }
 
         ?>
         <!-- <h1>Form submission was successful</h1> -->
-
     </body>
 </html>
