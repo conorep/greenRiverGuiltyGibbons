@@ -21,6 +21,13 @@ footer {
 
 }
 
+a {
+    color: #343434;
+}
+
+a:hover {
+    color: #565656;
+}
 
 /*CLASS STYLES*/
 
@@ -87,6 +94,10 @@ footer {
 
 .question {
     font-weight: bold;
+}
+
+.answer {
+    padding-left: 2rem;
 }
 
 .navbar-brand {
