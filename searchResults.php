@@ -172,6 +172,62 @@
 
 </article>
 
+<!--
+user
+9]QdhnkZAJqc
+-->
+
+<?php
+$servername = "localhost";
+$username = "grguilty_user";
+$password = "9]QdhnkZAJqc";
+$dbname = "grguilty_qna";
+
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+
+$sql = "SELECT question, answer, category, number 
+FROM qna
+WHERE (question like '%$search_results%'
+or answer like '%$search_results%')";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+
+
+        echo '<div class="container accordion" id="accordionPanelsStayOpenExample' .$row["number"].'">
+    <div class="accordion-item shadow-sm">
+        <h2 class="accordion-header" id="panelsStayOpen-heading' .$row["number"].'">
+            <button class="accordion-button fw-bold text-uppercase" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#panelsStayOpen-collapse' .$row["number"].'" aria-expanded="true"
+                    aria-controls="panelsStayOpen-collapse' .$row["number"].'">'.
+            $row["question"].
+            '</button>
+        </h2>
+        <div id="panelsStayOpen-collapse' .$row["number"].'" class="accordion-collapse collapse "
+             aria-labelledby="panelsStayOpen-heading' .$row["number"].'">
+            <div class="accordion-body">'.
+            $row["answer"].
+        '</div>
+        </div>
+    </div>
+</div>';
+
+    }
+} else {
+    echo "0 results";
+}
+
+$conn->close();
+?>
 
 
 

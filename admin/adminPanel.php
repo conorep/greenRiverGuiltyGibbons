@@ -98,11 +98,7 @@
 </nav>
 <!--Nav ends here-->
 
-<div id="disclaimer" class="container bg-warning box-shadows2 mt-3 py-4 alert alert-info alert-dismissible fade show border-0" role="alert">
-    <h3 id="disclaimer-text" class="px-3"><strong>The information provided here is not official or legally binding.
-            This is a resource created by students, for students.</strong></h3>
-    <button class="btn-close " data-bs-dismiss="alert" type="button" aria-label="Close"></button>
-</div>
+<!-- no Disclaimer on Admin page -->
 
 <!--Control Panel Content Here-->
 
