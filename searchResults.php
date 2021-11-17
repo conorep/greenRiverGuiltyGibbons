@@ -122,7 +122,7 @@
         <!--back to faq button-->
         <form id="search-mobile-nudge" class="px-md-2  px-lg-2 px-xl-2 py-sm-2 py-xs-2 mt-3" action="index.html" method="post">
             <div class="input-group mb-3">
-                <button id="search-btn" type="submit" class="input-group-text btn-success" > Back to FAQ</button>
+                <button type="submit" class="input-group-text btn-success" > Back to FAQ</button>
             </div>
         </form>
 

@@ -70,17 +70,17 @@
         </div>
 
         <!--search form and button-->
-        <span  class="px-md-2  px-lg-2 px-xl-2 py-sm-2 py-xs-2 mt-3 d-lg-none d-xl-none d-xxl-none">
+        <div  class="px-md-2  px-lg-2 px-xl-2 py-sm-2 py-xs-2 mt-3 d-lg-none d-xl-none d-xxl-none">
             <form action="../searchResults.php" method="post">
                 <div class="input-group mb-3 w-75">
                     <button id="search-btn1" type="submit" class="input-group-text btn-success" > Search</button>
                     <input name="search-results" type="text" class="form-control text-muted search-text" placeholder="Search Here" >
                 </div>
             </form>
-        </span>
+        </div>
 
         <!--search form and button-->
-        <form id="search-mobile-nudge" class="px-md-2  px-lg-2 px-xl-2 py-sm-2 py-xs-2 mt-3 d-none d-lg-block d-xl-block d-xxl-block" action="../searchResults.php" method="post">
+        <form id="search-mobile-nudge1" class="px-md-2  px-lg-2 px-xl-2 py-sm-2 py-xs-2 mt-3 d-none d-lg-block d-xl-block d-xxl-block" action="../searchResults.php" method="post">
             <div class="input-group mb-3">
                 <input name="search-results" type="text" class="form-control search-text" placeholder="Search Here" >
                 <button id="search-btn" type="submit" class="input-group-text btn-success" > Search</button>
@@ -90,7 +90,7 @@
         <!--back to faq button-->
         <form id="search-mobile-nudge" class="px-md-2  px-lg-2 px-xl-2 py-sm-2 py-xs-2 mt-3" action="../index.html" method="post">
             <div class="input-group mb-3">
-                <button id="search-btn" type="submit" class="input-group-text btn-success" > Back to FAQ</button>
+                <button type="submit" class="input-group-text btn-success" > Back to FAQ</button>
             </div>
         </form>
 
