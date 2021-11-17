@@ -172,6 +172,47 @@
 
 </article>
 
+<!--
+user
+9]QdhnkZAJqc
+-->
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<?php
+$servername = "localhost";
+$username = "grguilty_user";
+$password = "9]QdhnkZAJqc";
+$dbname = "grguilty_qna";
+
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+
+$sql = "SELECT question, answer, category
+FROM qna
+WHERE (question like '%$search_results%'
+or answer like '%$search_results%')";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+        echo "<br><strong>Question:</strong>". $row["question"]. "<br><strong>Answer:</strong>". $row["answer"]. "<strong>Category:</strong>" . $row["category"] . "<br>";
+    }
+} else {
+    echo "0 results";
+}
+
+$conn->close();
+?>
 
 
 
