@@ -171,10 +171,6 @@ user
 -->
 
 <?php
-/*$servername = "localhost";
-$username = "grguilty_user";
-$password = "9]QdhnkZAJqc";
-$dbname = "grguilty_qna";*/
 
 require("/home/grguilty/qandaconfig.php");
 
