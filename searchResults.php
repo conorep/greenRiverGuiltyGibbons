@@ -20,7 +20,7 @@
 
     <!--    Bootstrap Styles and Main Styles-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="styles/searchStyles.css.css">
+    <link rel="stylesheet" href="styles/searchStyles.css">
 
 
     <!-- Kevin's CSS, Next Two Lines -->
