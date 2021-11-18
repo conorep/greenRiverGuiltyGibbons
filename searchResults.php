@@ -206,17 +206,17 @@ if ($result->num_rows > 0) {
         echo '<div class="container accordion" id="accordionPanelsStayOpenExample' .$row["number"].'">
     <div class="accordion-item shadow-sm">
         <h2 class="accordion-header" id="panelsStayOpen-heading' .$row["number"].'">
-            <button class="accordion-button fw-bold text-uppercase" type="button" data-bs-toggle="collapse"
+            <button class="accordion-button fw-bold" type="button" data-bs-toggle="collapse"
                     data-bs-target="#panelsStayOpen-collapse' .$row["number"].'" aria-expanded="true"
-                    aria-controls="panelsStayOpen-collapse' .$row["number"].'">'.
+                    aria-controls="panelsStayOpen-collapse' .$row["number"].'"><pre>'.
             $row["question"].
-            '</button>
+            '</pre></button>
         </h2>
         <div id="panelsStayOpen-collapse' .$row["number"].'" class="accordion-collapse collapse "
              aria-labelledby="panelsStayOpen-heading' .$row["number"].'">
-            <div class="accordion-body">'.
+            <div class="accordion-body"><pre>'.
             $row["answer"].
-        '</div>
+        '</pre></div>
         </div>
     </div>
 </div>';
