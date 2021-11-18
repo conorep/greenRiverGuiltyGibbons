@@ -252,7 +252,7 @@
             }
 
         } else {
-            $error_message = $error_message . " form tampering';</script>";
+            $error_message = $error_message . " form tampering</div>";
             echo $error_message;
         }
 
