@@ -145,7 +145,7 @@
                 $lname = $row['lname'];
                 $email = $row['email'];
                 $question = $row['question'];
-                $entry_date = date("m/d/Y h:ma", strtotime($row['entry_date']));
+                $entry_date = date("m/d/Y H:i:s", strtotime($row['entry_date']));
 
 
                 echo "
