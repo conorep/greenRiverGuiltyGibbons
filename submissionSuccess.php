@@ -17,9 +17,9 @@
 
     <body id="iframe-cont" style="display:flex;justify-content:center;align-items:center;overflow:hidden;display:flex;justify-content:center;font-family:arial;font-size:16px;font-weight:400;">
 
-        <div id="display" style="position:absolute;top:0.5px;width:300px;margin:0;padding:0;overflow:hidden;display:flex;justify-content:center;user-select:none;">
+        <!-- <div id="display" style="position:absolute;top:0.5px;width:300px;margin:0;padding:0;overflow:hidden;display:flex;justify-content:center;user-select:none;">
             Processing your question...
-        </div>
+        </div> -->
 
         <?php
         error_reporting(0);
@@ -113,8 +113,8 @@
 
         //////////////////////////////////////////////////////////////////////
         // server database
-        require("/home/grguilty/configs.php");
-        $cnxn = mysqli_connect($db_host, $db_user, $db_password, $db_database); //////////////////////////////////
+        // require("/home/grguilty/configs.php");
+        // $cnxn = mysqli_connect($db_host, $db_user, $db_password, $db_database); //////////////////////////////////
         //////////////////////////////////////////////////////////////////////
 
         //////////////////////////////////////////////////////////////////////
@@ -125,24 +125,25 @@
 
         //////////////////////////////////////////////////////////////////////
         // local database
-        // require("../local_db_creds.php");
-        // $cnxn = mysqli_connect($host, $user, $password, $database); //////////////////////////////////
+        require("../local_db_creds.php");
+        $cnxn = mysqli_connect($host, $user, $password, $database); //////////////////////////////////
         //////////////////////////////////////////////////////////////////////
 
         ///////////////////////////////////////////////////////////////////////
         // validation flag
         $form_valid = true;
-        $error_message = "<script>document.getElementById('display').innerText = 'Error: ";
+        // $error_message = "<script>document.getElementById('display').innerText = 'Error: ";
+        $error_message = '<div id="display" style="position:absolute;top:0.5px;width:300px;margin:0;padding:0;overflow:hidden;display:flex;justify-content:center;user-select:none;">Error: ';
                           // longest possible error:
                           // Error: question, first name, email required
-        $success_message = "<script>
-                            document.getElementById('display').innerText = 'Your question was submitted';
-                            </script>";
+        // $success_message = "<script>
+        //                     document.getElementById('display').innerText = 'Your question was submitted';
+        //                     </script>";
+        $success_message = '<div id="display" style="position:absolute;top:0.5px;width:300px;margin:0;padding:0;overflow:hidden;display:flex;justify-content:center;user-select:none;">Your question was submitted</div>';
 
         ///////////////////////////////////////////////////////////////////////
         // use this to accumulate error text
         $errors = array();
-        $errors_end = " required';</script>";
 
         ///////////////////////////////////////////////////////////////////////
         // validate keys
@@ -198,7 +199,7 @@
             foreach ($errors as $item){
                 $error_message = $error_message . $item;
             }
-            $error_message = $error_message . " required';</script>";
+            $error_message = $error_message . "</div>";
 
             //$form_valid = false;
             if ($form_valid) {
@@ -232,6 +233,13 @@
                 // this sends the email
                 $success = true;
                 //$success = mail($toEmail, $subject, $message, $headers); ////////////////////////////////////// commented out for debugging
+
+
+                // <div id="display" style="position:absolute;top:0.5px;width:300px;margin:0;padding:0;overflow:hidden;display:flex;justify-content:center;user-select:none;">
+                //     Processing your question...
+                // </div>
+
+
 
                 if (!$success && !$sql) {
                     echo $error_message;

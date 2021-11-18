@@ -337,4 +337,19 @@
 }
 
 
-/*  */
+/* ##################################################################################### */
+/* ############   in case js is turned off ############################################# */
+#form-question {
+    transform-origin: top;
+    opacity: 1;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    transform: scaleY(1);
+    max-height: 610px;
+}
+#error-lname {
+    visibility: hidden;
+}
+#message-sent {
+    visibility: visible;
+}

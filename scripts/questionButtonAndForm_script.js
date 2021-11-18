@@ -2,6 +2,31 @@
 // Sprint 1 for GRTech FAQ
 // October 14, 2021
 
+
+// transform-origin: top;
+// opacity: 0;
+// margin-top: 0px;
+// margin-bottom: 0px;
+// transform: scaleY(0);
+// max-height: 0px;
+
+///////////////////////////////////////////////////////////////////////////
+// setup for javascript turned off on page load, for allowing php to still function
+
+// message sent, hide it
+let message_sent = document.getElementById('message-sent');
+message_sent.style.visibility = 'hidden';
+// form, roll in real quick
+let form_rolled_inout = 'in'; // will become 'out' later on when form rolls out
+let form_question = document.getElementById('form-question');
+form_question.style.transformOrigin = 'top';
+form_question.style.opacity = '0';
+form_question.style.marginTop = '0px';
+form_question.style.marginBottom = '0px';
+form_question.style.transform = 'scaleY(0)';
+form_question.style.maxHeight = '0px';
+
+
 /////////////////////////////////////////////////////////////////////////////////
 // delay application of button transition style until after page loads so it does
 // not "fade-in" upon page load / refresh
@@ -9,8 +34,6 @@
 let all_buttons = document.getElementsByClassName('all-buttons');
 
 // need this in the event listeners / functions later for fixing margin problems
-let message_sent = document.getElementById('message-sent');
-let form_question = document.getElementById('form-question');
 let form_and_button_container = document.getElementById('kevin-container');
 let button_question_container = document.getElementById('button-question');
 
@@ -80,7 +103,7 @@ for (let i = 0; i < all_buttons.length; i++)
 ///////////////////////////////////////////////////////////////////////
 // ask a qustion rollout / rollin functions and listener
 ///////////////////////////////////////////////////////////////////////
-let form_rolled_inout = 'in'; // will become 'out' later on
+form_rolled_inout = 'in'; // will become 'out' later on
 
 /*
 * rolls in the form
@@ -349,7 +372,7 @@ function validate_on_submit()
     }
     else {
         // console.log("returned false");
-        return false; 
+        return false;
     }
 }
 
