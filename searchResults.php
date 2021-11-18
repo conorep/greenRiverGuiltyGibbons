@@ -203,20 +203,20 @@ if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {
 
 
-        echo '<div class="container accordion" id="accordionPanelsStayOpenExample' .$row["number"].'">
+        echo '<div class="container accordion" id="accordionExample' .$row["number"].'">
     <div class="accordion-item shadow-sm">
-        <h2 class="accordion-header" id="panelsStayOpen-heading' .$row["number"].'">
-            <button class="accordion-button fw-bold" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#panelsStayOpen-collapse' .$row["number"].'" aria-expanded="true"
-                    aria-controls="panelsStayOpen-collapse' .$row["number"].'"><pre>'.
+        <h2 class="accordion-header" id="heading' .$row["number"].'">
+            <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapse' .$row["number"].'" aria-expanded="true"
+                    aria-controls="collapse' .$row["number"].'">'.
             $row["question"].
-            '</pre></button>
+            '</button>
         </h2>
-        <div id="panelsStayOpen-collapse' .$row["number"].'" class="accordion-collapse collapse "
-             aria-labelledby="panelsStayOpen-heading' .$row["number"].'">
-            <div class="accordion-body"><pre>'.
+        <div id="collapse' .$row["number"].'" class="accordion-collapse collapse "
+             aria-labelledby="heading' .$row["number"].'">
+            <div class="accordion-body">'.
             $row["answer"].
-        '</pre></div>
+        '</div>
         </div>
     </div>
 </div>';
