@@ -159,13 +159,6 @@
 
     <br>
 
-    <!--search form and button-->
-    <form action="searchResults.php" method="post">
-        <div class="input-group mx-3 py-5">
-            <input name="search-results" type="text" class="form-control search-text" placeholder="Search Here" >
-            <button id="search-btn" type="submit" class="input-group-text btn-success" > Search Again?</button>
-        </div>
-    </form>
 
     </div>
     <div class="col-2"></div>
@@ -178,11 +171,12 @@ user
 -->
 
 <?php
-$servername = "localhost";
+/*$servername = "localhost";
 $username = "grguilty_user";
 $password = "9]QdhnkZAJqc";
-$dbname = "grguilty_qna";
+$dbname = "grguilty_qna";*/
 
+require("/home/grguilty/qandaconfig.php");
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -229,6 +223,16 @@ if ($result->num_rows > 0) {
 $conn->close();
 ?>
 
+
+<div class="container ">
+    <!--search form and button-->
+    <form  class="d-flex" action="searchResults.php" method="post">
+        <div class="input-group mx-5 p-5 justify-content-center ">
+            <input name="search-results" type="text" class="form-control search-text" placeholder="Search Here" >
+            <button id="search-btn" type="submit" class="input-group-text btn-success" > Search Again?</button>
+        </div>
+    </form>
+</div>
 
 
 <!--Footer begins here-->
