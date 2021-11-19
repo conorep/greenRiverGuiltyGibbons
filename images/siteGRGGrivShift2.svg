@@ -24,14 +24,14 @@
      inkscape:document-units="mm"
      showgrid="false"
      inkscape:zoom="0.54929738"
-     inkscape:cx="415.98596"
+     inkscape:cx="927.54857"
      inkscape:cy="322.22983"
      inkscape:window-width="1904"
      inkscape:window-height="836"
-     inkscape:window-x="1993"
+     inkscape:window-x="1920"
      inkscape:window-y="59"
      inkscape:window-maximized="0"
-     inkscape:current-layer="layer1" />
+     inkscape:current-layer="layer3" />
   <defs
      id="defs2">
     <inkscape:path-effect
@@ -137,14 +137,7 @@
   <g
      inkscape:groupmode="layer"
      id="layer3"
-     inkscape:label="Layer 3">
-    <path
-       style="display:inline;fill:#000000;stroke:#000000;stroke-width:6.84813;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       d="m 27.358589,184.55353 c 122.560741,0 245.121101,0 367.681161,0"
-       id="path3483-0"
-       inkscape:original-d="m 27.358589,184.55353 c 122.560741,5.2e-4 245.121101,5.2e-4 367.681161,0"
-       inkscape:path-effect="#path-effect15206" />
-  </g>
+     inkscape:label="Layer 3" />
   <g
      inkscape:groupmode="layer"
      id="layer2"
