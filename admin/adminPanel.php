@@ -43,16 +43,10 @@
     <div class="container-fluid">
 
         <a class="navbar-brand ps-3" href="https://www.software.greenrivertech.net/" target="_blank">
-            <img src="../images/siteGRGGrivShift.svg" alt="GRTech Logo"  width="200"  class="d-inline-block align-text-top">
+            <img src="../images/siteGRGGrivShift2.svg" alt="GRTech Logo"  width="200"  class="d-inline-block align-text-top">
         </a>
 
         <h3 class="d-block d-lg-none d-xl-none d-xxl-none pt-4">GRC Soft Dev Program<br><em>Frequently Asked Questions</em></h3>
-
-        <!--hamburger not needed for admin yet, maybe later though? keeping it for the spacing it holds-->
-<!--        <button class="navbar-toggler invisible d-none d-lg-block d-xl-block d-xxl-block" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
-                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>-->
 
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
 
