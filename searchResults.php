@@ -165,11 +165,6 @@
 
 </article>
 
-<!--
-user
-9]QdhnkZAJqc
--->
-
 <?php
 
 require("/home/grguilty/qandaconfig.php");
@@ -213,7 +208,7 @@ if ($result->num_rows > 0) {
 
     }
 } else {
-    echo "0 results";
+    echo "<p class='pl-5 ml-5'>0 results</p>";
 }
 
 $conn->close();
@@ -223,9 +218,9 @@ $conn->close();
 <div class="container ">
     <!--search form and button-->
     <form  class="d-flex" action="searchResults.php" method="post">
-        <div class="input-group mx-5 p-5 justify-content-center ">
+        <div class="input-group mr-xs-5 mr-sm-5 mx-md-5 mx-lg-5 mx-xl-5 mx-xxl-5 p-5 justify-content-center ">
             <input name="search-results" type="text" class="form-control search-text" placeholder="Search Here" >
-            <button id="search-btn" type="submit" class="input-group-text btn-success" > Search Again?</button>
+            <button id="search-btn" type="submit" class="input-group-text btn-success" > Search</button>
         </div>
     </form>
 </div>
