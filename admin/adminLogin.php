@@ -1,12 +1,24 @@
 <?php
 ob_start();
+session_set_cookie_params(0);
+session_start();
 $username = "admin";
 $password = "@dm1n";
 $tryAgain = "";
 
+if(isset($_SESSION['use']))
+    // Checking whether the session is already there or not if
+    // true then header redirect it to the home page directly
+{
+    header("Location: https://gr-guilty-gibbons.greenriverdev.com/admin/adminPanel.php");
+    exit();
+}
+
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $inputName = $_POST["username"];
     $usernameErr = "";
+
     if (empty($_POST["username"])) {
         $usernameErr = "Please enter a username";
     } else {
@@ -18,9 +30,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $inputPassword = $_POST["password"];
     $passwordErr = "";
+
     if (empty($_POST["password"])) {
         $passwordErr = "Please enter a password";
-
     } else {
         if ($inputPassword != $password) {
             $passwordErr = "Invalid password entered";
@@ -28,16 +40,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 
-    //'try again' structure here
-/*    if ($inputPassword != $password || $inputName != $username) {
-       $tryAgain = "Please try again.";
-
-    }*/
 
     if ($usernameErr == "" && $passwordErr=="") {
+        $_SESSION['use'] = $username;
         header('Location: https://gr-guilty-gibbons.greenriverdev.com/admin/adminPanel.php');
         exit();
-
     }
 }
 ?>
@@ -190,23 +197,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 </div>
 
-<!--ADMIN LOGIN HERE-->
-<!--<form method="post"  action="<?php /*echo $_SERVER["PHP_SELF"];*/?>" >
-    <label for="username">Username</label>
-    <span class="error"> <?php /*echo $usernameErr;*/?></span>
-    <input type="text" class="form-control" id="username" placeholder="Username" name="username">
-
-    <label for="password">Password</label>
-    <span class="error"> <?php /*echo $passwordErr;*/?></span>
-    <input type="text" class="form-control" id="password" placeholder="Password" name="password">
-    <button type="submit" >Submit</button>
-    <span class="error"> <?php /*echo $tryAgain;*/?></span>
-</form>-->
-
 
 <div class="container">
 
-    <!--Bootstrap login here-->
+    <!--Admin login here-->
     <form  method="post" class="card box-shadows mb-4" id="adminLogin"  action="<?php echo $_SERVER["PHP_SELF"];?>" >
 
         <fieldset>
@@ -232,8 +226,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </form>
 
 </div>
-
-
 
 
 <!--Footer begins here-->
@@ -337,6 +329,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
 
 <!-- Kevin's Script Below -->
+
 <script src="../scripts/questionButtonAndForm_script.js"></script>
 
 

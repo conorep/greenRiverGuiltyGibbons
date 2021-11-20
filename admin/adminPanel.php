@@ -1,3 +1,16 @@
+<?php
+session_set_cookie_params(0);
+session_start();
+
+if(!isset($_SESSION['use'])) // If session is not set then redirect to Login Page
+{
+    /*echo "<p>You are not logged in. Sending you to login page.</p>";*/
+    header("Location: https://gr-guilty-gibbons.greenriverdev.com/admin/adminLogin.php");
+    exit();
+}
+
+?>
+
 <!--
     Gr-Guilty-Gibbons FAQ
     Kevin, Conor, Pat
@@ -92,19 +105,20 @@
 </nav>
 <!--Nav ends here-->
 
-<!-- no Disclaimer on Admin page -->
 
-<!--Control Panel Content Here-->
+<!-- Control Panel Content Here -->
 
-<div class="container py-4"><!--content container-->
+<!-- content container -->
+<div class='container py-4'>
 
-    <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-bs-delay="1500" >
-        <div class="toast-body">
+
+    <div class='toast' role='alert' aria-live='assertive' aria-atomic='true' data-bs-delay='1500' >
+        <div class='toast-body'>
             <strong>Admin login successful!</strong>
         </div>
     </div>
 
-    <table id="guestbook-entries" class="display " style="width:100%">
+    <table id='guestbook-entries' class='display' style='width:100 % '>
         <thead>
         <tr>
             <th>Message ID</th>
@@ -129,10 +143,10 @@
             or die("Error connecting to the database.");
 
             // display client questions
-            $sql ="SELECT * FROM client_questions";
+            $sql = "SELECT * FROM client_questions";
             $result = mysqli_query($cnxn, $sql);
 
-            foreach($result as $row) {
+            foreach ($result as $row) {
 
                 $entry_id = $row['entry_id'];
                 $fname = $row['fname'];
@@ -151,7 +165,6 @@
                     <td>$question</td>
                 </tr>";
             }
-
         ?>
 
         </tbody>
@@ -168,7 +181,8 @@
 
     </table>
 
-</div><!--end content container-->
+</div>
+<!--end content container-->
 
 
 <!--Footer begins here-->
