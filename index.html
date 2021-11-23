@@ -41,34 +41,39 @@
 <nav id="nav-margin-bottom" class="navbar navbar-expand-lg navbar-light bg-light shadow-sm pt-3 pb-3" >
     <div class="container-fluid" id="header-width">
 
-        <a class="navbar-brand" id="scoot-image" href="https://www.software.greenrivertech.net/" target="_blank">
+        <a class="navbar-brand pe-3" id="scoot-image" href="https://www.software.greenrivertech.net/" target="_blank">
             <img src="images/siteGRGGrivShift2.svg" alt="GRTech Logo"  width="200"  class="d-inline-block align-text-top">
         </a>
 
-        <h3 class="d-block d-lg-none d-xl-none d-xxl-none pt-4">GRC Soft Dev Program<br><em>Frequently Asked Questions</em></h3>
+        <ul class="list-unstyled d-block d-lg-none d-xl-none d-xxl-none pt-4">
+            <li>
+                <h3 >GRC Soft Dev Program</h3>
+                <h6><em>Frequently Asked Questions</em></h6>
+            </li>
+        </ul>
+
 
         <button class="navbar-toggler mt-4" id="hamburger-nudge" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
                 aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <div class="collapse navbar-collapse flex-column" id="navbarNavDropdown">
 
             <!--For logo, GRC SDEV PROG title, and FAQ title-->
-            <ul class="navbar-nav">
-                <li class="px-md-4 px-lg-4 px-xl-4 d-none d-lg-block d-xl-block d-xxl-block">
-                    <h4>Green River College Software Development Program</h4>
-                    <h5><em>Frequently Asked Questions</em></h5>
+            <ul class="navbar-nav flex-row">
+                <li class="px-md-4 px-lg-4 px-xl-4 d-none d-lg-block d-xl-block d-xxl-block text-center">
+                    <h4>Green River College Software Development</h4>
+                    <h5 class=""><em>Frequently Asked Questions</em></h5>
                 </li>
             </ul>
 
             <!--   Spacer-->
-            <ul class="navbar-nav" id="spacer">
-            </ul>
+<!--            <ul class="navbar-nav" id="spacer">
+            </ul>-->
 
             <!--Remainder of navbar-->
-            <ul class="navbar-nav">
-
+            <ul class="navbar-nav flex-md-row flex-lg-row flex-xl-row flex-xxl-row justify-content-around">
 
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="ResourceDropdown" role="button"
@@ -114,17 +119,16 @@
                     <a class="nav-link" href="https://medium.com/green-river-web-mobile-developers" target="_blank">Program Blog</a>
                 </li>
 
-                <!--search form and button-->
-                <li  class="px-md-2  px-lg-2 px-xl-2 py-sm-2 py-xs-2 mt-3 d-lg-none d-xl-none d-xxl-none">
-                    <form action="searchResults.php" method="post">
-                        <div class="input-group mb-3 w-75">
-                            <button id="search-btn1" type="submit" class="input-group-text btn-success" > Search</button>
-                            <input name="search-results" type="text" class="form-control text-muted search-text" placeholder="Search Here" >
-                        </div>
-                    </form>
-                </li>
-
             </ul>
+            <!--search form and button-->
+            <div  class="px-md-2  px-lg-2 px-xl-2 py-sm-2 py-xs-2 mt-3 d-lg-none d-xl-none d-xxl-none">
+                <form action="searchResults.php" method="post">
+                    <div class="input-group mb-3 w-75">
+                        <button id="search-btn1" type="submit" class="input-group-text btn-success" > Search</button>
+                        <input name="search-results" type="text" class="form-control text-muted search-text" placeholder="Search Here" >
+                    </div>
+                </form>
+            </div>
 
         </div>
 
