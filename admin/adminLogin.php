@@ -6,7 +6,7 @@ $username = "admin";
 $password = "@dm1n";
 $tryAgain = "";
 
-if(isset($_SESSION['use']))
+if(isset($_SESSION['grguiltyuse']))
     // Checking whether the session is already there or not if
     // true then header redirect it to the home page directly
 {
@@ -42,7 +42,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
     if ($usernameErr == "" && $passwordErr=="") {
-        $_SESSION['use'] = $username;
+        $_SESSION['grguiltyuse'] = $username;
         header('Location: https://gr-guilty-gibbons.greenriverdev.com/admin/adminPanel.php');
         exit();
     }
@@ -93,29 +93,31 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <img src="../images/siteGRGGrivShift2.svg" alt="GRTech Logo"  width="200"  class="d-inline-block align-text-top">
         </a>
 
-        <h3 class="d-block d-lg-none d-xl-none d-xxl-none pt-4">GRC Soft Dev Program<br><em>Frequently Asked Questions</em></h3>
+        <ul class="list-unstyled d-block d-lg-none d-xl-none d-xxl-none pt-4">
+            <li>
+                <h3 >GRC Soft Dev Program</h3>
+                <h6><em>Frequently Asked Questions</em></h6>
+            </li>
+        </ul>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
                 aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <div class="collapse navbar-collapse flex-column" id="navbarNavDropdown">
 
             <!--For logo, GRC SDEV PROG title, and FAQ title-->
-            <ul class="navbar-nav">
-                <li class="px-md-4 px-lg-4 px-xl-4 d-none d-lg-block d-xl-block d-xxl-block">
-                    <h4>Green River College Software Development Program</h4>
-                    <h5><em>Admin Login</em></h5>
+            <ul class="navbar-nav flex-row">
+                <li class="px-md-4 px-lg-4 px-xl-4 d-none d-lg-block d-xl-block d-xxl-block text-center">
+                    <h4>Green River College Software Development</h4>
+                    <h5 class=""><em>Frequently Asked Questions</em></h5>
                 </li>
             </ul>
 
-            <!--   Spacer-->
-            <ul class="navbar-nav" id="spacer">
-            </ul>
 
             <!--Remainder of navbar-->
-            <ul class="navbar-nav">
+            <ul class="navbar-nav flex-md-row flex-lg-row flex-xl-row flex-xxl-row justify-content-around">
 
 
                 <li class="nav-item dropdown">
@@ -213,7 +215,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <div>
                     <label for="password">Password:</label>
                     <span class="error"> <?php echo $passwordErr;?></span>
-                    <input type="text" class="form-control" id="password" placeholder="password" name="password">
+                    <input type="password" class="form-control" id="password" placeholder="password" name="password">
                 </div>
                 <div>
                     <button type="submit" class="button-hover-noTransition btn-admin btn-question mt-2">Submit</button>

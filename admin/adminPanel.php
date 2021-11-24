@@ -2,7 +2,7 @@
 session_set_cookie_params(0);
 session_start();
 
-if(!isset($_SESSION['use'])) // If session is not set then redirect to Login Page
+if(!isset($_SESSION['grguiltyuse'])) // If session is not set then redirect to Login Page
 {
     /*echo "<p>You are not logged in. Sending you to login page.</p>";*/
     header("Location: https://gr-guilty-gibbons.greenriverdev.com/admin/adminLogin.php");
@@ -59,21 +59,23 @@ if(!isset($_SESSION['use'])) // If session is not set then redirect to Login Pag
             <img src="../images/siteGRGGrivShift2.svg" alt="GRTech Logo"  width="200"  class="d-inline-block align-text-top">
         </a>
 
-        <h3 class="d-block d-lg-none d-xl-none d-xxl-none pt-4">GRC Soft Dev Program<br><em>Frequently Asked Questions</em></h3>
+        <ul class="list-unstyled d-block d-lg-none d-xl-none d-xxl-none pt-4">
+            <li>
+                <h3 >GRC Soft Dev Program</h3>
+                <h6><em>Frequently Asked Questions</em></h6>
+            </li>
+        </ul>
 
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <div class="collapse navbar-collapse flex-column" id="navbarNavDropdown">
 
             <!--For logo, GRC SDEV PROG title, and FAQ title-->
-            <ul class="navbar-nav">
-                <li class="px-md-4 px-lg-4 px-xl-4 d-none d-lg-block d-xl-block d-xxl-block">
-                    <h4>Green River College Software Development Program</h4>
-                    <h5><em>Admin Control Panel</em></h5>
+            <ul class="navbar-nav flex-row">
+                <li class="px-md-4 px-lg-4 px-xl-4 d-none d-lg-block d-xl-block d-xxl-block text-center">
+                    <h4>Green River College Software Development</h4>
+                    <h5 class=""><em>Frequently Asked Questions</em></h5>
                 </li>
             </ul>
 
-            <!--   Spacer-->
-            <ul class="navbar-nav" id="spacer">
-            </ul>
         </div>
 
         <!--search form and button-->

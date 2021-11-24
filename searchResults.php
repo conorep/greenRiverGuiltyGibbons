@@ -45,29 +45,30 @@
             <img src="images/siteGRGGrivShift2.svg" alt="GRTech Logo"  width="200"  class="d-inline-block align-text-top">
         </a>
 
-        <h3 class="d-block d-lg-none d-xl-none d-xxl-none pt-4">GRC Soft Dev Program<br><em>Frequently Asked Questions</em></h3>
+        <ul class="list-unstyled d-block d-lg-none d-xl-none d-xxl-none pt-4">
+            <li>
+                <h3 >GRC Soft Dev Program</h3>
+                <h6><em>Frequently Asked Questions</em></h6>
+            </li>
+        </ul>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
                 aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <div class="collapse navbar-collapse flex-column" id="navbarNavDropdown">
 
             <!--For logo, GRC SDEV PROG title, and FAQ title-->
-            <ul class="navbar-nav">
-                <li class="px-md-4 px-lg-4 px-xl-4 d-none d-lg-block d-xl-block d-xxl-block">
-                    <h4>Green River College Software Development Program</h4>
-                    <h5><em>Search Results</em></h5>
+            <ul class="navbar-nav flex-row">
+                <li class="px-md-4 px-lg-4 px-xl-4 d-none d-lg-block d-xl-block d-xxl-block text-center">
+                    <h4>Green River College Software Development</h4>
+                    <h5 class=""><em>Frequently Asked Questions</em></h5>
                 </li>
             </ul>
 
-            <!--   Spacer-->
-            <ul class="navbar-nav" id="spacer">
-            </ul>
-
             <!--Remainder of navbar-->
-            <ul class="navbar-nav">
+            <ul class="navbar-nav flex-md-row flex-lg-row flex-xl-row flex-xxl-row justify-content-around">
 
 
                 <li class="nav-item dropdown">
