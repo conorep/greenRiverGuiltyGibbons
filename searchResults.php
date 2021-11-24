@@ -1,3 +1,10 @@
+<?php
+session_set_cookie_params(0);
+session_start();
+
+?>
+
+
 <!--
     Gr-Guilty-Gibbons FAQ
     Kevin, Conor, Pat
@@ -121,7 +128,7 @@
         </div>
 
         <!--back to faq button-->
-        <form id="search-mobile-nudge" class="px-md-2  px-lg-2 px-xl-2 py-sm-2 py-xs-2 mt-3" action="index.html" method="post">
+        <form id="search-mobile-nudge" class="px-md-2  px-lg-2 px-xl-2 py-sm-2 py-xs-2 mt-3" action="index.php" method="post">
             <div class="input-group mb-3">
                 <button type="submit" class="input-group-text btn-success" > Back to FAQ</button>
             </div>
@@ -257,9 +264,6 @@ $conn->close();
                     <li>
                         <a class="text-dark" href="https://www.itconnect.greenrivertech.net/studentResources" target="_blank">Student Resources</a>
                     </li>
-                    <li>
-                        <a class="text-dark" href="https://www.boardmasters.greenriverdev.com/" target="_blank">BoardMasters Club</a>
-                    </li>
                 </ul>
             </div>
 
@@ -298,8 +302,20 @@ $conn->close();
                     </li>
 
                     <li>
-                        <a class="text-dark" href="https://gr-guilty-gibbons.greenriverdev.com/admin/adminLogin.php" target="_blank">Admin Login</a>
+                        <a class="text-dark" href="https://gr-guilty-gibbons.greenriverdev.com/admin/adminLogin.php" target="_blank">Admin Panel</a>
                     </li>
+                    <?php
+                        if(isset($_SESSION['grguiltyuse']))
+                        {
+                        echo
+                        '
+                        <li>
+                            <a class="text-dark" href="https://gr-guilty-gibbons.greenriverdev.com/admin/adminLogout.php"
+                                target="_blank"><strong>ADMIN LOGOUT</strong></a>
+                        </li>
+                        ';
+                        }
+                    ?>
                 </ul>
             </div>
             <!--Grid column-->
