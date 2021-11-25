@@ -185,8 +185,9 @@ if ($conn->connect_error) {
 }
 
 
-$sql = "SELECT question, answer, category, number 
+$sql = "SELECT number, question, answer, qna.category_id, category_name 
 FROM qna
+NATURAL JOIN category
 WHERE (question like '%$search_results%'
 or answer like '%$search_results%')";
 $result = $conn->query($sql);
