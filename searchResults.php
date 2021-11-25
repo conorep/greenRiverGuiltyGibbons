@@ -237,8 +237,21 @@ $conn->close();
 <!--Footer begins here-->
 <footer class="bg-light text-center text-lg-start footer mt-auto py-3 pb-0">
 
+    <?php
+    if(isset($_SESSION['grguiltyuse']))
+    {
+        echo
+        '
+                <a class="float-end pe-5 pb-3" href="https://gr-guilty-gibbons.greenriverdev.com/admin/adminLogout.php"><button class="btn btn-success " type="button"><strong>ADMIN LOGOUT</strong></button></a>
+                <br><br>
+             ';
+    }
+    ?>
+
     <!-- Grid container -->
     <div class="container p-4  ">
+
+
 
         <!--Grid row-->
         <div class="row ">
@@ -304,18 +317,6 @@ $conn->close();
                     <li>
                         <a class="text-dark" href="https://gr-guilty-gibbons.greenriverdev.com/admin/adminLogin.php" target="_blank">Admin Panel</a>
                     </li>
-                    <?php
-                        if(isset($_SESSION['grguiltyuse']))
-                        {
-                        echo
-                        '
-                        <li>
-                            <a class="text-dark" href="https://gr-guilty-gibbons.greenriverdev.com/admin/adminLogout.php"
-                                target="_blank"><strong>ADMIN LOGOUT</strong></a>
-                        </li>
-                        ';
-                        }
-                    ?>
                 </ul>
             </div>
             <!--Grid column-->

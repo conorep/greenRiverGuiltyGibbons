@@ -300,18 +300,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <li>
                         <a class="text-dark" href="https://gr-guilty-gibbons.greenriverdev.com/admin/adminLogin.php" target="_blank">Admin Panel</a>
                     </li>
-                    <?php
-                        if(isset($_SESSION['grguiltyuse']))
-                        {
-                        echo
-                        '
-                        <li>
-                            <a class="text-dark" href="https://gr-guilty-gibbons.greenriverdev.com/admin/adminLogout.php"
-                                target="_blank"><strong>ADMIN LOGOUT</strong></a>
-                        </li>
-                        ';
-                        }
-                    ?>
                 </ul>
             </div>
             <!--Grid column-->
