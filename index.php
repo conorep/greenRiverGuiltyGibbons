@@ -178,34 +178,40 @@ if ($conn->connect_error) {
 }
 
 
-    $sql = "SELECT question, answer, category, number 
-    FROM qna
-    WHERE category='SOFTWARE DEVELOPMENT'";
-
-    $result = $conn->query($sql);
+$sql = "SELECT number, question, answer, qna.category_id, category_name 
+FROM qna
+NATURAL JOIN category";
+$result = $conn->query($sql);
 
     // output data of each row
-    while($row = $result->fetch_assoc()) {
 
+$currentCategory = null;
+
+    while($row = $result->fetch_assoc()) {
+        $newCategory = $row["category_name"];
+
+        if ($currentCategory!=$newCategory) {
+            $currentCategory = $newCategory;
+            echo '<p class="h1 category">'.$row["category_name"].'</p>';
+        }
 
         echo '<div class="container accordion" id="accordionExample' .$row["number"].'">
-                <div class="accordion-item shadow-sm">
-                    <h2 class="accordion-header" id="heading' .$row["number"].'">
-                        <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#collapse' .$row["number"].'" aria-expanded="true"
-                                aria-controls="collapse' .$row["number"].'">'.
-                                $row["category"].
-                        '</button>
-                    </h2>
-                    
-                    <div id="collapse' .$row["number"].'" class="accordion-collapse collapse "
-                         aria-labelledby="heading' .$row["number"].'">
-                        <div class="accordion-body">'.
-                                '<p class="question">' . $row["question"] . '</p><br>'. $row["answer"] .
-                        '</div>
-                    </div>
-                </div>
-            </div>';
+    <div class="accordion-item shadow-sm">
+        <h2 class="accordion-header" id="heading' .$row["number"].'">
+            <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapse' .$row["number"].'" aria-expanded="true"
+                    aria-controls="collapse' .$row["number"].'">'.
+            $row["question"].
+            '</button>
+        </h2>
+        <div id="collapse' .$row["number"].'" class="accordion-collapse collapse "
+             aria-labelledby="heading' .$row["number"].'">
+            <div class="accordion-body">'.
+            $row["answer"].
+            '</div>
+        </div>
+    </div>
+</div>';
 
     }
 
@@ -256,7 +262,7 @@ $conn->close();
 </div>-->
 <!--End of q/a accordion here-->
 
-<div class="container accordion" id="accordionPanelsStayOpenExampleTwo">
+<!--<div class="container accordion" id="accordionPanelsStayOpenExampleTwo">
     <div class="accordion-item shadow-sm">
         <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
             <button class="accordion-button collapsed fw-bold text-uppercase" type="button" data-bs-toggle="collapse"
@@ -289,10 +295,10 @@ $conn->close();
             </div>
         </div>
     </div>
-</div>
+</div>-->
 <!--End of q/a here-->
 
-<div class="container accordion" id="accordionPanelsStayOpenExampleThree">
+<!--<div class="container accordion" id="accordionPanelsStayOpenExampleThree">
     <div class="accordion-item shadow-sm">
         <h2 class="accordion-header" id="panelsStayOpen-headingThree">
             <button class="accordion-button collapsed fw-bold text-uppercase" type="button" data-bs-toggle="collapse"
@@ -325,10 +331,10 @@ $conn->close();
             </div>
         </div>
     </div>
-</div>
+</div>-->
 <!--End q/a here-->
 
-<div class="container accordion" id="accordionPanelsStayOpenExampleFour">
+<!--<div class="container accordion" id="accordionPanelsStayOpenExampleFour">
     <div class="accordion-item shadow-sm">
         <h2 class="accordion-header" id="panelsStayOpen-headingFour">
             <button class="accordion-button collapsed fw-bold text-uppercase" type="button" data-bs-toggle="collapse"
@@ -357,10 +363,10 @@ $conn->close();
             </div>
         </div>
     </div>
-</div>
+</div>-->
 <!--End q/a here-->
 
-<div class="container accordion" id="accordionPanelsStayOpenExampleFive">
+<!--<div class="container accordion" id="accordionPanelsStayOpenExampleFive">
     <div class="accordion-item shadow-sm">
         <h2 class="accordion-header" id="panelsStayOpen-headingFive">
             <button class="accordion-button collapsed fw-bold text-uppercase" type="button" data-bs-toggle="collapse"
@@ -420,7 +426,7 @@ $conn->close();
             </div>
         </div>
     </div>
-</div>
+</div>-->
 <!--End q/a here-->
 
 <!--Begin QnA Submit Form Here-->
