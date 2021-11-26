@@ -113,13 +113,14 @@ $adminFooter = 'yes';
 
 <!-- content container -->
 <div class='container py-4'>
-
+    <p><a href="adminAddQuestion.php">Add a Question</a></p>
 
     <div class='toast' role='alert' aria-live='assertive' aria-atomic='true' data-bs-delay='1500' >
         <div class='toast-body'>
             <strong>Admin login successful!</strong>
         </div>
     </div>
+
 
     <table id='guestbook-entries' class='display' style='width:100 % '>
         <thead>
