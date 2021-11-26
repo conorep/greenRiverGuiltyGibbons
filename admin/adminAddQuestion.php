@@ -53,16 +53,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $sql = "INSERT INTO qna (question, answer, category_id)
         VALUES ('$_POST[questionTextBox]', '$_POST[answerTextArea]', '$_POST[categorySelect]')";
         if ($conn->query($sql) === TRUE) {
-            echo "New record created successfully";
+//            echo "New record created successfully";
         } else {
-            echo "Error: " . $sql . "<br>" . $conn->error;
+//            echo "Error: " . $sql . "<br>" . $conn->error;
         }
 
         $conn->close();
         //db conn ended here
 
-//        header('Location: https://gr-guilty-gibbons.greenriverdev.com/admin/adminPanel.php');
-//        exit();
+        header('Location: https://gr-guilty-gibbons.greenriverdev.com/admin/adminPanel.php');
+        exit();
     }
 }
 ?>
