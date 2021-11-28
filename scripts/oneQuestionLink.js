@@ -9,6 +9,7 @@ for (let i = 0; i < accordion_items.length; i++) {
         let id = event.target.attributes['aria-controls'].value;
         id = id.substr(8, id.length);
 
-        navigator.clipboard.writeText('question?id=' + id);
+        // navigator.clipboard.writeText('https://' + location.hostname + '/question.php?id=' + id); //////////////////////////// SWAP
+        navigator.clipboard.writeText('localhost:8000/question.php?id=' + id);
     });
 }

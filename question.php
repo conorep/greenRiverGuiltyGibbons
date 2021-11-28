@@ -166,9 +166,54 @@ session_start();
 </div>
 
 
+<?php
+
+//echo $_GET['id'];
+
+if (isset($_GET['id'])) {
+
+    $id = $_GET['id'];
+    // require("/home/grguilty/qandaconfig.php");
+    require("../qandaconfig.php"); //////////////////////////////////////////////////////////////////////// DELETE
+    // Create connection
+    $conn = new mysqli($servername, $username, $password, $dbname);
+    // Check connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+
+    $sql = "SELECT number, question, answer, qna.category_id, category_name
+    FROM qna
+    NATURAL JOIN category
+    WHERE number = $id";
+
+    // $result = $conn->query($sql);
+    $result = mysqli_query($conn, $sql);
+    $row = mysqli_fetch_array($result);
+
+    // echo print_r($row);
+    echo '<p class="h1 category">'.$row["category_name"].'</p>';
+    echo '<div class="container accordion" id="accordionExample' .$row["number"].'">
+<div class="accordion-item shadow-sm">
+    <h2 class="accordion-header" id="heading' .$row["number"].'">
+        <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapse' .$row["number"].'" aria-expanded="true"
+                aria-controls="collapse' .$row["number"].'">'.
+        $row["question"].
+        '</button>
+    </h2>
+    <div id="collapse' .$row["number"].'" class="accordion-collapse collapse "
+         aria-labelledby="heading' .$row["number"].'">
+        <div class="accordion-body">'.
+        $row["answer"].
+        '</div>
+    </div>
+</div>
+</div>';
+}
 
 
-
+?>
 
 <?php
 include('include/includeFooter.php');
