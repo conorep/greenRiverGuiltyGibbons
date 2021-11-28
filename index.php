@@ -165,6 +165,7 @@ session_start();
     <button class="btn-close " data-bs-dismiss="alert" type="button" aria-label="Close"></button>
 </div>
 
+<!-- Main body stuff. Dynamically fill all data from database. -->
 
 <?php
 
@@ -180,7 +181,7 @@ if ($conn->connect_error) {
 
 $sql = "SELECT number, question, answer, qna.category_id, category_name
 FROM qna
-NATURAL JOIN category";
+NATURAL JOIN category ORDER BY qna.category_id";
 $result = $conn->query($sql);
 
     // output data of each row
@@ -190,244 +191,57 @@ $currentCategory = null;
     while($row = $result->fetch_assoc()) {
         $newCategory = $row["category_name"];
 
-        if ($currentCategory!=$newCategory) {
+        // check to see what the category name is. if the row has diff category, start a new accordion with new category name
+        if ($currentCategory != $newCategory) {
             $currentCategory = $newCategory;
-            echo '<p class="h1 category">'.$row["category_name"].'</p>';
+
+            // check to see whether need to add closing tags
+            if ($row["category_name"] != 'Software Development') {
+                echo
+                '
+                            </div>
+                        </div>
+                   </div>
+            </div>
+                ';
+            }
+
+            echo ' 
+            <div class="container accordion" id="accordionExample' .$row["category_id"].'">
+                <div class="accordion-item shadow-sm">
+                    <h2 class="accordion-header" id="panelsStayOpen-heading'. $row["category_id"].'">
+                        <button id="btnid'. $row["category_id"].'" class="accordion-button fw-bold text-uppercase collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapse' .$row["category_id"].'" aria-expanded="true"
+                                aria-controls="collapse' .$row["category_id"].'">
+                                    '.$row["category_name"].'
+                        </button>
+                    </h2>
+                    <div id="collapse' .$row["category_id"].'" class="accordion-collapse collapse "
+                         aria-labelledby="collapse' .$row["category_id"].'">
+                        <div class="accordion-body">
+            ';
         }
 
-        echo '<div class="container accordion" id="accordionExample' .$row["number"].'">
-    <div class="accordion-item shadow-sm">
-        <h2 class="accordion-header" id="heading' .$row["number"].'">
-            <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#collapse' .$row["number"].'" aria-expanded="true"
-                    aria-controls="collapse' .$row["number"].'">'.
-            $row["question"].
-            '</button>
-        </h2>
-        <div id="collapse' .$row["number"].'" class="accordion-collapse collapse "
-             aria-labelledby="heading' .$row["number"].'">
-            <div class="accordion-body">'.
-            $row["answer"].
-            '</div>
-        </div>
-    </div>
-</div>';
+        echo '      
+                            <p class="question">' . $row["question"] . '<p>' .
+                            $row["answer"]
+              ;
 
     }
 
+    // end divs for the last category box
+    echo
+    '
+                            </div>
+                        </div>
+                   </div>
+            </div>
+    ';
 
 $conn->close();
 ?>
+<!-- end Q and A content-->
 
-<!--This is a question/answer accordion-->
-<!--<div class="container accordion " id="accordionPanelsStayOpenExample">
-    <div class="accordion-item shadow-sm ">
-        <h2 class="accordion-header" id="panelsStayOpen-headingOne">
-            <button class="accordion-button fw-bold text-uppercase" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
-                    aria-controls="panelsStayOpen-collapseOne">
-                Software Development
-            </button>
-        </h2>
-        <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
-             aria-labelledby="panelsStayOpen-headingOne">
-            <div class="accordion-body">
-
-                <p class="question">What is it?</p>
-                <p class="answer">A Bachelor's-level program at Green River College encompassing 300-
-                    and 400-level courses</p>
-                <p class="answer">Small class sizes and hands-on faculty.</p>
-                <p class="answer">A strong focus on career preparation and real-world work-cases.</p>
-                <p class="question">What are the requirements for entry?</p>
-                <p class="answer">Completion of an associate degree or higher from a regionally
-                    accredited institution.</p>
-                <p class="answer">Cumulative GPA of 2.5 or higher.</p>
-                <p class="answer">Grade of 2.5 or higher in an intermediate-level Java programming course
-                    (such as SDEV 220) or a waiver from the Program Director.</p>
-                <p class="answer">Application submission and acceptance.</p>
-                <p class="answer">A typical preparation sequence for students coming from other disciplines might
-                    include:</p>
-                <ul>
-                    <li>IT 201 or SDEV 201 Database Fundamentals<br></li>
-                    <li>SDEV 106 Front-End Web Development<br></li>
-                    <li>CS 108 Data Science Foundations<br></li>
-                    <li>SDEV 117 Web Programming with JavaScript<br></li>
-                    <li>SDEV 219 or CS&141 Java 1<br></li>
-                    <li>SDEV 220 or CS 145 Java 2<br></li>
-                </ul>
-                <em>Contact software@greenriver.edu for the most accurate, up-to-date information.</em>
-            </div>
-        </div>
-    </div>
-</div>-->
-<!--End of q/a accordion here-->
-
-<!--<div class="container accordion" id="accordionPanelsStayOpenExampleTwo">
-    <div class="accordion-item shadow-sm">
-        <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
-            <button class="accordion-button collapsed fw-bold text-uppercase" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="true"
-                    aria-controls="panelsStayOpen-collapseTwo">
-                Features of Green River Soft Dev
-            </button>
-        </h2>
-        <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse "
-             aria-labelledby="panelsStayOpen-headingTwo">
-            <div class="accordion-body">
-
-                <p class="question">What's up with this 'cohort' program?</p>
-                <p class="answer">You’ll be working with the same group of peers through your junior and senior
-                    year, creating valuable contacts with like-minded individuals that you are likely to see
-                    through your work endeavors. </p>
-                <p class="answer">The cohort program you will be a part of involves consistent interpersonal
-                    communication and group work – much like the software developer’s workplace. </p>
-                <p class="question">Is there focus on portfolio-building?</p>
-                <p class="answer">Yes! You'll be constantly working on projects to display for your job hunting.</p>
-                <p class="question">I heard about a Capstone project - what's that?</p>
-                <p class="answer">Your senior work will include (and culminate in) a complete project tying
-                    together the facets of what you’ve learned throughout your years of study. </p>
-                <p class="answer">This will display the depth of your knowledge and skill and look
-                    great in a portfolio. </p>
-                <p class="answer">It will be a good example of team-based project development </p>
-                <p class="question">What language does the program focus on?</p>
-                <p class="answer">For object oriented programming, the SDEV program focuses on Java. </p>
-
-            </div>
-        </div>
-    </div>
-</div>-->
-<!--End of q/a here-->
-
-<!--<div class="container accordion" id="accordionPanelsStayOpenExampleThree">
-    <div class="accordion-item shadow-sm">
-        <h2 class="accordion-header" id="panelsStayOpen-headingThree">
-            <button class="accordion-button collapsed fw-bold text-uppercase" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="true"
-                    aria-controls="panelsStayOpen-collapseThree">
-                Workforce Entry
-            </button>
-        </h2>
-        <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse "
-             aria-labelledby="panelsStayOpen-headingThree">
-            <div class="accordion-body">
-
-                <p class="question">Is there a focus on internships?</p>
-                <p class="answer">Yes. Your professors and the program’s administration will stress the importance
-                    of internships to enter the software dev workforce. </p>
-                <p class="answer">They’ll provide consistent information about available internships.</p>
-                <p class="answer">The program is designed for summers off to pursue these opportunities.</p>
-                <p class="answer">Generally speaking, these are well-paid internships.</p>
-                <p class="question">Will there be any focus on my resume?</p>
-                <p class="answer">The professors and staff are helpful and willing to discuss what resumes should
-                    look like.</p>
-                <p class="answer">The BoardMasters club will be meeting regularly, and you may just find some
-                    workshops specifically involving resume-building.</p>
-                <p class="question">Are there any jobs at Green River that might go hand-in-hand with the software
-                    development program?</p>
-                <p class="answer">Yes! For instance, if you time it right, you may find an IT job working for Green
-                    River. There are
-                    currently students in the cohort working on plenty of GRC's software implementations.</p>
-
-            </div>
-        </div>
-    </div>
-</div>-->
-<!--End q/a here-->
-
-<!--<div class="container accordion" id="accordionPanelsStayOpenExampleFour">
-    <div class="accordion-item shadow-sm">
-        <h2 class="accordion-header" id="panelsStayOpen-headingFour">
-            <button class="accordion-button collapsed fw-bold text-uppercase" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="true"
-                    aria-controls="panelsStayOpen-collapseFour">
-                Covid-19
-            </button>
-        </h2>
-        <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse "
-             aria-labelledby="panelsStayOpen-headingFour">
-            <div class="accordion-body">
-
-                <p class="question">What is attending school like during the pandemic?</p>
-                <p class="answer">Classes are currently online-only.</p>
-                <p class="answer">The future is a bit unclear, but classes may likely remain hybrid (a mix of
-                    online and in-person) in the foreseeable future.</p>
-                <p class="question">What do I do if I test positive for Covid-19?</p>
-                <p class="answer">If it is affecting your day-to-day wellness, feel free to speak with your
-                    teachers about your experience and difficulties.</p>
-                <p class="answer">The teachers at Green River are understanding and helpful, and can likely find
-                    agreeable means of helping you stay up with coursework.</p>
-                <p class="question">Does GRC require vaccinations?</p>
-                <p class="answer">Green River is a fully-vaccinated campus. As of October 18th, 2021, all students must
-                    have been fully vaccinated or have obtained a medial or religious exemption.</p>
-
-            </div>
-        </div>
-    </div>
-</div>-->
-<!--End q/a here-->
-
-<!--<div class="container accordion" id="accordionPanelsStayOpenExampleFive">
-    <div class="accordion-item shadow-sm">
-        <h2 class="accordion-header" id="panelsStayOpen-headingFive">
-            <button class="accordion-button collapsed fw-bold text-uppercase" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#panelsStayOpen-collapseFive" aria-expanded="true"
-                    aria-controls="panelsStayOpen-collapseFive">
-                Diversity and Inclusion
-            </button>
-        </h2>
-        <div id="panelsStayOpen-collapseFive" class="accordion-collapse collapse "
-             aria-labelledby="panelsStayOpen-headingFive">
-            <div class="accordion-body">
-
-                <p class="question">Is Green River's software development program diverse and inclusive?</p>
-                <p class="answer">Yes! The program is a safe and welcome environment for people of all ages, identities,
-                    and genders.</p>
-                <p class="answer">The program's instructors provide opportunities for all types of people, and
-                    communicate frequently about lectures and opportunities for under-represented people in STEM.</p>
-                <p class="question">Can I find people like me that I can speak with regarding representation, advice,
-                    and support?</p>
-                <p class="answer">Yes! Green River's Office of Diversity, Equity, and Inclusion can help you find clubs
-                    and mentors that will let you feel safe and at home.</p>
-                <p class="answer">Green River's main site contains contact information and more at the following link:
-                    <br><a target="_blank"
-                           href="https://www.greenriver.edu/students/get-involved/diversity-equity-and-inclusion/">https://www.greenriver.edu/students/get-involved/diversity-equity-and-inclusion/</a>
-                </p>
-                <p class="question">Where can I find Green River's policy on discrimination?</p>
-                <p class="answer">"Nondiscrimination Statement<br>
-                    Green River College does not discriminate on the basis of race, color, national origin, sex, sexual
-                    orientation,
-                    disability, marital status, religion, age or any other unlawful basis in its programs and
-                    activities. Please see
-                    College Policy HR-22. The following person has been designated to handle inquiries regarding the
-                    nondiscrimination
-                    policies: Vice President for Business Administration and Human Resources, 12401 SE 320th Street,
-                    Auburn, WA 98092,
-                    253-288-3320. <br>To receive this information in an alternate format, please contact Disability
-                    Support Services at 253-931-6460;
-                    TTY 253-288-3359.<br>
-                    Green River College is committed to preventing and stopping discrimination, including harassment of
-                    any kind and any
-                    associated retaliatory behavior and will take steps to ensure that the lack of English language
-                    skills will not be a
-                    barrier to admission and participation in all educational and vocational education
-                    programs."<br><br> This information can be found on GRC's main site here:
-                    <br><a target="_blank" href="https://www.greenriver.edu/accessibility-disclaimer/">https://www.greenriver.edu/accessibility-disclaimer/</a>
-                </p>
-                <p class="answer">GRC's policies regarding sexual discrimination grievances can be found here, including
-                    contact info of helpful parties and complaint forms:
-                    <br><a target="_blank"
-                           href="https://www.greenriver.edu/campus/policies-and-procedures/general-administrative-policies/ga-11-sex-discrimination-grievance-procedure/">https://www.greenriver.edu/campus/policies-and-procedures/general-administrative-policies/ga-11-sex-discrimination-grievance-procedure/</a>
-                </p>
-                <p class="answer">Clear human resources policies covering Green River's dedication to nondiscrimination
-                    can be found here:
-                    <br><a target="_blank"
-                           href="https://www.greenriver.edu/hr-22/">https://www.greenriver.edu/hr-22/</a></p>
-
-            </div>
-        </div>
-    </div>
-</div>-->
-<!--End q/a here-->
 
 <!--Begin QnA Submit Form Here-->
 <!-- id naming conventions from buttons to their containers must match the first -->

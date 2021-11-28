@@ -117,7 +117,7 @@ $adminFooter = 'yes';
 
     <div class='toast' role='alert' aria-live='assertive' aria-atomic='true' data-bs-delay='1500' >
         <div class='toast-body'>
-            <strong>Admin login successful!</strong>
+            <strong>Admin login active.</strong>
         </div>
     </div>
 

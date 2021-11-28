@@ -61,7 +61,6 @@ a:hover {
 
 .accordion-body {
     background-image: linear-gradient(195deg, #fef7e5 75%, rgba(254, 247, 229,0.2));
-
 }
 
 .accordion-button:not(.collapsed) {

@@ -8,7 +8,6 @@ error_reporting(E_ALL);
 
 if(!isset($_SESSION['grguiltyuse'])) // If session is not set then redirect to Login Page
 {
-    /*echo "<p>You are not logged in. Sending you to login page.</p>";*/
     header("Location: https://gr-guilty-gibbons.greenriverdev.com/admin/adminLogin.php");
     exit();
 }
@@ -42,8 +41,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         //if form is valid, connect to db and add question
         require("/home/grguilty/qandaconfig.php");
 
+        $answerInsert = '<p class="answer">' . "$_POST[answerTextArea]" . '</p>';
+
         // Create connection
         $conn = new mysqli($servername, $username, $password, $dbname);
+
         // Check connection
         if ($conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);
@@ -51,7 +53,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
         $sql = "INSERT INTO qna (question, answer, category_id)
-        VALUES ('$_POST[questionTextBox]', '$_POST[answerTextArea]', '$_POST[categorySelect]')";
+        VALUES ('$_POST[questionTextBox]', '$answerInsert', '$_POST[categorySelect]')";
         if ($conn->query($sql) === TRUE) {
 //            echo "New record created successfully";
         } else {
@@ -94,9 +96,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <link rel="stylesheet" href="../styles/questionButtonAndForm_styles.css">
         <link rel="stylesheet" href="../styles/questionButtonAndForm_responsiveStyles.css">
 
-        <!--datatables stuff-->
-        <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
-        <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.dataTables.min.css">
 
         <!--  Favicon  -->
         <link rel="icon" type="img/jpg" href="../images/img.png" >
@@ -161,6 +160,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </div>
 </nav>
 <!--Nav ends here-->
+
 <?php
 
 require("/home/grguilty/qandaconfig.php");
@@ -195,36 +195,30 @@ $conn->close();
 <form id="guestbook-form" action="<?php echo $_SERVER["PHP_SELF"];?>" method="post">
     <fieldset>
         <div class="form-group">
-            <!--<label for="categorySelect">Add an FAQ</label>
-            <span class="err" id="err-categorySelect">Select the category your question belongs to.</span>
-            <select class="form-control" id="categorySelect" name="categorySelect">
-                <option value="none" disabled selected>Select your option</option>
-                <option value="meetup">Meetup</option>
-                <option value="jobFair">Job Fair</option>
-                <option value="convention">Convention</option>
-                <option value="notYet">We haven't met yet</option>
-                <option value="other">Other (specify below)</option>
-            </select>-->
 
 <!--            Category Selection-->
-            <label for="categorySelect">Add an FAQ</label>
+            <label for="categorySelect">Add to FAQ category</label>
             <span class="error"> <?php echo $categorySelectErr;?></span>
             <select class="form-select" aria-label="Default select example" id="categorySelect" name="categorySelect">
                 <option value="none" disabled selected>Select category</option>
                 <?php echo $toBeEchoed?>
             </select>
         </div>
+
         <div class="form-group">
             <label for="questionTextBox" class="form-label">Add a Question</label>
             <span class="error"> <?php echo $questionTextBoxErr;?></span>
             <input type="text" class="form-control" id="questionTextBox" placeholder="Enter question text here" name="questionTextBox">
         </div>
+
         <div class="form-group">
             <label for="answerTextArea" class="form-label">Add an Answer</label>
             <span class="error"> <?php echo $answerTextAreaErr;?></span>
             <textarea class="form-control" id="answerTextArea" rows="3" placeholder="Enter answer text here" name="answerTextArea"></textarea>
         </div>
+
     </fieldset>
+
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 <!--end content container-->
