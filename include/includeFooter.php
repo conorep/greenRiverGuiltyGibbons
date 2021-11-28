@@ -120,11 +120,11 @@ echo    '
 
 <!-- Kevins Script Below -->
 <script src="scripts/questionButtonAndForm_script.js"></script> ';
-
+echo '<script src="scripts/oneQuestionLink.js"></script> ';
 if($adminFooter = 'yes')
 {
      echo '
-     
+
      <script src="//code.jquery.com/jquery-3.5.1.js"></script>
      <script src="//cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
      <script src="//cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
@@ -135,12 +135,12 @@ if($adminFooter = 'yes')
                   responsive: true
              }
          );
-     
+
          $(document).ready(function() {
               $(".toast").toast("show");
          });
      </script>
-     
+
      ';
 }
 
