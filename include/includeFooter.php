@@ -119,7 +119,9 @@ echo    '
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
 
 <!-- Kevins Script Below -->
-<script src="scripts/questionButtonAndForm_script.js"></script> ';
+<script src="scripts/questionButtonAndForm_script.js"></script> 
+<script src="scripts/accordionSetOpen.js"></script>';
+
 
 if($adminFooter = 'yes')
 {
