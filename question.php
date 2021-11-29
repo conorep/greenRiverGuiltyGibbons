@@ -1,7 +1,7 @@
 <?php
 session_set_cookie_params(0);
 session_start();
-
+$_SESSION["current_page_js"] = "question.php";
 ?>
 
 
@@ -192,27 +192,23 @@ if (isset($_GET['id'])) {
     $row = mysqli_fetch_array($result);
 
     // echo print_r($row);
-    echo '<p class="h1 category">'.$row["category_name"].'</p>';
-    echo '<div class="container accordion" id="accordionExample' .$row["number"].'">
-<div class="accordion-item shadow-sm">
-    <h2 class="accordion-header" id="heading' .$row["number"].'">
-        <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse"
-                data-bs-target="#collapse' .$row["number"].'" aria-expanded="true"
-                aria-controls="collapse' .$row["number"].'">'.
-        $row["question"].
-        '</button>
-    </h2>
-    <div id="collapse' .$row["number"].'" class="accordion-collapse collapse "
-         aria-labelledby="heading' .$row["number"].'">
-        <div class="accordion-body">'.
-        $row["answer"].
-        '</div>
-    </div>
-</div>
-</div>';
-}
-
-
+    echo '
+    <div class="container accordion" id="accordionExample' .$row["category_id"].'">
+        <div class="accordion-item shadow-sm">
+            <h2 class="accordion-header" id="panelsStayOpen-heading'. $row["category_id"].'">
+                <button id="btnid'. $row["category_id"].'" class="accordion-button fw-bold text-uppercase collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapse' .$row["category_id"].'" aria-expanded="true"
+                        aria-controls="collapse' .$row["category_id"].'">'.$row["category_name"].'
+                </button>
+            </h2>
+            <div id="collapse' .$row["category_id"].'" class="accordion-collapse show"
+                 aria-labelledby="collapse' .$row["category_id"].'">
+                <div class="accordion-body">
+                <p class="question">' . $row["question"] . '<p>' . $row["answer"] . '</div>
+            </div>
+            </div>
+     </div>';
+    }
 ?>
 
 <?php

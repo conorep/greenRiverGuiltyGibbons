@@ -119,15 +119,18 @@ echo    '
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
 
 <!-- Kevins Script Below -->
-<<<<<<< HEAD
-<script src="scripts/questionButtonAndForm_script.js"></script> ';
-echo '<script src="scripts/oneQuestionLink.js"></script> ';
-=======
-<script src="scripts/questionButtonAndForm_script.js"></script> 
 <script src="scripts/accordionSetOpen.js"></script>';
 
+if (isset($_SESSION['current_page_js'])) {
+    if ($_SESSION['current_page_js'] == 'index.php') {
+        echo '<script src="scripts/questionButtonAndForm_script.js"></script>';
+    }
+    if ($_SESSION['current_page_js'] == 'question.php') {
+        echo '<script src="scripts/oneQuestionLink.js"></script>';
+    }
+}
 
->>>>>>> ab726e7f91dccfae9d95d395add79716b2abd544
+
 if($adminFooter = 'yes')
 {
      echo '

@@ -1,7 +1,7 @@
 <?php
 session_set_cookie_params(0);
 session_start();
-
+$_SESSION["current_page_js"] = "index.php";
 ?>
 
 
@@ -169,8 +169,8 @@ session_start();
 
 <?php
 
-require("/home/grguilty/qandaconfig.php");
-
+//require("/home/grguilty/qandaconfig.php");
+require("../qandaconfig.php"); //////////////////////////////////////////////////////////////////////// DELETE
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
@@ -206,7 +206,7 @@ $currentCategory = null;
                 ';
             }
 
-            echo ' 
+            echo '
             <div class="container accordion" id="accordionExample' .$row["category_id"].'">
                 <div class="accordion-item shadow-sm">
                     <h2 class="accordion-header" id="panelsStayOpen-heading'. $row["category_id"].'">
@@ -222,7 +222,7 @@ $currentCategory = null;
             ';
         }
 
-        echo '      
+        echo '
                             <p class="question">' . $row["question"] . '<p>' .
                             $row["answer"]
               ;
