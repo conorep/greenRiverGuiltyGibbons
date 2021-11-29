@@ -119,6 +119,10 @@ a:hover {
     border-radius: 15px;
 }
 
+.card2 {
+    max-width: 800px;
+}
+
 .btn-admin {
     height: 40px;
     width: 100%;
