@@ -192,35 +192,50 @@ $conn->close();
 <!-- Control Panel Content Here -->
 
 <!-- content container -->
-<form id="guestbook-form" action="<?php echo $_SERVER["PHP_SELF"];?>" method="post">
-    <fieldset>
-        <div class="form-group">
+<div class="container">
 
-<!--            Category Selection-->
-            <label for="categorySelect">Add to FAQ category</label>
-            <span class="error"> <?php echo $categorySelectErr;?></span>
-            <select class="form-select" aria-label="Default select example" id="categorySelect" name="categorySelect">
-                <option value="none" disabled selected>Select category</option>
-                <?php echo $toBeEchoed?>
-            </select>
+    <form id="adminQuestion" class="card card2 box-shadows mb-4" action="<?php echo $_SERVER["PHP_SELF"];?>" method="post">
+        <fieldset>
+
+            <div class="form-group d-grid gap-3">
+
+                <!--Category selection-->
+                <div class="form-group ">
+                    <label for="categorySelect">Add to FAQ category</label>
+                    <span class="error"> <?php echo $categorySelectErr;?></span>
+                    <select class="form-select" aria-label="Default select example" id="categorySelect" name="categorySelect">
+                        <option value="none" disabled selected>Select category</option>
+                        <?php echo $toBeEchoed?>
+                    </select>
+                </div>
+
+                <!--Question Add-->
+                <div class="form-group">
+                    <label for="questionTextBox" class="form-label">Add a Question</label>
+                    <span class="error"> <?php echo $questionTextBoxErr;?></span>
+                    <input type="text" class="form-control" id="questionTextBox" placeholder="Enter question text here" name="questionTextBox">
+                </div>
+
+                <!--Answer Add-->
+                <div class="form-group">
+                    <label for="answerTextArea" class="form-label">Add an Answer</label>
+                    <span class="error"> <?php echo $answerTextAreaErr;?></span>
+                    <textarea class="form-control" id="answerTextArea" rows="3" placeholder="Enter answer text here" name="answerTextArea"></textarea>
+                </div>
+
+            </div>
+
+        </fieldset>
+
+        <div class="row">
+            <div class="col text-center">
+                <button type="submit" class="button-hover-noTransition btn-admin btn-question mt-2 w-50">Submit</button>
+            </div>
         </div>
 
-        <div class="form-group">
-            <label for="questionTextBox" class="form-label">Add a Question</label>
-            <span class="error"> <?php echo $questionTextBoxErr;?></span>
-            <input type="text" class="form-control" id="questionTextBox" placeholder="Enter question text here" name="questionTextBox">
-        </div>
+    </form>
 
-        <div class="form-group">
-            <label for="answerTextArea" class="form-label">Add an Answer</label>
-            <span class="error"> <?php echo $answerTextAreaErr;?></span>
-            <textarea class="form-control" id="answerTextArea" rows="3" placeholder="Enter answer text here" name="answerTextArea"></textarea>
-        </div>
-
-    </fieldset>
-
-    <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+</div>
 <!--end content container-->
 
 
