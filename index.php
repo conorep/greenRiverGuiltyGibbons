@@ -170,7 +170,7 @@ $_SESSION["current_page_js"] = "index.php";
 <?php
 
 require("/home/grguilty/qandaconfig.php");
-// require("../qandaconfig.php"); ///////////////////////////////////////////////////////////////////////////////////////////////// DELETE
+// require("../qandaconfig.php"); ///////////////////////////////////////////////////////////////////////////////////////////////// SWAP
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
@@ -189,6 +189,16 @@ $result = $conn->query($sql);
 $currentCategory = null;
 
     while($row = $result->fetch_assoc()) {
+
+        include('include/paperClip.php');
+        // for deciding whether to display the paperclips or not ///////////////////////////////////////////////////////////////// SWAP
+        // if(isset($_SESSION['grguiltyuse'])) {
+        //     $paperClipOrNot = '<div class="paperClips">'. $paperClip . '</div>';
+        // } else {
+        //     $paperClipOrNot = '';
+        // }
+        $paperClipOrNot = '<div data-toggle="tooltip" title="Copy Link to Clipboard" id="clip-for-question-' . $row['number'] . '" class="paperClips">'. $paperClip . '</div>';
+
         $newCategory = $row["category_name"];
 
         // check to see what the category name is. if the row has diff category, start a new accordion with new category name
@@ -223,7 +233,7 @@ $currentCategory = null;
         }
 
         echo '
-                            <p class="question">' . $row["question"] . '<p>' .
+                            <div class="d-flex flex-row"><p class="question">' . $row["question"] . '</p>' . $paperClipOrNot . '</div>' .
                             $row["answer"]
               ;
 

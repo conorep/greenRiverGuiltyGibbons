@@ -34,6 +34,7 @@ $_SESSION["current_page_js"] = "searchResults.php";
     <link rel="stylesheet" href="styles/questionButtonAndForm_styles.css">
     <link rel="stylesheet" href="styles/questionButtonAndForm_responsiveStyles.css">
     <link rel="stylesheet" href="styles/headerWidth_responsive.css">
+    <link rel="stylesheet" href="styles/styles.css">
 
     <!--  Favicon  -->
     <link rel="icon" type="img/jpg" href="images/img.png" >
@@ -196,15 +197,23 @@ if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
 
+        include('include/paperClip.php');
+        // for deciding whether to display the paperclips or not ///////////////////////////////////////////////////////////////// SWAP
+        // if(isset($_SESSION['grguiltyuse'])) {
+        //     $paperClipOrNot = '<div class="paperClips">'. $paperClip . '</div>';
+        // } else {
+        //     $paperClipOrNot = '';
+        // }
+        $paperClipOrNot = '<div style="position:absolute;left:-40px;top:14px;" data-toggle="tooltip" title="Copy Link to Clipboard" id="clip-for-question-' . $row['number'] . '" class="paperClips">' . $paperClipSearch . '</div>';
 
-        echo '<div class="container accordion" id="accordionExample' .$row["number"].'">
+        echo '<div class="container accordion" id="accordionExample' .$row["number"].'">'  .  '
     <div class="accordion-item shadow-sm">
-        <h2 class="accordion-header" id="heading' .$row["number"].'">
+        <h2 style="position:relative;" class="accordion-header" id="heading' .$row["number"].'">
             <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse"
                     data-bs-target="#collapse' .$row["number"].'" aria-expanded="true"
                     aria-controls="collapse' .$row["number"].'">'.
-            $row["question"].
-            '</button>
+            $row["question"]  .
+            '</button>'  .  $paperClipOrNot .  '
         </h2>
         <div id="collapse' .$row["number"].'" class="accordion-collapse collapse "
              aria-labelledby="heading' .$row["number"].'">

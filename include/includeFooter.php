@@ -129,6 +129,18 @@ if (isset($_SESSION['current_page_js'])) {
     }
 }
 
+?>
+
+<script>
+
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
+
+</script>
+
+<?php
+
 
 if($adminFooter = 'yes')
 {
