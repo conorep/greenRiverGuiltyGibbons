@@ -169,9 +169,23 @@ a:hover {
     margin: 2rem auto auto auto;
 }
 
+/* Paperclips */
+
 .paperClips {
+    /* search results and index version */
     cursor: pointer;
     margin-left: 10px;
     width: 25px;
     height: 25px;
+}
+
+.paperClips-sr {
+    /* search results version only */
+    position: absolute;
+    left: -40px;
+    top: 14px;
+}
+
+.headers-relative-pos {
+    position: relative;
 }

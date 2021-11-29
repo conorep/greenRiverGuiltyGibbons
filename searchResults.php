@@ -205,12 +205,12 @@ if ($result->num_rows > 0) {
         // } else {
         //     $paperClipOrNot = '';
         // }
-        $paperClipOrNot = '<div style="position:absolute;left:-40px;top:14px;" data-toggle="tooltip" title="Copy Link to Clipboard" id="clip-for-question-' .
-        $row['number'] . '" class="paperClips">' . $paperClipSearch . '</div>';
+        $paperClipOrNot = '<div data-toggle="tooltip" title="Copy Link to Clipboard" id="clip-for-question-' .
+        $row['number'] . '" class="paperClips paperClips-sr">' . $paperClipSearch . '</div>';
 
         echo '<div class="container accordion" id="accordionExample' .$row["number"].'">'  .  '
     <div class="accordion-item shadow-sm">
-        <h2 style="position:relative;" class="accordion-header" id="heading' .$row["number"].'">
+        <h2 class="accordion-header headers-relative-pos" id="heading' .$row["number"].'">
             <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse"
                     data-bs-target="#collapse' .$row["number"].'" aria-expanded="true"
                     aria-controls="collapse' .$row["number"].'">'.
