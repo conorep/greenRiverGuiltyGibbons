@@ -176,7 +176,7 @@ session_start();
 <?php
 
 require("/home/grguilty/qandaconfig.php");
-
+// require("../qandaconfig.php"); //////////////////////////////////////////////////////////////////////// DELETE
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
@@ -185,7 +185,7 @@ if ($conn->connect_error) {
 }
 
 
-$sql = "SELECT number, question, answer, qna.category_id, category_name 
+$sql = "SELECT number, question, answer, qna.category_id, category_name
 FROM qna
 NATURAL JOIN category
 WHERE (question like '%$search_results%'

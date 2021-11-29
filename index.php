@@ -169,8 +169,8 @@ $_SESSION["current_page_js"] = "index.php";
 
 <?php
 
-//require("/home/grguilty/qandaconfig.php");
-require("../qandaconfig.php"); //////////////////////////////////////////////////////////////////////// DELETE
+require("/home/grguilty/qandaconfig.php");
+// require("../qandaconfig.php"); ///////////////////////////////////////////////////////////////////////////////////////////////// DELETE
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
