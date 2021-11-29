@@ -199,12 +199,14 @@ if ($result->num_rows > 0) {
 
         include('include/paperClip.php');
         // for deciding whether to display the paperclips or not ///////////////////////////////////////////////////////////////// SWAP
-        // if(isset($_SESSION['grguiltyuse'])) {
-        //     $paperClipOrNot = '<div class="paperClips">'. $paperClip . '</div>';
+        // if (isset($_SESSION['grguiltyuse'])) {
+        //     $paperClipOrNot = '<div style="position:absolute;left:-40px;top:14px;" data-toggle="tooltip" title="Copy Link to Clipboard" id="clip-for-question-' .
+        //     $row['number'] . '" class="paperClips">' . $paperClipSearch . '</div>';
         // } else {
         //     $paperClipOrNot = '';
         // }
-        $paperClipOrNot = '<div style="position:absolute;left:-40px;top:14px;" data-toggle="tooltip" title="Copy Link to Clipboard" id="clip-for-question-' . $row['number'] . '" class="paperClips">' . $paperClipSearch . '</div>';
+        $paperClipOrNot = '<div style="position:absolute;left:-40px;top:14px;" data-toggle="tooltip" title="Copy Link to Clipboard" id="clip-for-question-' .
+        $row['number'] . '" class="paperClips">' . $paperClipSearch . '</div>';
 
         echo '<div class="container accordion" id="accordionExample' .$row["number"].'">'  .  '
     <div class="accordion-item shadow-sm">

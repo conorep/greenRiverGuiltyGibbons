@@ -193,11 +193,13 @@ $currentCategory = null;
         include('include/paperClip.php');
         // for deciding whether to display the paperclips or not ///////////////////////////////////////////////////////////////// SWAP
         // if(isset($_SESSION['grguiltyuse'])) {
-        //     $paperClipOrNot = '<div class="paperClips">'. $paperClip . '</div>';
+        //     $paperClipOrNot = '<div data-toggle="tooltip" title="Copy Link to Clipboard" id="clip-for-question-' . $row['number'] .
+        //     '" class="paperClips">'. $paperClip . '</div>';
         // } else {
         //     $paperClipOrNot = '';
         // }
-        $paperClipOrNot = '<div data-toggle="tooltip" title="Copy Link to Clipboard" id="clip-for-question-' . $row['number'] . '" class="paperClips">'. $paperClip . '</div>';
+        $paperClipOrNot = '<div data-toggle="tooltip" title="Copy Link to Clipboard" id="clip-for-question-' . $row['number'] .
+        '" class="paperClips">'. $paperClip . '</div>';
 
         $newCategory = $row["category_name"];
 

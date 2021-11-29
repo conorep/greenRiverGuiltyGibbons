@@ -122,9 +122,15 @@ if (isset($_SESSION['current_page_js'])) {
     if ($_SESSION['current_page_js'] == 'index.php') {
         echo '<script src="scripts/questionButtonAndForm_script.js"></script>';
         echo '<script src="scripts/accordionSetOpen.js"></script>';
-        echo '<script src="scripts/oneQuestionLink.js"></script>';
+        // if (isset($_SESSION['grguiltyuse'])) {
+        //     echo '<script src="scripts/oneQuestionLink.js"></script>';
+        // }
+        echo '<script src="scripts/oneQuestionLink.js"></script>'; ////////////////////////////////////////////////////////// SWAP
     }
-    if ($_SESSION['current_page_js'] == 'searchResults.php') {
+    // if ($_SESSION['current_page_js'] == 'searchResults.php' && isset($_SESSION['grguiltyuse'])) {
+    //     echo '<script src="scripts/oneQuestionLink.js"></script>';
+    // }
+    if ($_SESSION['current_page_js'] == 'searchResults.php') { ///////////////////////////////////////////////////////////// SWAP
         echo '<script src="scripts/oneQuestionLink.js"></script>';
     }
 }
