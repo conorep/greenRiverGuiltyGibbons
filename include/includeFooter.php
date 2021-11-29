@@ -122,8 +122,10 @@ if (isset($_SESSION['current_page_js'])) {
     if ($_SESSION['current_page_js'] == 'index.php') {
         echo '<script src="scripts/questionButtonAndForm_script.js"></script>';
         echo '<script src="scripts/accordionSetOpen.js"></script>';
+        echo '<script src="scripts/oneQuestionLink.js"></script>';
     }
-    if ($_SESSION['current_page_js'] == 'question.php') {
+    if ($_SESSION['current_page_js'] == 'searchResults.php') {
+        echo '<script src="scripts/accordionSetOpen.js"></script>';
         echo '<script src="scripts/oneQuestionLink.js"></script>';
     }
 }
