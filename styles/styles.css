@@ -209,13 +209,21 @@ a:hover {
 
 /* mod width and margin of search in desktop to center title and nav links in desktop */
 /* prevents scruntching the  nav links */
-@media screen and (min-width: 767px) and (max-width: 992px) {
+@media screen and (min-width: 767px) and (max-width: 1000px) {
     .navbar-toggler {
         margin-left: 150px;
     }
+
+    .search-width {
+        width: 190px;
+        margin-left: -10px;
+    }
+    .navbar-brand {
+        margin-right: -20px;
+    }
 }
 
-@media screen and (min-width: 992px) and (max-width: 1022px) {
+@media screen and (min-width: 1000px) and (max-width: 1040px) {
     .search-width {
         width: 200px;
         margin-left: -10px;
@@ -225,7 +233,7 @@ a:hover {
     }
 }
 
-@media screen and (min-width: 1022px) and (max-width: 1090px) {
+@media screen and (min-width: 1040px) and (max-width: 1090px) {
     .search-width {
         width: 225px;
         margin-left: -10px;
