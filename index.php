@@ -190,6 +190,7 @@ $currentCategory = null;
 
     while($row = $result->fetch_assoc()) {
 
+        // get paperclip graphic
         include('include/paperClip.php');
         // for deciding whether to display the paperclips or not ///////////////////////////////////////////////////////////////// SWAP
         // if(isset($_SESSION['grguiltyuse'])) {
@@ -198,6 +199,7 @@ $currentCategory = null;
         // } else {
         //     $paperClipOrNot = '';
         // }
+        // prepare paperclip graphic for php
         $paperClipOrNot = '<div data-toggle="tooltip" title="Copy Link to Clipboard" id="clip-for-question-' . $row['number'] .
         '" class="paperClips">'. $paperClip . '</div>';
 

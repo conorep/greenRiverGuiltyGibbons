@@ -185,7 +185,6 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-
 $sql = "SELECT number, question, answer, qna.category_id, category_name
 FROM qna
 NATURAL JOIN category
@@ -197,6 +196,7 @@ if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
 
+        // paperclip graphic
         include('include/paperClip.php');
         // for deciding whether to display the paperclips or not ///////////////////////////////////////////////////////////////// SWAP
         // if (isset($_SESSION['grguiltyuse'])) {
@@ -205,6 +205,7 @@ if ($result->num_rows > 0) {
         // } else {
         //     $paperClipOrNot = '';
         // }
+        // setup paperclip graphic for php
         $paperClipOrNot = '<div data-toggle="tooltip" title="Copy Link to Clipboard" id="clip-for-question-' .
         $row['number'] . '" class="paperClips paperClips-sr">' . $paperClipSearch . '</div>';
 

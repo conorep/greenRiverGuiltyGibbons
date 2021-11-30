@@ -189,3 +189,19 @@ a:hover {
 .headers-relative-pos {
     position: relative;
 }
+
+/* animation for paperclip clicks */
+@keyframes paperClipClicked {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(0.9);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+.paperClipsAnim {
+    animation: paperClipClicked  0.3s forwards ease-in-out;
+}
