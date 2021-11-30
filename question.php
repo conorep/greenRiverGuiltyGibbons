@@ -32,6 +32,7 @@ $_SESSION["current_page_js"] = "question.php";
     <link rel="stylesheet" href="styles/questionButtonAndForm_styles.css">
     <link rel="stylesheet" href="styles/questionButtonAndForm_responsiveStyles.css">
     <link rel="stylesheet" href="styles/headerWidth_responsive.css">
+    <link rel="stylesheet" href="styles/styles.css">
 
     <!--  Favicon  -->
     <link rel="icon" type="img/jpg" href="images/img.png" >
