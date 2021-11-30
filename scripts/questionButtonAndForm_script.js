@@ -419,7 +419,7 @@ function removeConfirmationMessage(event)
 
 /////////////////////////////////////////
 // for anything needed in debugging
-window.addEventListener('resize', function()
-{
-    console.log(window.innerWidth)
-});
+// window.addEventListener('resize', function()
+// {
+//     console.log(window.innerWidth)
+// });
