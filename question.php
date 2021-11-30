@@ -1,4 +1,5 @@
 <?php
+// error_reporting(0);
 session_set_cookie_params(0);
 session_start();
 $_SESSION["current_page_js"] = "question.php";
@@ -40,7 +41,6 @@ $_SESSION["current_page_js"] = "question.php";
     <title>GRC SDEV SEARCH RESULTS</title>
 </head>
 
-
 <body class="d-flex flex-column min-vh-100 justify-content-center">
 
 <!--This is the page nav header-->
@@ -75,7 +75,6 @@ $_SESSION["current_page_js"] = "question.php";
 
             <!--Remainder of navbar-->
             <ul class="navbar-nav flex-md-row flex-lg-row flex-xl-row flex-xxl-row justify-content-around">
-
 
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="ResourceDropdown" role="button"
@@ -120,21 +119,15 @@ $_SESSION["current_page_js"] = "question.php";
                 <li class="nav-item">
                     <a class="nav-link" href="https://medium.com/green-river-web-mobile-developers" target="_blank">Program Blog</a>
                 </li>
-
-
             </ul>
-
         </div>
 
-
-            <!--back to faq button-->
-            <form id="search-mobile-nudge" class="px-md-2  px-lg-2 px-xl-2 py-sm-2 py-xs-2" action="index.php" method="post">
-                <div class="input-group">
-                    <button type="submit" class="input-group-text btn-success" > Back to FAQ</button>
-                </div>
-            </form>
-
-
+        <!--back to faq button-->
+        <form id="search-mobile-nudge" class="px-md-2 search-margin-even px-lg-2 px-xl-2 py-sm-2 py-xs-2" action="index.php" method="post">
+            <div class="input-group">
+                <button type="submit" class="input-group-text btn-success">Back to FAQ</button>
+            </div>
+        </form>
 
     </div>
 </nav>
@@ -148,11 +141,9 @@ $_SESSION["current_page_js"] = "question.php";
     <button class="btn-close " data-bs-dismiss="alert" type="button" aria-label="Close"></button>
 </div>
 
-
 <?php
 
-//echo $_GET['id'];
-
+// check for the passed variable for a question id
 if (isset($_GET['id'])) {
 
     $id = $_GET['id'];
@@ -165,6 +156,7 @@ if (isset($_GET['id'])) {
         die("Connection failed: " . $conn->connect_error);
     }
 
+    // prepare query to get 1 question
     $sql = "SELECT number, question, answer, qna.category_id, category_name
     FROM qna
     NATURAL JOIN category
@@ -172,30 +164,46 @@ if (isset($_GET['id'])) {
 
     // $result = $conn->query($sql);
     $result = mysqli_query($conn, $sql);
-    $row = mysqli_fetch_array($result);
+
+    // prepare values for question accordion for times where a nonexistent id is entered
+    if (mysqli_num_rows($result) == 0) {
+        $categoryId = "1";
+        $categoryName = "Question not Found";
+        $question = "This question must have been removed.";
+        $answer = "";
+    } else { // all other cases have a valid id, so include the information from the question
+        // there is only 1 row, so get it
+        $row = mysqli_fetch_array($result);
+        // extract each info we need
+        $categoryId = $row["category_id"];
+        $categoryName = $row["category_name"];
+        $question = $row["question"];
+        $answer = $row["answer"];
+    }
 
     // echo print_r($row);
     echo '
-    <div class="container accordion" id="accordionExample' .$row["category_id"].'">
+    <div class="container accordion" id="accordionExample' . $categoryId . '">
         <div class="accordion-item shadow-sm">
-            <h2 class="accordion-header" id="panelsStayOpen-heading'. $row["category_id"].'">
-                <button id="btnid'. $row["category_id"].'" class="accordion-button fw-bold text-uppercase collapsed" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#collapse' .$row["category_id"].'" aria-expanded="true"
-                        aria-controls="collapse' .$row["category_id"].'">'.$row["category_name"].'
+            <h2 class="accordion-header" id="panelsStayOpen-heading'. $categoryId . '">
+                <button id="btnid'. $categoryId . '" class="accordion-button fw-bold text-uppercase collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapse' . $categoryId . '" aria-expanded="true"
+                        aria-controls="collapse' . $categoryId . '">' . $categoryName . '
                 </button>
             </h2>
-            <div id="collapse' .$row["category_id"].'" class="accordion-collapse show"
-                 aria-labelledby="collapse' .$row["category_id"].'">
+            <div id="collapse' . $categoryId . '" class="accordion-collapse show"
+                 aria-labelledby="collapse' . $categoryId . '">
                 <div class="accordion-body">
-                <p class="question">' . $row["question"] . '<p>' . $row["answer"] . '</div>
+                <p class="question">' . $question . '</p>' . $answer . '</div>
             </div>
             </div>
      </div>';
      $conn->close();
-    }
+ } else {
+     echo '<p class="d-flex justify-content-center mt-5" id="missing-question-id">Please check your question link, it appears to be broken</p>';
+ }
 
 ?>
-
 
 <div class="container ">
     <!--search form and button-->

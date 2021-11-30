@@ -4,14 +4,12 @@ session_start();
 $_SESSION["current_page_js"] = "searchResults.php";
 ?>
 
-
 <!--
     Gr-Guilty-Gibbons FAQ
     Kevin, Conor, Pat
     SDEV 305 2021
     searchResults.php
 -->
-
 
 <!doctype html>
 <html lang="en">
@@ -29,7 +27,6 @@ $_SESSION["current_page_js"] = "searchResults.php";
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles/searchStyles.css">
 
-
     <!-- Kevin's CSS, Next Two Lines -->
     <link rel="stylesheet" href="styles/questionButtonAndForm_styles.css">
     <link rel="stylesheet" href="styles/questionButtonAndForm_responsiveStyles.css">
@@ -41,7 +38,6 @@ $_SESSION["current_page_js"] = "searchResults.php";
 
     <title>GRC SDEV SEARCH RESULTS</title>
 </head>
-
 
 <body class="d-flex flex-column min-vh-100 justify-content-center">
 
@@ -77,7 +73,6 @@ $_SESSION["current_page_js"] = "searchResults.php";
 
             <!--Remainder of navbar-->
             <ul class="navbar-nav flex-md-row flex-lg-row flex-xl-row flex-xxl-row justify-content-around">
-
 
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="ResourceDropdown" role="button"
@@ -122,14 +117,11 @@ $_SESSION["current_page_js"] = "searchResults.php";
                 <li class="nav-item">
                     <a class="nav-link" href="https://medium.com/green-river-web-mobile-developers" target="_blank">Program Blog</a>
                 </li>
-
-
             </ul>
-
         </div>
 
         <!--back to faq button-->
-        <form id="search-mobile-nudge" class="px-md-2  px-lg-2 px-xl-2 py-sm-2 py-xs-2 mt-3" action="index.php" method="post">
+        <form id="search-mobile-nudge" class="px-md-2 search-margin-even px-lg-2 px-xl-2 py-sm-2 py-xs-2 mt-3" action="index.php" method="post">
             <div class="input-group mb-3">
                 <button type="submit" class="input-group-text btn-success" > Back to FAQ</button>
             </div>
@@ -163,11 +155,9 @@ $_SESSION["current_page_js"] = "searchResults.php";
 
         echo "<h1>Search Results for: '$search_results'</h1>";
 
-
     ?>
 
     <br>
-
 
     </div>
     <div class="col-2"></div>
@@ -198,14 +188,8 @@ if ($result->num_rows > 0) {
 
         // paperclip graphic
         include('include/paperClip.php');
-        // for deciding whether to display the paperclips or not ///////////////////////////////////////////////////////////////// SWAP
-        // if (isset($_SESSION['grguiltyuse'])) {
-        //     $paperClipOrNot = '<div style="position:absolute;left:-40px;top:14px;" data-toggle="tooltip" title="Copy Link to Clipboard" id="clip-for-question-' .
-        //     $row['number'] . '" class="paperClips">' . $paperClipSearch . '</div>';
-        // } else {
-        //     $paperClipOrNot = '';
-        // }
-        // setup paperclip graphic for php
+
+        // setup the paperclip for php insertion
         $paperClipOrNot = '<div data-toggle="tooltip" title="Copy Link to Clipboard" id="clip-for-question-' .
         $row['number'] . '" class="paperClips paperClips-sr">' . $paperClipSearch . '</div>';
 
@@ -234,7 +218,6 @@ if ($result->num_rows > 0) {
 
 $conn->close();
 ?>
-
 
 <div class="container ">
     <!--search form and button-->

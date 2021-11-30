@@ -417,10 +417,9 @@ function removeConfirmationMessage(event)
     setTimeout(removed, 400);
 }
 
-
 /////////////////////////////////////////
 // for anything needed in debugging
-// window.addEventListener('resize', function()
-// {
-//     console.log(window.innerWidth)
-// });
+window.addEventListener('resize', function()
+{
+    console.log(window.innerWidth)
+});

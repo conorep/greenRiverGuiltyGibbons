@@ -186,8 +186,73 @@ a:hover {
     top: 14px;
 }
 
+.paperClips-ind {
+    /* index results version only */
+    position: absolute;
+    left: -62px;
+    top: -1px;
+    z-index: 3;
+}
+
 .headers-relative-pos {
     position: relative;
+}
+
+#missing-question-id {
+    font-weight: bold;
+}
+
+/* add some margin to even out the faq */
+.search-margin-even {
+    margin-left: 73px;
+}
+
+/* mod width and margin of search in desktop to center title and nav links in desktop */
+/* prevents scruntching the  nav links */
+@media screen and (min-width: 767px) and (max-width: 992px) {
+    .navbar-toggler {
+        margin-left: 150px;
+    }
+}
+
+@media screen and (min-width: 992px) and (max-width: 1022px) {
+    .search-width {
+        width: 200px;
+        margin-left: -10px;
+    }
+    .navbar-brand {
+        margin-right: -20px;
+    }
+}
+
+@media screen and (min-width: 1022px) and (max-width: 1090px) {
+    .search-width {
+        width: 225px;
+        margin-left: -10px;
+    }
+    .navbar-brand {
+        margin-right: -10px;
+    }
+}
+
+@media screen and (min-width: 1090px) and (max-width: 1185px) {
+    .search-width {
+        width: 265px;
+        margin-left: -50px;
+    }
+}
+
+@media screen and (min-width: 1185px) and (max-width: 1220px) {
+    .search-width {
+        width: 295px;
+        margin-left: -90px;
+    }
+}
+
+@media screen and (min-width: 1220px) {
+    .search-width {
+        margin-left: -110px;
+    }
 }
 
 /* animation for paperclip clicks */

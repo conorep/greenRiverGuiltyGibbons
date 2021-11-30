@@ -8,7 +8,7 @@
 let accordion_items = document.getElementsByClassName('paperClips');
 
 /*
-* functin removes anim after anim is played
+* function removes anim after anim is played
 */
 function removeAnim() {
     for (let i = 0; i < accordion_items.length; i++) {
@@ -27,7 +27,6 @@ for (let i = 0; i < accordion_items.length; i++) {
         the_id = the_id.slice(18, the_id.length);
 
         // copy link to clipboard
-        navigator.clipboard.writeText('https://' + location.hostname + '/question.php?id=' + the_id); //////////////////////////// SWAP
-        // navigator.clipboard.writeText('localhost:8000/question.php?id=' + the_id);
+        navigator.clipboard.writeText('https://' + location.hostname + '/question.php?id=' + the_id);
     });
 }

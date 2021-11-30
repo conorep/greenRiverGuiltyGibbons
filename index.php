@@ -4,14 +4,12 @@ session_start();
 $_SESSION["current_page_js"] = "index.php";
 ?>
 
-
 <!--
     Gr-Guilty-Gibbons FAQ
     Kevin, Conor, Pat
     SDEV 305 2021
     index.php
 -->
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -58,7 +56,6 @@ $_SESSION["current_page_js"] = "index.php";
             </li>
         </ul>
 
-
         <button class="navbar-toggler mt-4" id="hamburger-nudge" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarNavDropdown"
                 aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -74,7 +71,6 @@ $_SESSION["current_page_js"] = "index.php";
                     <h5 class=""><em>Frequently Asked Questions</em></h5>
                 </li>
             </ul>
-
 
             <!--Remainder of navbar-->
             <ul class="navbar-nav flex-md-row flex-lg-row flex-xl-row flex-xxl-row justify-content-around">
@@ -145,7 +141,7 @@ $_SESSION["current_page_js"] = "index.php";
 
         <!--search form and button-->
         <form id="search-mobile-nudge"
-              class="px-md-2  px-lg-2 px-xl-2 py-sm-2 py-xs-2 mt-3 d-none d-lg-block d-xl-block d-xxl-block"
+              class="px-md-2 search-width px-lg-2 px-xl-2 py-sm-2 py-xs-2 mt-3 d-none d-lg-block d-xl-block d-xxl-block"
               action="searchResults.php" method="post">
             <div class="input-group mb-3">
                 <input name="search-results" type="text" class="form-control search-text" placeholder="Search Here">
@@ -184,73 +180,67 @@ FROM qna
 NATURAL JOIN category ORDER BY qna.category_id";
 $result = $conn->query($sql);
 
-    // output data of each row
-
 $currentCategory = null;
 
-    while($row = $result->fetch_assoc()) {
+// output data of each row
+while($row = $result->fetch_assoc()) {
 
-        // get paperclip graphic
-        include('include/paperClip.php');
-        // for deciding whether to display the paperclips or not ///////////////////////////////////////////////////////////////// SWAP
-        // if(isset($_SESSION['grguiltyuse'])) {
-        //     $paperClipOrNot = '<div data-toggle="tooltip" title="Copy Link to Clipboard" id="clip-for-question-' . $row['number'] .
-        //     '" class="paperClips">'. $paperClip . '</div>';
-        // } else {
-        //     $paperClipOrNot = '';
-        // }
-        // prepare paperclip graphic for php
-        $paperClipOrNot = '<div data-toggle="tooltip" title="Copy Link to Clipboard" id="clip-for-question-' . $row['number'] .
-        '" class="paperClips">'. $paperClip . '</div>';
+    // get paperclip graphic
+    include('include/paperClip.php');
+    // $paperClipOrNot = '<div data-toggle="tooltip" title="Copy Link to Clipboard" id="clip-for-question-' . $row['number'] .
+    // '" class="paperClips">'. $paperClip . '</div>';
+    // prepare paperclip graphic for php
+    $paperClipOrNot = '<div data-toggle="tooltip" title="Copy Link to Clipboard" id="clip-for-question-' . $row['number'] .
+    '" class="paperClips paperClips-ind">' . $paperClip . '</div>';
 
-        $newCategory = $row["category_name"];
+    $newCategory = $row["category_name"];
 
-        // check to see what the category name is. if the row has diff category, start a new accordion with new category name
-        if ($currentCategory != $newCategory) {
-            $currentCategory = $newCategory;
+    // check to see what the category name is. if the row has diff category, start a new accordion with new category name
+    if ($currentCategory != $newCategory) {
+        $currentCategory = $newCategory;
 
-            // check to see whether need to add closing tags
-            if ($row["category_name"] != 'Software Development') {
-                echo
-                '
-                            </div>
+        // check to see whether need to add closing tags
+        if ($row["category_name"] != 'Software Development') {
+            echo
+            '
                         </div>
-                   </div>
-            </div>
-                ';
-            }
-
-            echo '
-            <div class="container accordion" id="accordionExample' .$row["category_id"].'">
-                <div class="accordion-item shadow-sm">
-                    <h2 class="accordion-header" id="panelsStayOpen-heading'. $row["category_id"].'">
-                        <button id="btnid'. $row["category_id"].'" class="accordion-button fw-bold text-uppercase collapsed" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#collapse' .$row["category_id"].'" aria-expanded="true"
-                                aria-controls="collapse' .$row["category_id"].'">
-                                    '.$row["category_name"].'
-                        </button>
-                    </h2>
-                    <div id="collapse' .$row["category_id"].'" class="accordion-collapse collapse "
-                         aria-labelledby="collapse' .$row["category_id"].'">
-                        <div class="accordion-body">
+                    </div>
+               </div>
+        </div>
             ';
         }
 
         echo '
-                            <div class="d-flex flex-row"><p class="question">' . $row["question"] . '</p>' . $paperClipOrNot . '</div>' .
-                            $row["answer"]
-              ;
-
+        <div class="container accordion" id="accordionExample' .$row["category_id"].'">
+            <div class="accordion-item shadow-sm">
+                <h2 class="accordion-header" id="panelsStayOpen-heading'. $row["category_id"].'">
+                    <button id="btnid'. $row["category_id"].'" class="accordion-button fw-bold text-uppercase collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapse' .$row["category_id"].'" aria-expanded="true"
+                            aria-controls="collapse' .$row["category_id"].'">
+                                '.$row["category_name"].'
+                    </button>
+                </h2>
+                <div id="collapse' .$row["category_id"].'" class="accordion-collapse collapse "
+                     aria-labelledby="collapse' .$row["category_id"].'">
+                    <div class="accordion-body">
+        ';
     }
 
-    // end divs for the last category box
-    echo
-    '
-                            </div>
+    echo '
+                        <div class="d-flex flex-row"><div class="position-relative"><p class="question">' . $row["question"] . $paperClipOrNot . '</p></div>' . '</div>' .
+                        $row["answer"]
+          ;
+
+}
+
+// end divs for the last category box
+echo
+'
                         </div>
-                   </div>
-            </div>
-    ';
+                    </div>
+               </div>
+        </div>
+';
 
 $conn->close();
 ?>
@@ -299,12 +289,10 @@ $conn->close();
                     class="button-hover-noTransition disable-default-button-styles all-buttons btn-submit">
                 SUBMIT QUESTION
             </button>
-
         </div>
     </form>
 </div>
 <!--End Kevin's QnA Here-->
-
 
 <?php
 include('include/includeFooter.php');
