@@ -204,13 +204,13 @@ if ($result->num_rows > 0) {
 
         echo '<div class="container accordion" id="accordionExample' . $row["number"] . '">' . '
     <div class="accordion-item shadow-sm">
-        <h2 class="accordion-header headers-relative-pos" id="heading' . $row["number"] . '">
+        <div class="accordion-header headers-relative-pos" id="heading' . $row["number"] . '">
             <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse"
                     data-bs-target="#collapse' . $row["number"] . '" aria-expanded="true"
                     aria-controls="collapse' . $row["number"] . '">' .
             $row["question"] .
             '</button>' . $paperClipOrNot . '
-        </h2>
+        </div>
         <div id="collapse' . $row["number"] . '" class="accordion-collapse collapse "
              aria-labelledby="heading' . $row["number"] . '">
             <div class="accordion-body">' .

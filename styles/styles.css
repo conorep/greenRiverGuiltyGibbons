@@ -283,3 +283,25 @@ a:hover {
 .paperClipsAnim {
     animation: paperClipClicked  0.3s forwards ease-in-out;
 }
+
+/* ########################## */
+@media screen and (max-width: 370px) {
+    /* .accordion-item */
+    .accordion {
+        width: 315px;
+    }
+}
+
+@media screen and (min-width: 370px) and (max-width: 400px) {
+    /* .accordion-item */
+    .accordion {
+        width: 330px;
+    }
+}
+
+@media screen and (min-width: 400px) and (max-width: 767px) {
+    /* .accordion-item */
+    .accordion {
+        width: 360px;
+    }
+}
