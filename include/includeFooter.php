@@ -46,6 +46,10 @@ echo    '
                         <a class="text-dark" href="https://www.itconnect.greenrivertech.net/studentResources"
                            target="_blank">Student Resources</a>
                     </li>
+                    <li>
+                        <a class="text-dark" href="https://www.itconnect.greenrivertech.net/upcoming-events"
+                           target="_blank">Upcoming Events</a>
+                    </li>
                 </ul>
             </div>
 
