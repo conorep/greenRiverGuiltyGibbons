@@ -36,7 +36,7 @@ $_SESSION["current_page_js"] = "question.php";
     <link rel="stylesheet" href="styles/styles.css">
 
     <!--  Favicon  -->
-    <link rel="icon" type="img/jpg" href="images/img.png" >
+    <link rel="icon" type="img/jpg" href="images/img.png">
 
     <title>GRC SDEV SEARCH RESULTS</title>
 </head>
@@ -44,16 +44,16 @@ $_SESSION["current_page_js"] = "question.php";
 <body class="d-flex flex-column min-vh-100 justify-content-center">
 
 <!--This is the page nav header-->
-<nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm pt-3 pb-3" >
+<nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm pt-3 pb-3">
     <div class="container-fluid">
 
         <a class="navbar-brand" id="scoot-image" href="https://www.software.greenrivertech.net/" target="_blank">
-            <img src="images/siteGRGGrivShift2.svg" alt="GRTech Logo"  width="200"  class="d-inline-block align-text-top">
+            <img src="images/siteGRGGrivShift2.svg" alt="GRTech Logo" width="200" class="d-inline-block align-text-top">
         </a>
 
         <ul class="list-unstyled d-block d-lg-none d-xl-none d-xxl-none pt-4">
             <li>
-                <h3 >GRC Soft Dev Program</h3>
+                <h3>GRC Soft Dev Program</h3>
                 <h6><em>Frequently Asked Questions</em></h6>
             </li>
         </ul>
@@ -86,7 +86,8 @@ $_SESSION["current_page_js"] = "question.php";
                             <a class="dropdown-item" href="https://leetcode.com/" target="_blank">LeetCode</a>
                         </li>
                         <li>
-                            <a class="dropdown-item" href="https://www.linkedin.com/learning/" target="_blank">LinkedIn Learning</a>
+                            <a class="dropdown-item" href="https://www.linkedin.com/learning/" target="_blank">LinkedIn
+                                Learning</a>
                         </li>
                         <li>
                             <a class="dropdown-item" href="https://replit.com/" target="_blank">Repl</a>
@@ -101,29 +102,35 @@ $_SESSION["current_page_js"] = "question.php";
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <li>
-                            <a class="dropdown-item" href="https://advisingapp.greenrivertech.net/" target="_blank">Advising App</a>
+                            <a class="dropdown-item" href="https://advisingapp.greenrivertech.net/" target="_blank">Advising
+                                App</a>
                         </li>
                         <li>
-                            <a class="dropdown-item" href="https://grcc.greenriver.edu/Register/waci004.html" target="_blank">Advising Lookup</a>
+                            <a class="dropdown-item" href="https://grcc.greenriver.edu/Register/waci004.html"
+                               target="_blank">Advising Lookup</a>
                         </li>
                         <li>
-                            <a class="dropdown-item" href="https://greenrivertech.net/advisors.php" target="_blank">10 Questions for Advisees</a>
+                            <a class="dropdown-item" href="https://greenrivertech.net/advisors.php" target="_blank">10
+                                Questions for Advisees</a>
                         </li>
                     </ul>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="https://www.greenriver.edu/students/pay-for-college/" target="_blank">Money For College</a>
+                    <a class="nav-link" href="https://www.greenriver.edu/students/pay-for-college/" target="_blank">Money
+                        For College</a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="https://medium.com/green-river-web-mobile-developers" target="_blank">Program Blog</a>
+                    <a class="nav-link" href="https://medium.com/green-river-web-mobile-developers" target="_blank">Program
+                        Blog</a>
                 </li>
             </ul>
         </div>
 
         <!--back to faq button-->
-        <form id="search-mobile-nudge" class="px-md-2 search-margin-even px-lg-2 px-xl-2 py-sm-2 py-xs-2" action="index.php" method="post">
+        <form id="search-mobile-nudge" class="px-md-2 search-margin-even px-lg-2 px-xl-2 py-sm-2 py-xs-2"
+              action="index.php" method="post">
             <div class="input-group">
                 <button type="submit" class="input-group-text btn-success">Back to FAQ</button>
             </div>
@@ -137,7 +144,7 @@ $_SESSION["current_page_js"] = "question.php";
      class="container bg-warning box-shadows2 mt-3 py-4 alert alert-info alert-dismissible fade show border-0"
      role="alert">
     <h3 id="disclaimer-text" class="px-3"><strong>The information provided here is not official or legally binding.
-        This is a resource created by students, for students.</strong></h3>
+            This is a resource created by students, for students.</strong></h3>
     <button class="btn-close " data-bs-dismiss="alert" type="button" aria-label="Close"></button>
 </div>
 
@@ -185,8 +192,8 @@ if (isset($_GET['id'])) {
     echo '
     <div class="container accordion" id="accordionExample' . $categoryId . '">
         <div class="accordion-item shadow-sm">
-            <h2 class="accordion-header" id="panelsStayOpen-heading'. $categoryId . '">
-                <button id="btnid'. $categoryId . '" class="accordion-button fw-bold text-uppercase collapsed" type="button" data-bs-toggle="collapse"
+            <h2 class="accordion-header" id="panelsStayOpen-heading' . $categoryId . '">
+                <button id="btnid' . $categoryId . '" class="accordion-button fw-bold text-uppercase collapsed" type="button" data-bs-toggle="collapse"
                         data-bs-target="#collapse' . $categoryId . '" aria-expanded="true"
                         aria-controls="collapse' . $categoryId . '">' . $categoryName . '
                 </button>
@@ -198,19 +205,19 @@ if (isset($_GET['id'])) {
             </div>
             </div>
      </div>';
-     $conn->close();
- } else {
-     echo '<p class="d-flex justify-content-center mt-5" id="missing-question-id">Please check your question link, it appears to be broken</p>';
- }
+    $conn->close();
+} else {
+    echo '<p class="d-flex justify-content-center mt-5" id="missing-question-id">Please check your question link, it appears to be broken</p>';
+}
 
 ?>
 
 <div class="container ">
     <!--search form and button-->
-    <form  class="d-flex" action="searchResults.php" method="post">
+    <form class="d-flex" action="searchResults.php" method="post">
         <div class="input-group mr-xs-5 mr-sm-5 mx-md-5 mx-lg-5 mx-xl-5 mx-xxl-5 p-5 justify-content-center ">
-            <input name="search-results" type="text" class="form-control search-text" placeholder="Search Here" >
-            <button id="search-btn" type="submit" class="input-group-text btn-success" > Search</button>
+            <input name="search-results" type="text" class="form-control search-text" placeholder="Search Here">
+            <button id="search-btn" type="submit" class="input-group-text btn-success"> Search</button>
         </div>
     </form>
 </div>

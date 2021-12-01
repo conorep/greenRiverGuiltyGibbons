@@ -6,7 +6,7 @@ $username = "admin";
 $password = "@dm1n";
 $tryAgain = "";
 
-if(isset($_SESSION['grguiltyuse']))
+if (isset($_SESSION['grguiltyuse']))
     // Checking whether the session is already there or not if
     // true then header redirect it to the home page directly
 {
@@ -41,7 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
 
-    if ($usernameErr == "" && $passwordErr=="") {
+    if ($usernameErr == "" && $passwordErr == "") {
         $_SESSION['grguiltyuse'] = $username;
         header('Location: https://gr-guilty-gibbons.greenriverdev.com/admin/adminPanel.php');
         exit();
@@ -78,7 +78,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link rel="stylesheet" href="../styles/questionButtonAndForm_responsiveStyles.css">
 
     <!--  Favicon  -->
-    <link rel="icon" type="img/jpg" href="../images/img.png" >
+    <link rel="icon" type="img/jpg" href="../images/img.png">
 
     <title>GR TECH ADMIN PANEL</title>
 </head>
@@ -90,12 +90,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <div class="container-fluid">
 
         <a class="navbar-brand" id="scoot-image" href="https://www.software.greenrivertech.net/" target="_blank">
-            <img src="../images/siteGRGGrivShift2.svg" alt="GRTech Logo"  width="200"  class="d-inline-block align-text-top">
+            <img src="../images/siteGRGGrivShift2.svg" alt="GRTech Logo" width="200"
+                 class="d-inline-block align-text-top">
         </a>
 
         <ul class="list-unstyled d-block d-lg-none d-xl-none d-xxl-none pt-4">
             <li>
-                <h3 >GRC Soft Dev Program</h3>
+                <h3>GRC Soft Dev Program</h3>
                 <h6><em>Frequently Asked Questions</em></h6>
             </li>
         </ul>
@@ -130,7 +131,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             <a class="dropdown-item" href="https://leetcode.com/" target="_blank">LeetCode</a>
                         </li>
                         <li>
-                            <a class="dropdown-item" href="https://www.linkedin.com/learning/" target="_blank">LinkedIn Learning</a>
+                            <a class="dropdown-item" href="https://www.linkedin.com/learning/" target="_blank">LinkedIn
+                                Learning</a>
                         </li>
                         <li>
                             <a class="dropdown-item" href="https://replit.com/" target="_blank">Repl</a>
@@ -145,31 +147,37 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <li>
-                            <a class="dropdown-item" href="https://advisingapp.greenrivertech.net/" target="_blank">Advising App</a>
+                            <a class="dropdown-item" href="https://advisingapp.greenrivertech.net/" target="_blank">Advising
+                                App</a>
                         </li>
                         <li>
-                            <a class="dropdown-item" href="https://grcc.greenriver.edu/Register/waci004.html" target="_blank">Advising Lookup</a>
+                            <a class="dropdown-item" href="https://grcc.greenriver.edu/Register/waci004.html"
+                               target="_blank">Advising Lookup</a>
                         </li>
                         <li>
-                            <a class="dropdown-item" href="https://greenrivertech.net/advisors.php" target="_blank">10 Questions for Advisees</a>
+                            <a class="dropdown-item" href="https://greenrivertech.net/advisors.php" target="_blank">10
+                                Questions for Advisees</a>
                         </li>
                     </ul>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="https://www.greenriver.edu/students/pay-for-college/" target="_blank">Money For College</a>
+                    <a class="nav-link" href="https://www.greenriver.edu/students/pay-for-college/" target="_blank">Money
+                        For College</a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="https://medium.com/green-river-web-mobile-developers" target="_blank">Program Blog</a>
+                    <a class="nav-link" href="https://medium.com/green-river-web-mobile-developers" target="_blank">Program
+                        Blog</a>
                 </li>
 
                 <!--search form and button-->
-                <li  class="px-md-2  px-lg-2 px-xl-2 py-sm-2 py-xs-2 mt-3 d-lg-none d-xl-none d-xxl-none">
+                <li class="px-md-2  px-lg-2 px-xl-2 py-sm-2 py-xs-2 mt-3 d-lg-none d-xl-none d-xxl-none">
                     <form action="../searchResults.php" method="post">
                         <div class="input-group mb-3 w-75">
-                            <button id="search-btn1" type="submit" class="input-group-text btn-success" > Search</button>
-                            <input name="search-results" type="text" class="form-control text-muted search-text" placeholder="Search Here" >
+                            <button id="search-btn1" type="submit" class="input-group-text btn-success"> Search</button>
+                            <input name="search-results" type="text" class="form-control text-muted search-text"
+                                   placeholder="Search Here">
                         </div>
                     </form>
                 </li>
@@ -179,17 +187,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
 
         <!--search form and button-->
-        <form id="search-mobile-nudge1" class="px-md-2  px-lg-2 px-xl-2 py-sm-2 py-xs-2 mt-3 d-none d-lg-block d-xl-block d-xxl-block" action="../searchResults.php" method="post">
+        <form id="search-mobile-nudge1"
+              class="px-md-2  px-lg-2 px-xl-2 py-sm-2 py-xs-2 mt-3 d-none d-lg-block d-xl-block d-xxl-block"
+              action="../searchResults.php" method="post">
             <div class="input-group mb-3">
-                <input name="search-results" type="text" class="form-control search-text" placeholder="Search Here" >
-                <button id="search-btn" type="submit" class="input-group-text btn-success" > Search</button>
+                <input name="search-results" type="text" class="form-control search-text" placeholder="Search Here">
+                <button id="search-btn" type="submit" class="input-group-text btn-success"> Search</button>
             </div>
         </form>
 
         <!--back to faq button-->
-        <form id="search-mobile-nudge" class="px-md-2  px-lg-2 px-xl-2 py-sm-2 py-xs-2 mt-3" action="../index.php" method="post">
+        <form id="search-mobile-nudge" class="px-md-2  px-lg-2 px-xl-2 py-sm-2 py-xs-2 mt-3" action="../index.php"
+              method="post">
             <div class="input-group mb-3">
-                <button type="submit" class="input-group-text btn-success" > Back to FAQ</button>
+                <button type="submit" class="input-group-text btn-success"> Back to FAQ</button>
             </div>
         </form>
 
@@ -197,7 +208,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </nav>
 <!--Nav ends here-->
 
-<div id="disclaimer" class="container bg-warning box-shadows2 mt-3 py-4 alert alert-info alert-dismissible fade show border-0" role="alert">
+<div id="disclaimer"
+     class="container bg-warning box-shadows2 mt-3 py-4 alert alert-info alert-dismissible fade show border-0"
+     role="alert">
 
     <h3 id="disclaimer-text" class="px-3"><strong>The information provided here is not official or legally binding.
             This is a resource created by students, for students.</strong></h3>
@@ -209,24 +222,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <div class="container">
 
     <!--Admin login here-->
-    <form  method="post" class="card box-shadows mb-4" id="adminLogin"  action="<?php echo $_SERVER["PHP_SELF"];?>" >
+    <form method="post" class="card box-shadows mb-5" id="adminLogin" action="<?php echo $_SERVER["PHP_SELF"]; ?>">
 
         <fieldset>
             <div class="form-group d-grid gap-3">
                 <div>
                     <label for="username">Username:</label>
-                    <span class="error"> <?php echo $usernameErr;?></span>
+                    <span class="error"> <?php echo $usernameErr; ?></span>
                     <input type="text" class="form-control" id="username" placeholder="username" name="username">
                 </div>
                 <div>
                     <label for="password">Password:</label>
-                    <span class="error"> <?php echo $passwordErr;?></span>
+                    <span class="error"> <?php echo $passwordErr; ?></span>
                     <input type="password" class="form-control" id="password" placeholder="password" name="password">
                 </div>
                 <div>
                     <button type="submit" class="button-hover-noTransition btn-admin btn-question mt-2">Submit</button>
                 </div>
-                <span class="error"> <?php echo $tryAgain;?></span>
+                <span class="error"> <?php echo $tryAgain; ?></span>
             </div>
 
         </fieldset>

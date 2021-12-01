@@ -5,17 +5,16 @@ echo '
 <!--Footer begins here-->
 <footer class="bg-light text-center text-lg-start footer mt-auto py-3 pb-0">
 
-' ;
+';
 
-if(isset($_SESSION['grguiltyuse']))
-{
-echo
-     '<a class="float-end pe-5 pb-3" href="https://gr-guilty-gibbons.greenriverdev.com/admin/adminLogout.php"><button class="btn btn-success " type="button"><strong>Admin Logout</strong></button></a>
+if (isset($_SESSION['grguiltyuse'])) {
+    echo
+    '<a class="float-end pe-5 pb-3" href="https://gr-guilty-gibbons.greenriverdev.com/admin/adminLogout.php"><button class="btn btn-success " type="button"><strong>Admin Logout</strong></button></a>
      <br><br>
      ';
 }
 
-echo    '
+echo '
 
     <!-- Grid container -->
     <div class="container p-4">
@@ -143,18 +142,17 @@ if (isset($_SESSION['current_page_js'])) {
 
 <script>
 
-$(function () {
-  $('[data-toggle="tooltip"]').tooltip()
-})
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
 
 </script>
 
 <?php
 
 
-if($adminFooter = 'yes')
-{
-     echo '
+if ($adminFooter = 'yes') {
+    echo '
 
      <script src="//code.jquery.com/jquery-3.5.1.js"></script>
      <script src="//cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
@@ -175,8 +173,7 @@ if($adminFooter = 'yes')
      ';
 }
 
-if($addQ = 'yes')
-{
+if ($addQ = 'yes') {
     echo '
     <script src="../scripts/addCategoryScript.js"></script>
     ';

@@ -34,7 +34,7 @@ $_SESSION["current_page_js"] = "searchResults.php";
     <link rel="stylesheet" href="styles/styles.css">
 
     <!--  Favicon  -->
-    <link rel="icon" type="img/jpg" href="images/img.png" >
+    <link rel="icon" type="img/jpg" href="images/img.png">
 
     <title>GRC SDEV SEARCH RESULTS</title>
 </head>
@@ -42,16 +42,16 @@ $_SESSION["current_page_js"] = "searchResults.php";
 <body class="d-flex flex-column min-vh-100 justify-content-center">
 
 <!--This is the page nav header-->
-<nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm pt-3 pb-3" >
+<nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm pt-3 pb-3">
     <div class="container-fluid">
 
         <a class="navbar-brand" id="scoot-image" href="https://www.software.greenrivertech.net/" target="_blank">
-            <img src="images/siteGRGGrivShift2.svg" alt="GRTech Logo"  width="200"  class="d-inline-block align-text-top">
+            <img src="images/siteGRGGrivShift2.svg" alt="GRTech Logo" width="200" class="d-inline-block align-text-top">
         </a>
 
         <ul class="list-unstyled d-block d-lg-none d-xl-none d-xxl-none pt-4">
             <li>
-                <h3 >GRC Soft Dev Program</h3>
+                <h3>GRC Soft Dev Program</h3>
                 <h6><em>Frequently Asked Questions</em></h6>
             </li>
         </ul>
@@ -84,7 +84,8 @@ $_SESSION["current_page_js"] = "searchResults.php";
                             <a class="dropdown-item" href="https://leetcode.com/" target="_blank">LeetCode</a>
                         </li>
                         <li>
-                            <a class="dropdown-item" href="https://www.linkedin.com/learning/" target="_blank">LinkedIn Learning</a>
+                            <a class="dropdown-item" href="https://www.linkedin.com/learning/" target="_blank">LinkedIn
+                                Learning</a>
                         </li>
                         <li>
                             <a class="dropdown-item" href="https://replit.com/" target="_blank">Repl</a>
@@ -99,38 +100,46 @@ $_SESSION["current_page_js"] = "searchResults.php";
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <li>
-                            <a class="dropdown-item" href="https://advisingapp.greenrivertech.net/" target="_blank">Advising App</a>
+                            <a class="dropdown-item" href="https://advisingapp.greenrivertech.net/" target="_blank">Advising
+                                App</a>
                         </li>
                         <li>
-                            <a class="dropdown-item" href="https://grcc.greenriver.edu/Register/waci004.html" target="_blank">Advising Lookup</a>
+                            <a class="dropdown-item" href="https://grcc.greenriver.edu/Register/waci004.html"
+                               target="_blank">Advising Lookup</a>
                         </li>
                         <li>
-                            <a class="dropdown-item" href="https://greenrivertech.net/advisors.php" target="_blank">10 Questions for Advisees</a>
+                            <a class="dropdown-item" href="https://greenrivertech.net/advisors.php" target="_blank">10
+                                Questions for Advisees</a>
                         </li>
                     </ul>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="https://www.greenriver.edu/students/pay-for-college/" target="_blank">Money For College</a>
+                    <a class="nav-link" href="https://www.greenriver.edu/students/pay-for-college/" target="_blank">Money
+                        For College</a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="https://medium.com/green-river-web-mobile-developers" target="_blank">Program Blog</a>
+                    <a class="nav-link" href="https://medium.com/green-river-web-mobile-developers" target="_blank">Program
+                        Blog</a>
                 </li>
             </ul>
         </div>
 
         <!--back to faq button-->
-        <form id="search-mobile-nudge" class="px-md-2 search-margin-even px-lg-2 px-xl-2 py-sm-2 py-xs-2 mt-3" action="index.php" method="post">
+        <form id="search-mobile-nudge" class="px-md-2 search-margin-even px-lg-2 px-xl-2 py-sm-2 py-xs-2 mt-3"
+              action="index.php" method="post">
             <div class="input-group mb-3">
-                <button type="submit" class="input-group-text btn-success" > Back to FAQ</button>
+                <button type="submit" class="input-group-text btn-success"> Back to FAQ</button>
             </div>
         </form>
 
     </div>
 </nav>
 
-<div id="disclaimer" class="container bg-warning box-shadows2 mt-3 py-4 alert alert-info alert-dismissible fade show border-0" role="alert">
+<div id="disclaimer"
+     class="container bg-warning box-shadows2 mt-3 py-4 alert alert-info alert-dismissible fade show border-0"
+     role="alert">
     <!--    <h2 class="row text-center"> Disclaimer</h2>-->
 
     <h3 id="disclaimer-text" class="px-3"><strong>The information provided here is not official or legally binding.
@@ -145,7 +154,7 @@ $_SESSION["current_page_js"] = "searchResults.php";
     <div class="col-2"></div>
     <div class="col-8 mt-5">
 
-    <?php
+        <?php
 
         // TURN ON ERROR REPORTING
         ini_set('display_errors', 1);
@@ -155,9 +164,9 @@ $_SESSION["current_page_js"] = "searchResults.php";
 
         echo "<h1>Search Results for: '$search_results'</h1>";
 
-    ?>
+        ?>
 
-    <br>
+        <br>
 
     </div>
     <div class="col-2"></div>
@@ -184,29 +193,29 @@ $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
     // output data of each row
-    while($row = $result->fetch_assoc()) {
+    while ($row = $result->fetch_assoc()) {
 
         // paperclip graphic
         include('include/paperClip.php');
 
         // setup the paperclip for php insertion
         $paperClipOrNot = '<div data-toggle="tooltip" title="Copy Link to Clipboard" id="clip-for-question-' .
-        $row['number'] . '" class="paperClips paperClips-sr">' . $paperClipSearch . '</div>';
+            $row['number'] . '" class="paperClips paperClips-sr">' . $paperClipSearch . '</div>';
 
-        echo '<div class="container accordion" id="accordionExample' .$row["number"].'">'  .  '
+        echo '<div class="container accordion" id="accordionExample' . $row["number"] . '">' . '
     <div class="accordion-item shadow-sm">
-        <h2 class="accordion-header headers-relative-pos" id="heading' .$row["number"].'">
+        <h2 class="accordion-header headers-relative-pos" id="heading' . $row["number"] . '">
             <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#collapse' .$row["number"].'" aria-expanded="true"
-                    aria-controls="collapse' .$row["number"].'">'.
-            $row["question"]  .
-            '</button>'  .  $paperClipOrNot .  '
+                    data-bs-target="#collapse' . $row["number"] . '" aria-expanded="true"
+                    aria-controls="collapse' . $row["number"] . '">' .
+            $row["question"] .
+            '</button>' . $paperClipOrNot . '
         </h2>
-        <div id="collapse' .$row["number"].'" class="accordion-collapse collapse "
-             aria-labelledby="heading' .$row["number"].'">
-            <div class="accordion-body">'.
-            $row["answer"].
-        '</div>
+        <div id="collapse' . $row["number"] . '" class="accordion-collapse collapse "
+             aria-labelledby="heading' . $row["number"] . '">
+            <div class="accordion-body">' .
+            $row["answer"] .
+            '</div>
         </div>
     </div>
 </div>';
@@ -221,10 +230,10 @@ $conn->close();
 
 <div class="container ">
     <!--search form and button-->
-    <form  class="d-flex" action="searchResults.php" method="post">
+    <form class="d-flex" action="searchResults.php" method="post">
         <div class="input-group mr-xs-5 mr-sm-5 mx-md-5 mx-lg-5 mx-xl-5 mx-xxl-5 p-5 justify-content-center ">
-            <input name="search-results" type="text" class="form-control search-text" placeholder="Search Here" >
-            <button id="search-btn" type="submit" class="input-group-text btn-success" > Search</button>
+            <input name="search-results" type="text" class="form-control search-text" placeholder="Search Here">
+            <button id="search-btn" type="submit" class="input-group-text btn-success"> Search</button>
         </div>
     </form>
 </div>

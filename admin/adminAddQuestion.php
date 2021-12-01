@@ -6,7 +6,7 @@ ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
 
-if(!isset($_SESSION['grguiltyuse'])) // If session is not set then redirect to Login Page
+if (!isset($_SESSION['grguiltyuse'])) // If session is not set then redirect to Login Page
 {
     header("Location: https://gr-guilty-gibbons.greenriverdev.com/admin/adminLogin.php");
     exit();
@@ -35,7 +35,7 @@ if ($conn->connect_error) {
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['answerTextArea'])) {
 
-    if ($_POST["categorySelect"]=="" || $_POST["categorySelect"]=="none") {
+    if ($_POST["categorySelect"] == "" || $_POST["categorySelect"] == "none") {
         $categorySelectErr = "Select a category.";
     }
 
@@ -48,7 +48,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['answerTextArea'])) {
     }
 
 
-    if ($categorySelectErr == "" && $questionTextBoxErr=="" && $answerTextAreaErr=="") {
+    if ($categorySelectErr == "" && $questionTextBoxErr == "" && $answerTextAreaErr == "") {
         //if form is valid, connect to db and add question
 
 
@@ -122,7 +122,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['categoryTextBox'])) {
 
 
         <!--  Favicon  -->
-        <link rel="icon" type="img/jpg" href="../images/img.png" >
+        <link rel="icon" type="img/jpg" href="../images/img.png">
 
         <title>GR TECH ADMIN PANEL</title>
     </head>
@@ -134,12 +134,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['categoryTextBox'])) {
     <div class="container-fluid">
 
         <a class="navbar-brand ps-3" href="https://www.software.greenrivertech.net/" target="_blank">
-            <img src="../images/siteGRGGrivShift2.svg" alt="GRTech Logo"  width="200"  class="d-inline-block align-text-top">
+            <img src="../images/siteGRGGrivShift2.svg" alt="GRTech Logo" width="200"
+                 class="d-inline-block align-text-top">
         </a>
 
         <ul class="list-unstyled d-block d-lg-none d-xl-none d-xxl-none pt-4">
             <li>
-                <h3 >GRC Soft Dev Program</h3>
+                <h3>GRC Soft Dev Program</h3>
                 <h6><em>Frequently Asked Questions</em></h6>
             </li>
         </ul>
@@ -157,27 +158,31 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['categoryTextBox'])) {
         </div>
 
         <!--search form and button-->
-        <div  class="px-md-2  px-lg-2 px-xl-2 py-sm-2 py-xs-2 mt-3 d-lg-none d-xl-none d-xxl-none">
+        <div class="px-md-2  px-lg-2 px-xl-2 py-sm-2 py-xs-2 mt-3 d-lg-none d-xl-none d-xxl-none">
             <form action="../searchResults.php" method="post">
                 <div class="input-group mb-3 w-75">
-                    <button id="search-btn1" type="submit" class="input-group-text btn-success" > Search</button>
-                    <input name="search-results" type="text" class="form-control text-muted search-text" placeholder="Search Here" >
+                    <button id="search-btn1" type="submit" class="input-group-text btn-success"> Search</button>
+                    <input name="search-results" type="text" class="form-control text-muted search-text"
+                           placeholder="Search Here">
                 </div>
             </form>
         </div>
 
         <!--search form and button-->
-        <form id="search-mobile-nudge1" class="px-md-2  px-lg-2 px-xl-2 py-sm-2 py-xs-2 mt-3 d-none d-lg-block d-xl-block d-xxl-block" action="../searchResults.php" method="post">
+        <form id="search-mobile-nudge1"
+              class="px-md-2  px-lg-2 px-xl-2 py-sm-2 py-xs-2 mt-3 d-none d-lg-block d-xl-block d-xxl-block"
+              action="../searchResults.php" method="post">
             <div class="input-group mb-3">
-                <input name="search-results" type="text" class="form-control search-text" placeholder="Search Here" >
-                <button id="search-btn" type="submit" class="input-group-text btn-success" > Search</button>
+                <input name="search-results" type="text" class="form-control search-text" placeholder="Search Here">
+                <button id="search-btn" type="submit" class="input-group-text btn-success"> Search</button>
             </div>
         </form>
 
         <!--back to faq button-->
-        <form id="search-mobile-nudge" class="px-md-2  px-lg-2 px-xl-2 py-sm-2 py-xs-2 mt-3" action="../index.php" method="post">
+        <form id="search-mobile-nudge" class="px-md-2  px-lg-2 px-xl-2 py-sm-2 py-xs-2 mt-3" action="../index.php"
+              method="post">
             <div class="input-group mb-3">
-                <button type="submit" class="input-group-text btn-success" > Back to FAQ</button>
+                <button type="submit" class="input-group-text btn-success"> Back to FAQ</button>
             </div>
         </form>
 
@@ -205,8 +210,8 @@ $categoryArray = array();
 $toBeEchoed = "";
 if ($result->num_rows > 0) {
     // output data of each row
-    while($row = $result->fetch_assoc()) {
-        $toBeEchoed.= '<option value="'.$row["category_id"].'">'.$row["category_name"].'</option>';
+    while ($row = $result->fetch_assoc()) {
+        $toBeEchoed .= '<option value="' . $row["category_id"] . '">' . $row["category_name"] . '</option>';
     }
 }
 
@@ -218,9 +223,9 @@ $conn->close();
 <!-- content container -->
 <div class="container">
 
-    <div id="adminQuestion" class="container card card2 box-shadows mb-4">
+    <div id="adminQuestion" class="container card card2 box-shadows mb-5">
 
-        <form   action="<?php echo $_SERVER["PHP_SELF"];?>" method="post">
+        <form action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post">
 
 
             <fieldset>
@@ -230,25 +235,28 @@ $conn->close();
                     <!--Category selection-->
                     <div class="form-group ">
                         <label for="categorySelect">Add to FAQ category</label>
-                        <span class="error"> <?php echo $categorySelectErr;?></span>
-                        <select class="form-select" aria-label="Default select example" id="categorySelect" name="categorySelect">
+                        <span class="error"> <?php echo $categorySelectErr; ?></span>
+                        <select class="form-select" aria-label="Default select example" id="categorySelect"
+                                name="categorySelect">
                             <option class="text-muted" value="none" selected>Select category</option>
-                            <?php echo $toBeEchoed?>
+                            <?php echo $toBeEchoed ?>
                         </select>
                     </div>
 
                     <!--Question Add-->
                     <div class="form-group">
                         <label for="questionTextBox" class="form-label">Add a Question</label>
-                        <span class="error"> <?php echo $questionTextBoxErr;?></span>
-                        <input type="text" class="form-control" id="questionTextBox" placeholder="Enter question text here" name="questionTextBox">
+                        <span class="error"> <?php echo $questionTextBoxErr; ?></span>
+                        <input type="text" class="form-control" id="questionTextBox"
+                               placeholder="Enter question text here" name="questionTextBox">
                     </div>
 
                     <!--Answer Add-->
                     <div class="form-group">
                         <label for="answerTextArea" class="form-label">Add an Answer</label>
-                        <span class="error"> <?php echo $answerTextAreaErr;?></span>
-                        <textarea class="form-control" id="answerTextArea" rows="3" placeholder="Enter answer text here" name="answerTextArea"></textarea>
+                        <span class="error"> <?php echo $answerTextAreaErr; ?></span>
+                        <textarea class="form-control" id="answerTextArea" rows="3" placeholder="Enter answer text here"
+                                  name="answerTextArea"></textarea>
                     </div>
 
                 </div>
@@ -257,7 +265,9 @@ $conn->close();
 
             <div class="row">
                 <div class="col text-center">
-                    <button type="submit" class="button-hover-noTransition btn-admin btn-question mt-2 w-50">Submit Q and A</button>
+                    <button type="submit" class="button-hover-noTransition btn-admin btn-question mt-2 w-50">Submit Q
+                        and A
+                    </button>
                 </div>
             </div>
 
@@ -265,28 +275,32 @@ $conn->close();
 
         <br>
 
-        <form id="categoryAdd" action="<?php echo $_SERVER["PHP_SELF"];?>" method="post">
+        <form id="categoryAdd" action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post">
 
 
             <!--Category Add Checkbox-->
             <div class="form-group">
                 <label for="categorySelectArea" class="form-label">
-                    <input type="checkbox" id="categorySelectArea"  name="categorySelectArea"
+                    <input type="checkbox" id="categorySelectArea" name="categorySelectArea"
                         <?php if ($categoryTextAreaErr != '') echo "checked='checked'"; ?>
-                           onclick='chooseNewCat(this.checked)'>  Add a New Category
-                    <span class="error"> <?php echo $categoryTextAreaErr;?></span>
+                           onclick='chooseNewCat(this.checked)'> Add a New Category
+                    <span class="error"> <?php echo $categoryTextAreaErr; ?></span>
                 </label>
             </div>
 
             <!--Category Add-->
-            <div class="form-group" id="catNew" <?php if ($categoryTextAreaErr != '') echo "style='display: block';"; ?>>
+            <div class="form-group"
+                 id="catNew" <?php if ($categoryTextAreaErr != '') echo "style='display: block';"; ?>>
                 <label for="categoryTextBox" class="form-label w-100">
-                    <input type="text" class="form-control " id="categoryTextBox" placeholder="Enter a new category name here" name="categoryTextBox">
+                    <input type="text" class="form-control " id="categoryTextBox"
+                           placeholder="Enter a new category name here" name="categoryTextBox">
                 </label>
 
                 <div class="row">
                     <div class="col text-center">
-                        <button type="submit" class="button-hover-noTransition btn-admin btn-question mt-2 w-50">Submit New Category</button>
+                        <button type="submit" class="button-hover-noTransition btn-admin btn-question mt-2 w-50">Submit
+                            New Category
+                        </button>
                     </div>
                 </div>
             </div>

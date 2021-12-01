@@ -157,7 +157,7 @@ $_SESSION["current_page_js"] = "index.php";
      class="container bg-warning box-shadows2 mt-3 py-4 alert alert-info alert-dismissible fade show border-0"
      role="alert">
     <h3 id="disclaimer-text" class="px-3"><strong>The information provided here is not official or legally binding.
-        This is a resource created by students, for students.</strong></h3>
+            This is a resource created by students, for students.</strong></h3>
     <button class="btn-close " data-bs-dismiss="alert" type="button" aria-label="Close"></button>
 </div>
 
@@ -184,7 +184,7 @@ $result = $conn->query($sql);
 $currentCategory = null;
 
 // output data of each row
-while($row = $result->fetch_assoc()) {
+while ($row = $result->fetch_assoc()) {
 
     // get paperclip graphic
     include('include/paperClip.php');
@@ -192,7 +192,7 @@ while($row = $result->fetch_assoc()) {
     // '" class="paperClips">'. $paperClip . '</div>';
     // prepare paperclip graphic for php
     $paperClipOrNot = '<div data-toggle="tooltip" title="Copy Link to Clipboard" id="clip-for-question-' . $row['number'] .
-    '" class="paperClips paperClips-ind">' . $paperClip . '</div>';
+        '" class="paperClips paperClips-ind">' . $paperClip . '</div>';
 
     $newCategory = $row["category_name"];
 
@@ -212,25 +212,24 @@ while($row = $result->fetch_assoc()) {
         }
 
         echo '
-        <div class="container accordion" id="accordionExample' .$row["category_id"].'">
+        <div class="container accordion" id="accordionExample' . $row["category_id"] . '">
             <div class="accordion-item shadow-sm">
-                <h2 class="accordion-header" id="panelsStayOpen-heading'. $row["category_id"].'">
-                    <button id="btnid'. $row["category_id"].'" class="accordion-button fw-bold text-uppercase collapsed" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#collapse' .$row["category_id"].'" aria-expanded="true"
-                            aria-controls="collapse' .$row["category_id"].'">
-                                '.$row["category_name"].'
+                <h2 class="accordion-header" id="panelsStayOpen-heading' . $row["category_id"] . '">
+                    <button id="btnid' . $row["category_id"] . '" class="accordion-button fw-bold text-uppercase collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapse' . $row["category_id"] . '" aria-expanded="true"
+                            aria-controls="collapse' . $row["category_id"] . '">
+                                ' . $row["category_name"] . '
                     </button>
                 </h2>
-                <div id="collapse' .$row["category_id"].'" class="accordion-collapse collapse "
-                     aria-labelledby="collapse' .$row["category_id"].'">
+                <div id="collapse' . $row["category_id"] . '" class="accordion-collapse collapse "
+                     aria-labelledby="collapse' . $row["category_id"] . '">
                     <div class="accordion-body">
         ';
     }
 
     echo '
                         <div class="d-flex flex-row"><div class="position-relative"><p class="question">' . $row["question"] . $paperClipOrNot . '</p></div>' . '</div>' .
-                        $row["answer"]
-          ;
+        $row["answer"];
 
 }
 
