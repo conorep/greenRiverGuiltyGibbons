@@ -10,7 +10,7 @@ echo '
 if(isset($_SESSION['grguiltyuse']))
 {
 echo
-     '<a class="float-end pe-5 pb-3" href="https://gr-guilty-gibbons.greenriverdev.com/admin/adminLogout.php"><button class="btn btn-success " type="button"><strong>ADMIN LOGOUT</strong></button></a>
+     '<a class="float-end pe-5 pb-3" href="https://gr-guilty-gibbons.greenriverdev.com/admin/adminLogout.php"><button class="btn btn-success " type="button"><strong>Admin Logout</strong></button></a>
      <br><br>
      ';
 }
