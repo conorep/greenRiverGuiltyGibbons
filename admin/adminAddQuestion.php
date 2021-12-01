@@ -232,7 +232,7 @@ $conn->close();
                         <label for="categorySelect">Add to FAQ category</label>
                         <span class="error"> <?php echo $categorySelectErr;?></span>
                         <select class="form-select" aria-label="Default select example" id="categorySelect" name="categorySelect">
-                            <option value="none" selected>Select category</option>
+                            <option class="text-muted" value="none" selected>Select category</option>
                             <?php echo $toBeEchoed?>
                         </select>
                     </div>
