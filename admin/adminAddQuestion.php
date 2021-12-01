@@ -20,11 +20,22 @@ $adminFooter = 'yes';
 $answerTextAreaErr = "";
 $questionTextBoxErr = "";
 $categorySelectErr = "";
+$categoryTextAreaErr = "";
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+// Create connection
+
+require("/home/grguilty/qandaconfig.php");
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
 
 
-    if ($_POST["categorySelect"]=="") {
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['answerTextArea'])) {
+
+    if ($_POST["categorySelect"]=="" || $_POST["categorySelect"]=="none") {
         $categorySelectErr = "Select a category.";
     }
 
@@ -39,26 +50,37 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($categorySelectErr == "" && $questionTextBoxErr=="" && $answerTextAreaErr=="") {
         //if form is valid, connect to db and add question
-        require("/home/grguilty/qandaconfig.php");
+
 
         $answerInsert = '<p class="answer">' . "$_POST[answerTextArea]" . '</p>';
-
-        // Create connection
-        $conn = new mysqli($servername, $username, $password, $dbname);
-
-        // Check connection
-        if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
-        }
 
 
         $sql = "INSERT INTO qna (question, answer, category_id)
         VALUES ('$_POST[questionTextBox]', '$answerInsert', '$_POST[categorySelect]')";
-        if ($conn->query($sql) === TRUE) {
-//            echo "New record created successfully";
-        } else {
-//            echo "Error: " . $sql . "<br>" . $conn->error;
-        }
+
+        $conn->query($sql);
+
+        $conn->close();
+        //db conn ended here
+
+
+        header('Location: https://gr-guilty-gibbons.greenriverdev.com/admin/adminPanel.php');
+        exit();
+    }
+}
+
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['categoryTextBox'])) {
+
+    if (empty($_POST["categoryTextBox"])) {
+        $categoryTextAreaErr = "Please enter a category name.";
+    }
+
+    if ($categoryTextAreaErr == "") {
+
+        $sql = "INSERT INTO category (category_name)
+        VALUES ('$_POST[categoryTextBox]')";
+
+        $conn->query($sql);
 
         $conn->close();
         //db conn ended here
@@ -67,6 +89,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit();
     }
 }
+
+
 ?>
     <!--
         Gr-Guilty-Gibbons FAQ
@@ -194,51 +218,90 @@ $conn->close();
 <!-- content container -->
 <div class="container">
 
-    <form id="adminQuestion" class="card card2 box-shadows mb-4" action="<?php echo $_SERVER["PHP_SELF"];?>" method="post">
-        <fieldset>
+    <div id="adminQuestion" class="container card card2 box-shadows mb-4">
 
-            <div class="form-group d-grid gap-3">
+        <form   action="<?php echo $_SERVER["PHP_SELF"];?>" method="post">
 
-                <!--Category selection-->
-                <div class="form-group ">
-                    <label for="categorySelect">Add to FAQ category</label>
-                    <span class="error"> <?php echo $categorySelectErr;?></span>
-                    <select class="form-select" aria-label="Default select example" id="categorySelect" name="categorySelect">
-                        <option value="none" disabled selected>Select category</option>
-                        <?php echo $toBeEchoed?>
-                    </select>
+
+            <fieldset>
+
+                <div class="form-group d-grid gap-3">
+
+                    <!--Category selection-->
+                    <div class="form-group ">
+                        <label for="categorySelect">Add to FAQ category</label>
+                        <span class="error"> <?php echo $categorySelectErr;?></span>
+                        <select class="form-select" aria-label="Default select example" id="categorySelect" name="categorySelect">
+                            <option value="none" selected>Select category</option>
+                            <?php echo $toBeEchoed?>
+                        </select>
+                    </div>
+
+                    <!--Question Add-->
+                    <div class="form-group">
+                        <label for="questionTextBox" class="form-label">Add a Question</label>
+                        <span class="error"> <?php echo $questionTextBoxErr;?></span>
+                        <input type="text" class="form-control" id="questionTextBox" placeholder="Enter question text here" name="questionTextBox">
+                    </div>
+
+                    <!--Answer Add-->
+                    <div class="form-group">
+                        <label for="answerTextArea" class="form-label">Add an Answer</label>
+                        <span class="error"> <?php echo $answerTextAreaErr;?></span>
+                        <textarea class="form-control" id="answerTextArea" rows="3" placeholder="Enter answer text here" name="answerTextArea"></textarea>
+                    </div>
+
                 </div>
 
-                <!--Question Add-->
-                <div class="form-group">
-                    <label for="questionTextBox" class="form-label">Add a Question</label>
-                    <span class="error"> <?php echo $questionTextBoxErr;?></span>
-                    <input type="text" class="form-control" id="questionTextBox" placeholder="Enter question text here" name="questionTextBox">
-                </div>
+            </fieldset>
 
-                <!--Answer Add-->
-                <div class="form-group">
-                    <label for="answerTextArea" class="form-label">Add an Answer</label>
-                    <span class="error"> <?php echo $answerTextAreaErr;?></span>
-                    <textarea class="form-control" id="answerTextArea" rows="3" placeholder="Enter answer text here" name="answerTextArea"></textarea>
+            <div class="row">
+                <div class="col text-center">
+                    <button type="submit" class="button-hover-noTransition btn-admin btn-question mt-2 w-50">Submit Q and A</button>
                 </div>
-
             </div>
 
-        </fieldset>
+        </form>
 
-        <div class="row">
-            <div class="col text-center">
-                <button type="submit" class="button-hover-noTransition btn-admin btn-question mt-2 w-50">Submit</button>
+        <br>
+
+        <form id="categoryAdd" action="<?php echo $_SERVER["PHP_SELF"];?>" method="post">
+
+
+            <!--Category Add Checkbox-->
+            <div class="form-group">
+                <label for="categorySelectArea" class="form-label">
+                    <input type="checkbox" id="categorySelectArea"  name="categorySelectArea"
+                        <?php if ($categoryTextAreaErr != '') echo "checked='checked'"; ?>
+                           onclick='chooseNewCat(this.checked)'>  Add a New Category
+                    <span class="error"> <?php echo $categoryTextAreaErr;?></span>
+                </label>
             </div>
-        </div>
 
-    </form>
+            <!--Category Add-->
+            <div class="form-group" id="catNew" <?php if ($categoryTextAreaErr != '') echo "style='display: block';"; ?>>
+                <label for="categoryTextBox" class="form-label w-100">
+                    <input type="text" class="form-control " id="categoryTextBox" placeholder="Enter a new category name here" name="categoryTextBox">
+                </label>
+
+                <div class="row">
+                    <div class="col text-center">
+                        <button type="submit" class="button-hover-noTransition btn-admin btn-question mt-2 w-50">Submit New Category</button>
+                    </div>
+                </div>
+            </div>
+
+        </form>
+
+    </div>
+
 
 </div>
 <!--end content container-->
 
 
 <?php
+$addQ = 'yes';
+
 include('../include/includeFooter.php');
 ?>

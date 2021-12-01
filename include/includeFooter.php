@@ -171,6 +171,13 @@ if($adminFooter = 'yes')
      ';
 }
 
+if($addQ = 'yes')
+{
+    echo '
+    <script src="../scripts/addCategoryScript.js"></script>
+    ';
+}
+
 echo '
 
 </body>

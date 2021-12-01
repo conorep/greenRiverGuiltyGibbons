@@ -178,6 +178,7 @@ if ($conn->connect_error) {
 $sql = "SELECT number, question, answer, qna.category_id, category_name
 FROM qna
 NATURAL JOIN category ORDER BY qna.category_id";
+
 $result = $conn->query($sql);
 
 $currentCategory = null;

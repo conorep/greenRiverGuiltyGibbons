@@ -147,7 +147,12 @@ a:hover {
     font-size: larger;
 }
 
+
 /*ID STYLES*/
+
+#catNew {
+    display: none;
+}
 
 #disclaimer {
     text-align: center;
