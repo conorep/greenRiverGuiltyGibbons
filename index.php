@@ -228,7 +228,7 @@ while ($row = $result->fetch_assoc()) {
     }
 
     echo '
-                        <div class="d-flex flex-row"><div class="position-relative"><p class="question">' . $row["question"] . $paperClipOrNot . '</p></div>' . '</div>' .
+                        <div class="d-flex flex-row"><div class="position-relative"><p class="question">' . $row["question"] . '</p>' . $paperClipOrNot . '</div>' . '</div>' .
         $row["answer"];
 
 }
