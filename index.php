@@ -191,8 +191,8 @@ while ($row = $result->fetch_assoc()) {
     // $paperClipOrNot = '<div data-toggle="tooltip" title="Copy Link to Clipboard" id="clip-for-question-' . $row['number'] .
     // '" class="paperClips">'. $paperClip . '</div>';
     // prepare paperclip graphic for php
-    $paperClipOrNot = '<div data-toggle="tooltip" title="Copy Link to Clipboard" id="clip-for-question-' . $row['number'] .
-        '" class="paperClips paperClips-ind">' . $paperClip . '</div>';
+    $paperClipOrNot = '<span data-toggle="tooltip" title="Copy Link to Clipboard" id="clip-for-question-' . $row['number'] .
+        '" class="paperClips paperClips-ind">' . $paperClip . '</span>';
 
     $newCategory = $row["category_name"];
 
