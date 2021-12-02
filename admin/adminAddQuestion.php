@@ -266,7 +266,7 @@ $conn->close();
             <div class="row">
                 <div class="col text-center">
                     <button type="submit" class="button-hover-noTransition btn-admin btn-question mt-2 w-50">Submit Q
-                        and A
+                        & A
                     </button>
                 </div>
             </div>
@@ -298,8 +298,8 @@ $conn->close();
 
                 <div class="row">
                     <div class="col text-center">
-                        <button type="submit" class="button-hover-noTransition btn-admin btn-question mt-2 w-50">Submit
-                            New Category
+                        <button type="submit" class="button-hover-noTransition btn-admin btn-question mt-2 w-50">Add
+                            Category
                         </button>
                     </div>
                 </div>
