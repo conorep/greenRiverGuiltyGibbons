@@ -23,45 +23,42 @@ echo '
         <div class="row">
 
             <!--Grid column-->
-            <div class="col-lg-3 col-md-6 mb-4 mb-md-0 px-4">
+            <div class="col-md-3 col-sm-6 col-6 mb-4 mb-md-0 px-md-4 px-2">
                 <h5 class="text-uppercase text-center">Green River College</h5>
                 <hr>
-                <p class="footer-links">This site provides information and resources
+                <p class="footer-links text-center">This site provides information and resources
                     for students in Green River\'s Bachelor\'s of
                     Applied Science - Software Development
                     program.</p>
             </div>
 
             <!--Grid column-->
-            <div class="col-lg-3 col-md-6 mb-4 mb-md-0 px-5">
+            <div class="col-md-3 col-sm-6 col-6 mb-4 mb-md-0 px-md-5 px-2">
                 <h5 class="text-uppercase mb-0 text-center">Useful Links</h5>
                 <hr>
-                <ul class="footer-list footer-links">
+                <ul class="footer-list footer-links text-center">
                     <li>
                         <a class="text-dark" href="https://www.itconnect.greenrivertech.net/internships"
                            target="_blank">Internships</a>
+                    </li>
+                     <li>
+                        <a class="text-dark" href="https://www.itconnect.greenrivertech.net/upcoming-events"
+                           target="_blank">Upcoming Events</a>
                     </li>
                     <li>
                         <a class="text-dark" href="https://www.itconnect.greenrivertech.net/studentResources"
                            target="_blank">Student Resources</a>
                     </li>
-                    <li>
-                        <a class="text-dark" href="https://www.itconnect.greenrivertech.net/upcoming-events"
-                           target="_blank">Upcoming Events</a>
-                    </li>
                 </ul>
             </div>
 
             <!--Grid column-->
-            <div class="col-lg-3 col-md-6 mb-4 mb-md-0 px-5">
+            <div class="col-md-3 col-sm-6 col-6 mb-4 mb-md-0 px-md-5 px-2">
                 <h5 class="text-uppercase text-center">Follow</h5>
                 <hr>
 
                 <!--Links to associated linkedIn/Instagram/Facebook pages -->
-                <ul class="footer-list mb-0 footer-links">
-                    <li>
-                        <a class="text-dark" href="https://www.instagram.com/greenriverc/" target="_blank">Instagram</a>
-                    </li>
+                <ul class="footer-list mb-0 footer-links text-center">
                     <li>
                         <a class="text-dark" href="https://www.linkedin.com/school/green-river-community-college/"
                            target="_blank">LinkedIn</a>
@@ -70,16 +67,19 @@ echo '
                         <a class="text-dark" href="https://www.facebook.com/greenriverdevs/"
                            target="_blank">Facebook</a>
                     </li>
+                    <li>
+                        <a class="text-dark" href="https://www.instagram.com/greenriverc/" target="_blank">Instagram</a>
+                    </li>
                 </ul>
             </div>
 
             <!--Grid column-->
-            <div class="col-lg-3 col-md-6 mb-4 mb-md-0 px-5">
+            <div class="col-md-3 col-sm-6 col-6 mb-4 mb-md-0 px-md-5 px-2">
                 <h5 class="text-uppercase text-center">Legal</h5>
                 <hr>
 
                 <!--Links to FinAid/Ethics pages -->
-                <ul class="footer-list mb-0 footer-links pl-3">
+                <ul class="footer-list mb-0 footer-links pl-3 text-center">
                     <li>
                         <a class="text-dark" href="https://www.greenriver.edu/about-us/website/privacy-notice.htm"
                            target="_blank">Privacy Policy</a>
@@ -91,8 +91,8 @@ echo '
                     </li>
 
                     <li>
-                        <a class="text-dark" href="https://gr-guilty-gibbons.greenriverdev.com/admin/adminLogin.php"
-                           target="_blank">Admin Panel</a>
+                        <a href="https://gr-guilty-gibbons.greenriverdev.com/admin/adminLogin.php"
+                           target="_blank"><button class="btn btn-sm btn-success " type="button"><strong>Admin Panel</strong></button></a>
                     </li>
                 </ul>
             </div>
