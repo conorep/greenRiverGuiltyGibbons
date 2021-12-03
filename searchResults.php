@@ -127,10 +127,18 @@ $_SESSION["current_page_js"] = "searchResults.php";
         </div>
 
         <!--back to faq button-->
-        <form id="search-mobile-nudge" class="px-md-2 search-margin-even px-lg-2 px-xl-2 py-sm-2 py-xs-2 mt-3"
+        <form id="search-mobile-nudge" class="d-none d-md-block px-md-2 search-margin-even px-lg-2 px-xl-2 py-sm-2 py-xs-2 mt-3"
               action="index.php" method="post">
             <div class="input-group mb-3">
                 <button type="submit" class="input-group-text btn-success"> Back to FAQ</button>
+            </div>
+        </form>
+
+        <!--back to faq button for small screens (floats right)-->
+        <form id="search-mobile-nudge1" class="d-md-none d-block px-md-2  px-lg-2 px-xl-2 py-sm-2 py-xs-2 mt-3 row w-100" action="index.php"
+              method="post">
+            <div class="input-group mb-3 ">
+                <button type="submit" class="input-group-text btn-success ms-md-0 ms-auto"> Back to FAQ</button>
             </div>
         </form>
 
