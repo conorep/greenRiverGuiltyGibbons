@@ -9,7 +9,7 @@ echo '
 
 if (isset($_SESSION['grguiltyuse'])) {
     echo
-    '<a class="float-end pe-5 pb-3" href="https://gr-guilty-gibbons.greenriverdev.com/admin/adminLogout.php"><button class="btn btn-success " type="button"><strong>Admin Logout</strong></button></a>
+    '<form class="float-end pe-5 pb-3" action="https://gr-guilty-gibbons.greenriverdev.com/admin/adminLogout.php"><button class="btn btn-success " type="submit"><strong>Admin Logout</strong></button></form>
      <br><br>
      ';
 }
@@ -91,8 +91,8 @@ echo '
                     </li>
 
                     <li>
-                        <a href="https://gr-guilty-gibbons.greenriverdev.com/admin/adminLogin.php"
-                           target="_blank"><button class="btn btn-sm btn-success " type="button"><strong>Admin Panel</strong></button></a>
+                        <form action="https://gr-guilty-gibbons.greenriverdev.com/admin/adminLogin.php"
+                           target="_blank" method="get"><button class="btn btn-sm btn-success " type="submit"><strong>Admin Panel</strong></button></form>
                     </li>
                 </ul>
             </div>
