@@ -118,7 +118,7 @@ $adminFooter = 'yes';
 
 <!-- content container -->
 <div class='container py-4'>
-    <p class="mb-3"><a href="adminAddQuestion.php">New Question, Category, Admin Email</a></p>
+    <p class="mb-3"><a href="adminAddQuestion.php">NEW QUESTION, CATEGORY, ADMIN EMAIL</a></p>
 
     <div class='toast' role='alert' aria-live='assertive' aria-atomic='true' data-bs-delay='1500'>
         <div class='toast-body'>
