@@ -164,12 +164,12 @@ for ($i = 0; $i < sizeof($post_keys); $i++) {
 /////////////////////////////////////////////////////////////////////
 // check referring url
 if (array_key_exists("HTTP_REFERER", $_SERVER)) {
-    if ($_SERVER["HTTP_REFERER"] != "https://gr-guilty-gibbons.greenriverdev.com/") {
-        // if ($_SERVER["HTTP_REFERER"] != "http://localhost:8000/") {
-        $isValid = false;
+    if (strpos($_SERVER["HTTP_REFERER"], "ps://gr-guilty-gibbons.greenriverdev.com") === false) {
+    // if (strpos($_SERVER["HTTP_REFERER"], "localhost:8000") === false) {
+        $form_valid = false;
     }
 } else {
-    $isValid = false;
+    $form_valid = false;
 }
 
 /////////////////////////////////////////////////////////////////////
