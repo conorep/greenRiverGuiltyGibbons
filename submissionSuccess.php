@@ -218,14 +218,21 @@ if ($form_valid) {
                         VALUES ('$fname', '$lname', '$email', '$question');";
         # echo $sql;
         # update database
+        $sql2 = "SELECT email, MAX(contact_date)
+                FROM email_contact";
         mysqli_query($cnxn, $sql); ////////////////////////////////////////////////////////////////////////////////
 
+        $result = mysqli_query($cnxn, $sql2);
+
+        foreach($result as $row) {
+            $toEmail = $row['email'];
+        }
 
         /////////////////////////////////////////////////////////////////////
         // setting up things needed to send the email to the admin
         /////////////////////////////////////////////////////////////////////
         // send imap_getmailboxes
-        $toEmail = "price.kevin@student.greenriver.edu";
+        //$toEmail = "obrien.conor@student.greenriver.edu"; <-- making this replaceable in db!
         $fromName = $_POST["fName"]; // $to would be the admin, $from would be a form variable from the submit form
         $fromEmail = $_POST["email"]; //this will be from the faq form
         $subject = "Question from FAQ Page";
@@ -234,8 +241,8 @@ if ($form_valid) {
 
         ///////////////////////////////////////////////////////////////////
         // this sends the email
-        $success = true;
-        //$success = mail($toEmail, $subject, $message, $headers); ////////////////////////////////////// commented out for debugging
+        //$success = true;
+        $success = mail($toEmail, $subject, $message, $headers); ////////////////////////////////////// commented out for debugging
 
 
         // <div id="display" style="position:absolute;top:0.5px;width:300px;margin:0;padding:0;overflow:hidden;display:flex;justify-content:center;user-select:none;">
