@@ -11,3 +11,13 @@ function chooseNewCat(val) {
     else
         catChoice.style.display = 'none';
 }
+
+function chooseNewEmail(val) {
+
+    let emailChoice = document.getElementById('emailNew');
+
+    if (val === true)
+        emailChoice.style.display = 'block';
+    else
+        emailChoice.style.display = 'none';
+}

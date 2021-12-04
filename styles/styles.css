@@ -149,7 +149,7 @@ a:hover {
 
 /*ID STYLES*/
 
-#catNew {
+#catNew, #emailNew {
     display: none;
 }
 

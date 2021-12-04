@@ -14,22 +14,34 @@ if (!isset($_SESSION['grguiltyuse'])) // If session is not set then redirect to 
 
 $adminFooter = 'yes';
 
-//answerTextArea
-//questionTextBox
-//categorySelect
+// variables
 $answerTextAreaErr = "";
 $questionTextBoxErr = "";
 $categorySelectErr = "";
 $categoryTextAreaErr = "";
+$emailTextAreaErr = "";
+$emailNameAreaErr = "";
+$adminEmailOwner = "";
 
 // Create connection
 
 require("/home/grguilty/qandaconfig.php");
 $conn = new mysqli($servername, $username, $password, $dbname);
+require("/home/grguilty/configs.php");
+$cnxn = mysqli_connect($db_host, $db_user, $db_password, $db_database);
 
 // Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
+}
+
+$emailStuff = "SELECT * FROM email_contact WHERE contact_date = (SELECT MAX(contact_date) FROM email_contact)";
+$result = mysqli_query($cnxn, $emailStuff);
+
+foreach ($result as $row) {
+    $adminName = $row['contact_name'];
+    $adminEmail = $row['email'];
+    $adminEmailOwner .= " " . "$adminName" . " - " . "$adminEmail";
 }
 
 
@@ -90,7 +102,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['categoryTextBox'])) {
     }
 }
 
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['emailTextBox'])) {
 
+    if (empty($_POST["emailTextBox"])) {
+        $emailTextAreaErr = "Please enter a new email.";
+    }
+
+    if (empty($_POST["emailNameTextBox"])) {
+        $emailNameAreaErr = "Please enter a contact name. ";
+    }
+
+    if ($emailTextAreaErr == "" && $emailNameAreaErr == "") {
+        $sql = "INSERT INTO email_contact (contact_name, email)
+        VALUES ('$_POST[emailNameTextBox]', '$_POST[emailTextBox]')";
+
+        $cnxn->query($sql);
+
+        $cnxn->close();
+        //db conn ended here
+
+        header('Location: https://gr-guilty-gibbons.greenriverdev.com/admin/adminPanel.php');
+        exit();
+    }
+
+}
 ?>
     <!--
         Gr-Guilty-Gibbons FAQ
@@ -300,6 +335,45 @@ $conn->close();
                     <div class="col text-center">
                         <button type="submit" class="button-hover-noTransition btn-admin btn-question mt-2 w-50">Add
                             Category
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </form>
+
+        <form id="adminEmailChange" action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post">
+
+
+            <!--Email Change Checkbox-->
+            <div class="form-group">
+                <label for="emailChangeSelect" class="form-label">
+                    <input type="checkbox" id="emailChangeSelect" name="emailChangeSelect"
+                        <?php if ($categoryTextAreaErr != '') echo "checked='checked'"; ?>
+                           onclick='chooseNewEmail(this.checked)'> Change Admin Email
+                    <span class="error"> <?php echo $emailNameAreaErr; ?><?php echo $emailTextAreaErr; ?></span>
+                </label>
+            </div>
+
+            <!--Email Change-->
+            <div class="form-group"
+                 id="emailNew" <?php if ($emailTextAreaErr != '') echo "style='display: block';"; ?>>
+
+                <p><strong>CURRENT ADMIN EMAIL: <?php echo $adminEmailOwner; ?></strong></p>
+
+                <label for="emailNameTextBox" class="form-label w-100">
+                    <input type="text" class="form-control " id="emailNameTextBox"
+                           placeholder="Enter email contact name here" name="emailNameTextBox">
+                </label>
+                <label for="emailTextBox" class="form-label w-100">
+                    <input type="email" class="form-control " id="emailTextBox"
+                           placeholder="Enter a new email here" name="emailTextBox">
+                </label>
+
+                <div class="row">
+                    <div class="col text-center">
+                        <button type="submit" class="button-hover-noTransition btn-admin btn-question mt-2 w-50">Change
+                            Email
                         </button>
                     </div>
                 </div>

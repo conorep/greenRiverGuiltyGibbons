@@ -218,8 +218,7 @@ if ($form_valid) {
                         VALUES ('$fname', '$lname', '$email', '$question');";
         # echo $sql;
         # update database
-        $sql2 = "SELECT email, MAX(contact_date)
-                FROM email_contact";
+        $sql2 = "SELECT email, contact_date FROM email_contact WHERE contact_date = (SELECT MAX(contact_date) FROM email_contact)";
         mysqli_query($cnxn, $sql); ////////////////////////////////////////////////////////////////////////////////
 
         $result = mysqli_query($cnxn, $sql2);
