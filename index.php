@@ -45,7 +45,7 @@ $_SESSION["current_page_js"] = "index.php";
 <nav id="nav-margin-bottom" class="navbar navbar-expand-lg navbar-light bg-light shadow-sm pt-3 pb-3">
     <div class="container-fluid" id="header-width">
 
-        <a class="navbar-brand pe-3" id="scoot-image" href="https://www.software.greenrivertech.net/" target="_blank">
+        <a class="navbar-brand pe-3 mx-auto mx-sm-0" id="scoot-image" href="https://www.software.greenrivertech.net/" target="_blank">
             <img src="images/siteGRGGrivShift2.svg" alt="GRTech Logo" width="200" class="d-inline-block align-text-top">
         </a>
 
@@ -56,7 +56,7 @@ $_SESSION["current_page_js"] = "index.php";
             </li>
         </ul>
 
-        <button class="navbar-toggler mt-4" id="hamburger-nudge" type="button" data-bs-toggle="collapse"
+        <button class="navbar-toggler mt-4 ms-2" id="hamburger-nudge" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarNavDropdown"
                 aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>

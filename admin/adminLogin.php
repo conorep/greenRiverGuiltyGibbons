@@ -89,7 +89,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm pt-3 pb-3">
     <div class="container-fluid">
 
-        <a class="navbar-brand" id="scoot-image" href="https://www.software.greenrivertech.net/" target="_blank">
+        <a class="navbar-brand px-md-0 px-3 mx-auto mx-sm-0" id="scoot-image" href="https://www.software.greenrivertech.net/" target="_blank">
             <img src="../images/siteGRGGrivShift2.svg" alt="GRTech Logo" width="200"
                  class="d-inline-block align-text-top">
         </a>

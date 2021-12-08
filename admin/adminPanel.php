@@ -56,7 +56,7 @@ $adminFooter = 'yes';
 <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm pt-3 pb-3">
     <div class="container-fluid">
 
-        <a class="navbar-brand ps-3" href="https://www.software.greenrivertech.net/" target="_blank">
+        <a class="navbar-brand ps-3 mx-auto mx-sm-0" href="https://www.software.greenrivertech.net/" target="_blank">
             <img src="../images/siteGRGGrivShift2.svg" alt="GRTech Logo" width="200"
                  class="d-inline-block align-text-top">
         </a>
@@ -81,7 +81,7 @@ $adminFooter = 'yes';
         </div>
 
         <!--search form and button-->
-        <div class="px-md-2  px-lg-2 px-xl-2 py-sm-2 py-xs-2 mt-3 d-lg-none d-xl-none d-xxl-none">
+        <div class="px-md-2  px-lg-2 px-xl-2 py-sm-2 py-xs-2 mt-3 d-lg-none">
             <form action="../searchResults.php" method="post">
                 <div class="input-group mb-3 w-75">
                     <button id="search-btn1" type="submit" class="input-group-text btn-success"> Search</button>
@@ -93,7 +93,7 @@ $adminFooter = 'yes';
 
         <!--search form and button-->
         <form id="search-mobile-nudge1"
-              class="px-md-2  px-lg-2 px-xl-2 py-sm-2 py-xs-2 mt-3 d-none d-lg-block d-xl-block d-xxl-block"
+              class="px-md-2  px-lg-2 px-xl-2 py-sm-2 py-xs-2 mt-3 d-none d-lg-block"
               action="../searchResults.php" method="post">
             <div class="input-group mb-3">
                 <input name="search-results" type="text" class="form-control search-text" placeholder="Search Here">
