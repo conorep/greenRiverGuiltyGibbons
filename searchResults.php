@@ -45,7 +45,7 @@ $_SESSION["current_page_js"] = "searchResults.php";
 <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm pt-3 pb-3">
     <div class="container-fluid">
 
-        <a class="navbar-brand mx-auto mx-sm-0" id="scoot-image" href="https://www.software.greenrivertech.net/" target="_blank">
+        <a class="navbar-brand pe-3 mx-auto mx-sm-0" id="scoot-image" href="https://www.software.greenrivertech.net/" target="_blank">
             <img src="images/siteGRGGrivShift2.svg" alt="GRTech Logo" width="200" class="d-inline-block align-text-top">
         </a>
 
@@ -148,11 +148,9 @@ $_SESSION["current_page_js"] = "searchResults.php";
 <div id="disclaimer"
      class="container bg-warning box-shadows2 mt-3 py-4 alert alert-info alert-dismissible fade show border-0"
      role="alert">
-    <!--    <h2 class="row text-center"> Disclaimer</h2>-->
-
     <h3 id="disclaimer-text" class="px-3"><strong>The information provided here is not official or legally binding.
             This is a resource created by students, for students.</strong></h3>
-    <button class="btn-close " data-bs-dismiss="alert" type="button" aria-label="Close"></button>
+    <button class="btn-close" data-bs-dismiss="alert" type="button" aria-label="Close"></button>
 
 </div>
 

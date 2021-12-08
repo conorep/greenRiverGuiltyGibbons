@@ -81,7 +81,7 @@ $adminFooter = 'yes';
         </div>
 
         <!--search form and button-->
-        <div class="px-md-2  px-lg-2 px-xl-2 py-sm-2 py-xs-2 mt-3 d-lg-none">
+        <div class="px-md-2  px-lg-2 px-xl-2 py-sm-2 py-xs-2 mt-3 d-block d-md-none">
             <form action="../searchResults.php" method="post">
                 <div class="input-group mb-3 w-75">
                     <button id="search-btn1" type="submit" class="input-group-text btn-success"> Search</button>
@@ -91,9 +91,10 @@ $adminFooter = 'yes';
             </form>
         </div>
 
+
         <!--search form and button-->
         <form id="search-mobile-nudge1"
-              class="px-md-2  px-lg-2 px-xl-2 py-sm-2 py-xs-2 mt-3 d-none d-lg-block"
+              class="px-md-2  px-lg-2 px-xl-2 py-sm-2 py-xs-2 mt-3 d-none d-md-block "
               action="../searchResults.php" method="post">
             <div class="input-group mb-3">
                 <input name="search-results" type="text" class="form-control search-text" placeholder="Search Here">

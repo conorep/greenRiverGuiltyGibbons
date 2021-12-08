@@ -158,7 +158,7 @@ $_SESSION["current_page_js"] = "index.php";
      role="alert">
     <h3 id="disclaimer-text" class="px-3"><strong>The information provided here is not official or legally binding.
             This is a resource created by students, for students.</strong></h3>
-    <button class="btn-close " data-bs-dismiss="alert" type="button" aria-label="Close"></button>
+    <button class="btn-close" data-bs-dismiss="alert" type="button" aria-label="Close"></button>
 </div>
 
 <!-- Main body stuff. Dynamically fill all data from database. -->

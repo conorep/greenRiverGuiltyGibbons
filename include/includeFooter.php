@@ -92,7 +92,7 @@ echo '
 
                     <li>
                         <form action="https://gr-guilty-gibbons.greenriverdev.com/admin/adminLogin.php"
-                           target="_blank" method="get"><button class="btn btn-sm btn-success " type="submit"><strong>Admin Panel</strong></button></form>
+                           target="_blank" method="get"><button class="btn btn-sm btn-outline-success " type="submit"><strong>Admin Panel</strong></button></form>
                     </li>
                 </ul>
             </div>
